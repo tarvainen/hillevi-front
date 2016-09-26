@@ -5,9 +5,26 @@
     <title>Hillevi</title>
     <link rel="stylesheet" type="text/css" href="build/vendor.min.css" />
     <link rel="stylesheet" type="text/css" href="build/hillevi-front.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
+
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <h2>
+            <span>Hillevi</span>
+        </h2>
+        <span flex></span>
+
+        <md-button class="md-icon-button"
+                   aria-label="Settings"
+        >
+            <span class="material-icons">face</span>
+        </md-button>
+    </div>
+</md-toolbar>
+
 <md-content layout-padding>
     <data-ng-view></data-ng-view>
 </md-content>
