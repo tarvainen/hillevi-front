@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="App">
 <head>
     <meta charset="UTF-8">
     <title>Hillevi</title>
-    <link rel="stylesheet" type="text/css" href="web/vendor.min.css" />
-    <link rel="stylesheet" type="text/css" href="web/hillevi-front.min.css" />
+    <link rel="stylesheet" type="text/css" href="build/vendor.min.css" />
+    <link rel="stylesheet" type="text/css" href="build/hillevi-front.min.css" />
 </head>
+
 <body>
-    <h1>TODO!!</h1>
+<md-content layout-padding>
+    <data-ng-view></data-ng-view>
+</md-content>
 </body>
+
+<script src="build/vendor.min.js" type="text/javascript"></script>
+<script src="build/hillevi-front.min.js" type="text/javascript"></script>
+
 </html>

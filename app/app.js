@@ -1,3 +1,14 @@
 (function () {
-    'use strict'; 
+    'use strict';
+
+    /**
+     * Main module initialization.
+     *
+     * @ngInject
+     */
+    angular.module('App', [
+        'ngMaterial',
+        'App.Config'
+    ]);
+
 })();
