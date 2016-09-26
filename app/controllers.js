@@ -12,22 +12,31 @@
 
     ///////////////
 
-    AppController.$inject = ['$rootScope'];
+    AppController.$inject = ['$rootScope', 'DataService', 'JWTService'];
 
     /**
      * Main controller for the whole application.
      *
      * @param   {*} $rootScope
+     * @param   {*} DataService
+     * @param   {*} JWTService
      *
      * @constructor
      * 
      * @ngInject
      */
-    function AppController ($rootScope) {
+    function AppController ($rootScope, DataService, JWTService) {
         var vm = this;
 
+        vm.jwt = {};
+
+        /**
+         * Watch authentication status changes.
+         */
         $rootScope.$on('authChanged', function (oldVal, newVal) {
-            // TODO: do something with this info
+            vm.jwt = JWTService.parse(newVal.msg);
+
+            DataService.storage.set('jwt', vm.jwt);
         });
     }
 

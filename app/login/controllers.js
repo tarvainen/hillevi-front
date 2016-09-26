@@ -51,7 +51,7 @@
              * @param  {*}  data
              */
             function onSuccess (data) {
-                $scope.$emit('authChanged');
+                $scope.$emit('authChanged', data.data);
             }
 
             /**

@@ -21,7 +21,7 @@
      *
      * @param $routeProvider
      */
-    function config ($routeProvider) {
+    function config ($routeProvider, $httpProvider) {
 
         // Define routes
         $routeProvider
@@ -32,6 +32,8 @@
                 templateUrl: 'web/templates/login'
             })
         ;
+
+        $httpProvider.defaults.withCredentials = true;
     }
 
 })();

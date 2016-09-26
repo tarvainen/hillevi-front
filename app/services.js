@@ -13,6 +13,7 @@
         .factory('HttpService', HttpService)
         .factory('DataService', DataService)
         .factory('api', api)
+        .factory('JWTService', JWTService)
     ;
 
     ///////////////
@@ -49,13 +50,15 @@
         }
     }
 
-    DataService.$inject = ['$http', 'HttpService', 'API'];
+    DataService.$inject = ['$http', '$window', 'HttpService', 'API'];
 
     /**
      * The data service to handle the data requests.
      *
      * @param {*}   $http
+     * @param {*}   $window
      * @param {*}   HttpService
+     * @param {*}   API
      *
      * @return {*}
      *
@@ -63,9 +66,13 @@
      *
      * @ngInject
      */
-    function DataService ($http, HttpService, API) {
+    function DataService ($http, $window, HttpService, API) {
         return {
-            get: get
+            get: get,
+            storage: {
+                get: getFromStorage,
+                set: setToStorage
+            }
         };
 
         function get (path, params) {
@@ -77,6 +84,25 @@
             };
 
             return $http.post(API.url + path, params || {}, options);
+        }
+
+        /**
+         * Returns an item from the local storage.
+         *
+         * @param   {string}    key
+         */
+        function getFromStorage (key) {
+            return $window.localStorage.getItem(key);
+        }
+
+        /**
+         * Sets the item to the local storage.
+         *
+         * @param   {string}    key
+         * @param   {string}    value
+         */
+        function setToStorage (key, value) {
+            return $window.localStorage.setItem(key, value);
         }
     }
 
@@ -104,6 +130,37 @@
          */
         function route (route, params) {
             return DataService.get(route, params);
+        }
+    }
+
+    JWTService.$inject = ['$window'];
+
+    /**
+     * Service to handle JWT objects.
+     *
+     * @param   {*} $window
+     *
+     * @returns {*}
+     *
+     * @constructor
+     *
+     * @ngInject
+     */
+    function JWTService ($window) {
+        return {
+            parse: parse
+        };
+
+        /**
+         * Parses the jwt object from string.
+         *
+         * @param jwt
+         */
+        function parse (jwt) {
+            var base64Url = jwt.split('.')[1];
+            var base64 = base64Url.replace('-', '+').replace('_', '/');
+
+            return JSON.parse($window.atob(base64));
         }
     }
 
