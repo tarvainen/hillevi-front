@@ -1,14 +1,17 @@
 module.exports = function (grunt) {
 
+    grunt.config('env', grunt.option('env') || process.env.GRUNT_ENV || 'dev');
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        env: grunt.config('env'),
         uglify: {
             options: {
                 mangle: false
             },
             dev: {
                 files: {
-                    'build/<%= pkg.name %>.min.js': 'app/**/*.js'
+                    'build/<%= pkg.name %>.min.js': ['app/**/*.js', 'env/<%= env %>.js']
                 }
             },
             vendor: {
@@ -39,7 +42,7 @@ module.exports = function (grunt) {
         },
         watch: {
             scripts: {
-                files: ['app/**/*.js'],
+                files: ['app/**/*.js', 'env/*.js'],
                 tasks: ['uglify:dev']
             },
             css: {

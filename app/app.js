@@ -10,6 +10,8 @@
         'ngMaterial',
         'App.Config',
         'App.Controllers',
+        'App.Services',
+        'App.Env',
         'LoginApp'
     ]);
 

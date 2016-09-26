@@ -9,12 +9,19 @@
 
     /////////////
 
+    MainController.$inject = ['$scope', 'api'];
+
     /**
      * Main controller for the login application.
      *
+     * @param   {*} $scope
+     * @param   {*} api
+     *
      * @constructor
+     *
+     * @ngInject
      */
-    function MainController () {
+    function MainController ($scope, api) {
         var vm = this;
 
         vm.form = {};
@@ -31,7 +38,30 @@
                 return false;
             }
 
-            console.log('login not implemented!');
+            /**
+             * Do the query.
+             */
+            api.route('auth/login', vm.form)
+                .then(onSuccess, onError)
+            ;
+
+            /**
+             * Handle succession.
+             *
+             * @param  {*}  data
+             */
+            function onSuccess (data) {
+                $scope.$emit('authChanged');
+            }
+
+            /**
+             * Handle error.
+             *
+             * @param   {*} data
+             */
+            function onError (data) {
+                // TODO: handle error
+            }
         };
     }
 

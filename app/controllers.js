@@ -7,18 +7,28 @@
     angular.module('App.Controllers', []);
 
     angular.module('App.Controllers')
-        .controller('MainController', MainController)
+        .controller('AppController', AppController)
     ;
 
     ///////////////
 
+    AppController.$inject = ['$rootScope'];
+
     /**
      * Main controller for the whole application.
      *
+     * @param   {*} $rootScope
+     *
      * @constructor
+     * 
+     * @ngInject
      */
-    function MainController () {
+    function AppController ($rootScope) {
         var vm = this;
+
+        $rootScope.$on('authChanged', function (oldVal, newVal) {
+            // TODO: do something with this info
+        });
     }
 
 })();
