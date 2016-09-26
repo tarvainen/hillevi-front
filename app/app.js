@@ -8,7 +8,9 @@
      */
     angular.module('App', [
         'ngMaterial',
-        'App.Config'
+        'App.Config',
+        'App.Controllers',
+        'LoginApp'
     ]);
 
 })();

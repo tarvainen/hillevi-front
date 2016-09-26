@@ -1,0 +1,33 @@
+<div data-ng-app="LoginApp" layout="column" flex>
+    <md-content layout="row" layout-align="center">
+        <form flex="50" data-ng-submit="vm.login()" data-ng-controller="MainController as vm">
+            <md-card>
+                <md-card-title>
+                    <span class="md-headline">Login to Hillevi</span>
+                </md-card-title>
+
+                <md-card-content>
+                    <md-input-container class="md-block" flex>
+                        <label>Username</label>
+                        <input id="login_input_username" type="text"
+                               data-ng-model="vm.form.username"
+                        />
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex>
+                        <label>Password</label>
+                        <input id="login_input_password" type="password"
+                               data-ng-model="vm.form.password"
+                        />
+                    </md-input-container>
+                </md-card-content>
+
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button id="login_btn_login" type="submit">
+                        Login
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </form>
+    </md-content>
+</div>

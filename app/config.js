@@ -22,9 +22,14 @@
      * @param $routeProvider
      */
     function config ($routeProvider) {
+
+        // Define routes
         $routeProvider
             .when('/', {
                 templateUrl: 'web/templates/index.html'
+            })
+            .when('/login', {
+                templateUrl: 'web/templates/login'
             })
         ;
     }
