@@ -13,7 +13,7 @@
 <md-toolbar>
     <div class="md-toolbar-tools">
         <h2>
-            <span>Hillevi</span>
+            <span>Hillevi -  {{ vm.user }}</span>
         </h2>
         <span flex></span>
 
@@ -21,6 +21,13 @@
                    aria-label="Settings"
         >
             <span class="material-icons">face</span>
+        </md-button>
+        <md-button class="md-icon-button"
+                   aria-label="Logout"
+                   data-ng-if="vm.user"
+                   data-ng-click="vm.logout()"
+        >
+            <span class="material-icons">close</span>
         </md-button>
     </div>
 </md-toolbar>

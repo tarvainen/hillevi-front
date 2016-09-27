@@ -9,7 +9,7 @@
 
     /////////////
 
-    MainController.$inject = ['$scope', '$location', 'api'];
+    MainController.$inject = ['$scope', '$location', 'api', 'DataService'];
 
     /**
      * Main controller for the login application.
@@ -17,15 +17,18 @@
      * @param   {*} $scope
      * @param   {*} $location
      * @param   {*} api
+     * @param   {*} DataService
      *
      * @constructor
      *
      * @ngInject
      */
-    function MainController ($scope, $location, api) {
+    function MainController ($scope, $location, api, DataService) {
         var vm = this;
 
         vm.form = {};
+        
+        DataService.storage.set('jwt', null);
 
         /**
          * Does the authentication.

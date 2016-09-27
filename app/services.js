@@ -79,7 +79,8 @@
             var options = {
                 transformRequest: HttpService.toUrlEncoded,
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'authorization': getFromStorage('jwt') || ''
                 }
             };
 
