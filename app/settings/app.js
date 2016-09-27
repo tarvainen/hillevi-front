@@ -4,8 +4,8 @@
     /**
      * Main module initialization.
      */
-    angular.module('Login', [
-        'Login.Controllers'
+    angular.module('Settings', [
+        'Settings.Controllers'
     ]);
 
 })();

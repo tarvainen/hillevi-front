@@ -13,7 +13,7 @@
         'App.Controllers',
         'App.Services',
         'App.Env',
-        'LoginApp'
+        'Hillevi.Applications'
     ]);
 
     angular.module('App').run(run);

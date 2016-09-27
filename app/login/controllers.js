@@ -1,10 +1,10 @@
 (function () {
     'use strict';
 
-    angular.module('LoginApp.Controllers', []);
+    angular.module('Login.Controllers', []);
 
-    angular.module('LoginApp.Controllers')
-        .controller('MainController', MainController)
+    angular.module('Login.Controllers')
+        .controller('Login.MainController', MainController)
     ;
 
     /////////////

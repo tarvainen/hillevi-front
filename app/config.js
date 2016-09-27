@@ -28,10 +28,13 @@
         // Define routes
         $routeProvider
             .when('/', {
-                templateUrl: 'web/templates/index.html'
+                templateUrl: 'web/templates/'
             })
             .when('/login', {
-                templateUrl: 'web/templates/login'
+                templateUrl: 'web/templates/login/'
+            })
+            .when('/settings', {
+                templateUrl: 'web/templates/settings/'
             })
         ;
 
