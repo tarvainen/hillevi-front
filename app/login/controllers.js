@@ -9,19 +9,20 @@
 
     /////////////
 
-    MainController.$inject = ['$scope', 'api'];
+    MainController.$inject = ['$scope', '$location', 'api'];
 
     /**
      * Main controller for the login application.
      *
      * @param   {*} $scope
+     * @param   {*} $location
      * @param   {*} api
      *
      * @constructor
      *
      * @ngInject
      */
-    function MainController ($scope, api) {
+    function MainController ($scope, $location, api) {
         var vm = this;
 
         vm.form = {};
@@ -52,6 +53,7 @@
              */
             function onSuccess (data) {
                 $scope.$emit('authChanged', data.data);
+                $location.path('/');
             }
 
             /**

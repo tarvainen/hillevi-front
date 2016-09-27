@@ -92,7 +92,11 @@
          * @param   {string}    key
          */
         function getFromStorage (key) {
-            return $window.localStorage.getItem(key);
+            try {
+                return JSON.parse($window.localStorage.getItem(key));
+            } catch (e) {
+                return null;
+            }
         }
 
         /**
@@ -102,7 +106,7 @@
          * @param   {string}    value
          */
         function setToStorage (key, value) {
-            return $window.localStorage.setItem(key, value);
+            return $window.localStorage.setItem(key, JSON.stringify(value));
         }
     }
 
