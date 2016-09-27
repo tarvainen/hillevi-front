@@ -23,7 +23,8 @@ module.exports = function (grunt) {
                         'node_modules/angular-animate/angular-animate.js',
                         'node_modules/angular-material/angular-material.js',
                         'node_modules/angular-translate/dist/angular-translate.js',
-                        'node_modules/angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files.js'
+                        'node_modules/angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+                        'node_modules/angular-md5/angular-md5.js'
                     ]
                 }
             }

@@ -9,6 +9,7 @@
     angular.module('App', [
         'ngMaterial',
         'pascalprecht.translate',
+        'angular-md5',
         'App.Config',
         'App.Controllers',
         'App.Services',

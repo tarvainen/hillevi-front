@@ -1,0 +1,9 @@
+.user-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+
+.user-info {
+    line-height: 12px;
+}

@@ -8,12 +8,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body data-ng-controller="AppController as vm">
+<body data-ng-controller="AppController as vm" layout="column" ng-cloak>
 
 <md-toolbar>
     <div class="md-toolbar-tools">
         <h2>
-            <span>{{ 'APP_NAME' | translate }} -  {{ vm.user }}</span>
+            <span>{{ 'APP_NAME' | translate }}</span>
         </h2>
         <span flex></span>
 
@@ -32,8 +32,30 @@
     </div>
 </md-toolbar>
 
-<md-content layout-padding>
-    <data-ng-view></data-ng-view>
+<md-content layout="column" flex>
+    <div layout="row" flex>
+        <md-sidenav class="md-sidenav-left"
+                    md-component-id="left"
+                    md-is-locked-open="true"
+                    md-whiteframe="4"
+                    data-ng-if="vm.user"
+        >
+            <md-content layout-padding layout="column" md-whiteframe="3" md-colors="::{background: 'primary-700'}">
+                <img class="user-avatar"
+                     data-ng-src="https://www.gravatar.com/avatar/{{ vm.user.email | gravatar }}"
+                />
+                <span class="md-headline user-info">
+                    {{ vm.user.username }}
+                </span>
+                <span class="md-subhead user-info text-muted">
+                    {{ vm.user.email }}
+                </span>
+            </md-content>
+
+        </md-sidenav>
+
+        <data-ng-view flex class="layout-padding"></data-ng-view>
+    </div>
 </md-content>
 </body>
 
