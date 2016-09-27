@@ -14,6 +14,7 @@
         .factory('DataService', DataService)
         .factory('api', api)
         .factory('JWTService', JWTService)
+        .factory('$toast', $toast)
     ;
 
     ///////////////
@@ -166,6 +167,24 @@
             var base64 = base64Url.replace('-', '+').replace('_', '/');
 
             return JSON.parse($window.atob(base64));
+        }
+    }
+
+    /**
+     * The toast service for making toasts.
+     *
+     * @param   {*} $mdToast
+     *
+     * @returns {Function}
+     */
+    function $toast ($mdToast) {
+        return function (text) {
+            $mdToast.show(
+                $mdToast
+                    .simple()
+                    .textContent(text)
+                    .hideDelay(3000)
+            );
         }
     }
 

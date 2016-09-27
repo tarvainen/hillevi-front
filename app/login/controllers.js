@@ -9,7 +9,7 @@
 
     /////////////
 
-    MainController.$inject = ['$scope', '$location', 'api', 'DataService'];
+    MainController.$inject = ['$scope', '$location', 'api', 'DataService', '$toast'];
 
     /**
      * Main controller for the login application.
@@ -18,12 +18,13 @@
      * @param   {*} $location
      * @param   {*} api
      * @param   {*} DataService
+     * @param   {*} $toast
      *
      * @constructor
      *
      * @ngInject
      */
-    function MainController ($scope, $location, api, DataService) {
+    function MainController ($scope, $location, api, DataService, $toast) {
         var vm = this;
 
         vm.form = {};
@@ -37,8 +38,7 @@
          */
         vm.login = function login () {
             if (!vm.form.username || !vm.form.password) {
-                // TODO: make error
-                console.log('not enough params');
+                $toast('Fill all the required fields.'); // TODO: translation
                 return false;
             }
 
@@ -57,6 +57,7 @@
             function onSuccess (data) {
                 $scope.$emit('authChanged', data.data);
                 $location.path('/');
+                $toast('Logged in'); // TODO: translation
             }
 
             /**
@@ -65,7 +66,7 @@
              * @param   {*} data
              */
             function onError (data) {
-                // TODO: handle error
+                $toast('Login failed'); // TODO: translation
             }
         };
     }
