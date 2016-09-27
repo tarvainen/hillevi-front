@@ -1,0 +1,12 @@
+{
+  "APP_NAME": "Hillevi",
+
+  // Common
+  "USERNAME": "Käyttäjätunnus",
+  "PASSWORD": "Salasana",
+  "FILL_ALL_REQUIRED_FIELDS": "Täytä kaikki vaaditut kentät",
+
+  // Login interface
+  "LOGIN_HEADLINE": "Kirjaudu Hilleviin",
+  "LOGIN_FAILED": "Kirjautuminen epäonnistui"
+}

@@ -170,6 +170,8 @@
         }
     }
 
+    $toast.$inject = ['$mdToast', '$translate'];
+
     /**
      * The toast service for making toasts.
      *
@@ -177,14 +179,23 @@
      *
      * @returns {Function}
      */
-    function $toast ($mdToast) {
+    function $toast ($mdToast, $translate) {
         return function (text) {
-            $mdToast.show(
-                $mdToast
-                    .simple()
-                    .textContent(text)
-                    .hideDelay(3000)
-            );
+            $translate(text).then(onTranslation);
+
+            /**
+             * Create the toast after the translation text is returned.
+             *
+             * @param {string}  translation
+             */
+            function onTranslation (translation) {
+                $mdToast.show(
+                    $mdToast
+                        .simple()
+                        .textContent(translation)
+                        .hideDelay(3000)
+                );
+            }
         }
     }
 

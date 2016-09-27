@@ -50,6 +50,21 @@ module.exports = function (grunt) {
             css: {
                 files: ['web/**/*.css'],
                 tasks: ['cssmin:dev']
+            },
+            translations: {
+                files: ['translations/*.json'],
+                tasks: ['stripJsonComments']
+            }
+        },
+        stripJsonComments: {
+            dist: {
+                options: {
+                    whitespace: false
+                },
+                files: {
+                    'build/translated/en.json': 'translations/en.json',
+                    'build/translated/fi.json': 'translations/fi.json'
+                }
             }
         }
     });
@@ -57,6 +72,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-strip-json-comments');
 
     grunt.registerTask('default', ['uglify']);
 };

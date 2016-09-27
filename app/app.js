@@ -8,7 +8,6 @@
      */
     angular.module('App', [
         'ngMaterial',
-        'ngSanitize',
         'pascalprecht.translate',
         'App.Config',
         'App.Controllers',

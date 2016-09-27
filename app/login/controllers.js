@@ -38,7 +38,7 @@
          */
         vm.login = function login () {
             if (!vm.form.username || !vm.form.password) {
-                $toast('Fill all the required fields.'); // TODO: translation
+                $toast('FILL_ALL_REQUIRED_FIELDS'); // TODO: translation
                 return false;
             }
 
@@ -57,7 +57,6 @@
             function onSuccess (data) {
                 $scope.$emit('authChanged', data.data);
                 $location.path('/');
-                $toast('Logged in'); // TODO: translation
             }
 
             /**
@@ -66,7 +65,7 @@
              * @param   {*} data
              */
             function onError (data) {
-                $toast('Login failed'); // TODO: translation
+                $toast('LOGIN_FAILED'); // TODO: translation
             }
         };
     }

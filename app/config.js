@@ -36,7 +36,7 @@
         ;
 
         $translateProvider.useStaticFilesLoader({
-            prefix: 'web/translations/',
+            prefix: 'build/translated/',
             suffix: '.json'
         });
 
