@@ -6,6 +6,9 @@
      */
     angular.module('App.Controllers', []);
 
+    /**
+     * Controller initializations.
+     */
     angular.module('App.Controllers')
         .controller('AppController', AppController)
     ;
