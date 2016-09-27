@@ -5,6 +5,9 @@
   "USERNAME": "Käyttäjätunnus",
   "PASSWORD": "Salasana",
   "FILL_ALL_REQUIRED_FIELDS": "Täytä kaikki vaaditut kentät",
+  "NO_EMAIL_ADDRESS": "Ei sähköpostiosoitetta",
+  "DASHBOARD": "Dashboard",
+  "DIAGNOSTICS": "Diagnostiikkatyökalut",
 
   // Login interface
   "LOGIN_HEADLINE": "Kirjaudu Hilleviin",

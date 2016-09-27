@@ -1,0 +1,17 @@
+<md-content
+        layout-padding
+        layout="column"
+        md-whiteframe="3"
+        md-colors="::{background: 'primary-700'}"
+>
+    <img class="user-avatar"
+         data-ng-if="vm.user.email"
+         data-ng-src="https://www.gravatar.com/avatar/{{ vm.user.email | gravatar }}"
+    />
+    <span class="md-headline user-info">
+        {{ vm.user.username }}
+    </span>
+    <span class="md-subhead user-info text-muted">
+        {{ vm.user.email || ('NO_EMAIL_ADDRESS' | translate) }}
+    </span>
+</md-content>

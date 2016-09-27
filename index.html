@@ -40,18 +40,8 @@
                     md-whiteframe="4"
                     data-ng-if="vm.user"
         >
-            <md-content layout-padding layout="column" md-whiteframe="3" md-colors="::{background: 'primary-700'}">
-                <img class="user-avatar"
-                     data-ng-src="https://www.gravatar.com/avatar/{{ vm.user.email | gravatar }}"
-                />
-                <span class="md-headline user-info">
-                    {{ vm.user.username }}
-                </span>
-                <span class="md-subhead user-info text-muted">
-                    {{ vm.user.email }}
-                </span>
-            </md-content>
-
+            <data-ng-include src="'web/templates/avatar.html'"></data-ng-include>
+            <data-ng-include src="'web/templates/sidemenu.html'"></data-ng-include>
         </md-sidenav>
 
         <data-ng-view flex class="layout-padding"></data-ng-view>

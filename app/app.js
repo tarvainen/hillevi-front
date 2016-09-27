@@ -10,6 +10,7 @@
         'ngMaterial',
         'pascalprecht.translate',
         'angular-md5',
+        'ngMaterialSidemenu',
         'App.Config',
         'App.Controllers',
         'App.Services',
