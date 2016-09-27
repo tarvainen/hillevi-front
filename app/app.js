@@ -8,6 +8,8 @@
      */
     angular.module('App', [
         'ngMaterial',
+        'ngSanitize',
+        'pascalprecht.translate',
         'App.Config',
         'App.Controllers',
         'App.Services',
@@ -25,7 +27,6 @@
      * @param {*}   $rootScope
      * @param {*}   $location
      * @param {*}   $http
-     * @param {*}   API
      * @param {*}   DataService
      */
     function run ($rootScope, $location, $http, DataService) {

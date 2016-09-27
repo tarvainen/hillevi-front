@@ -3,19 +3,19 @@
         <form flex="50" data-ng-submit="vm.login()" data-ng-controller="MainController as vm">
             <md-card>
                 <md-card-title>
-                    <span class="md-headline">Login to Hillevi</span>
+                    <span class="md-headline">{{ 'LOGIN_HEADLINE' | translate }}</span>
                 </md-card-title>
 
                 <md-card-content>
                     <md-input-container class="md-block" flex>
-                        <label>Username</label>
+                        <label>{{ 'USERNAME' | translate }}</label>
                         <input id="login_input_username" type="text"
                                data-ng-model="vm.form.username"
                         />
                     </md-input-container>
 
                     <md-input-container class="md-block" flex>
-                        <label>Password</label>
+                        <label>{{ 'PASSWORD' | translate }}</label>
                         <input id="login_input_password" type="password"
                                data-ng-model="vm.form.password"
                         />

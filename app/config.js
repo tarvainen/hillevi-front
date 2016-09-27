@@ -21,8 +21,9 @@
      *
      * @param {*}   $routeProvider
      * @param {*}   $httpProvider
+     * @param {*}   $translateProvider
      */
-    function config ($routeProvider, $httpProvider) {
+    function config ($routeProvider, $httpProvider, $translateProvider) {
 
         // Define routes
         $routeProvider
@@ -33,6 +34,14 @@
                 templateUrl: 'web/templates/login'
             })
         ;
+
+        $translateProvider.useStaticFilesLoader({
+            prefix: 'web/translations/',
+            suffix: '.json'
+        });
+
+        $translateProvider.preferredLanguage('fi');
+        $translateProvider.useSanitizeValueStrategy(false);
 
         interceptor.$inject = ['$rootScope', '$q', '$location'];
 
