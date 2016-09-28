@@ -8,6 +8,7 @@
   "NO_EMAIL_ADDRESS": "Ei sähköpostiosoitetta",
   "DASHBOARD": "Dashboard",
   "DIAGNOSTICS": "Diagnostiikkatyökalut",
+  "NOT_IMPLEMENTED": "Tätä toimintoa ei ole vielä toteutettu",
 
   // Login interface
   "LOGIN_HEADLINE": "Kirjaudu Hilleviin",

@@ -1,5 +1,22 @@
-<div data-ng-app="Dashboard" layout="column" flex>
-    <md-card data-ng-controller="Dashboard.MainController as vm">
+<div data-ng-app="Dashboard"
+     data-ng-controller="Dashboard.MainController as vm"
+     layout="column"
+     flex
+>
+    <md-grid-list
+        md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt--md="3"
+        md-row-height-gt-md="1:1" md-row-height="1:1"
+        md-gutter="12px" md-gutter-gt-sm="10px">
 
-    </md-card>
+        <md-grid-tile md-whiteframe="1" md-colspan="1" layout="column">
+            <widget style="height: 100%"
+                    data-title="{{ ::'WIDGET_TITLE' | translate }}"
+                    layout="column"
+                    flex
+            >
+                <p>TODO: ADD DATA</p>
+            </widget>
+        </md-grid-tile>
+
+    </md-grid-list>
 </div>

@@ -1,0 +1,25 @@
+<div class="widget" layout="column" flex>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{ ::vm.title }}</span>
+            </h2>
+
+            <span flex></span>
+
+            <md-button class="md-icon-button"
+                       data-ng-click="vm.refresh()"
+            >
+                <md-icon>autorenew</md-icon>
+            </md-button>
+
+            <md-button class="md-icon-button"
+                       data-ng-click="vm.openSettings()"
+            >
+                <md-icon>settings</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <ng-transclude layout-padding></ng-transclude>
+</div>
