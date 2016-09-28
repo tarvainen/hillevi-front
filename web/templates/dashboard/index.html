@@ -1,14 +1,15 @@
-<div data-ng-app="Dashboard"
-     data-ng-controller="Dashboard.MainController as vm"
-     layout="column"
-     flex
+<md-content data-ng-app="Dashboard"
+            data-ng-controller="Dashboard.MainController as vm"
+            layout="column"
+            flex
 >
     <md-grid-list
-        md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt--md="3"
-        md-row-height-gt-md="1:1" md-row-height="1:1"
-        md-gutter="12px" md-gutter-gt-sm="10px">
+            style="margin-bottom: 10px;"
+            md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt--md="3"
+            md-row-height-gt-md="1:1" md-row-height="1:1"
+            md-gutter="12px" md-gutter-gt-sm="10px">
 
-        <md-grid-tile md-whiteframe="1" md-colspan="1" layout="column">
+        <md-grid-tile md-whiteframe="1" md-colspan="1">
             <widget style="height: 100%"
                     data-title="{{ ::'WIDGET_TITLE' | translate }}"
                     layout="column"
@@ -19,4 +20,24 @@
         </md-grid-tile>
 
     </md-grid-list>
-</div>
+
+    <md-fab-toolbar md-direction="left" class="fixed right bottom layout-fill-x">
+        <md-fab-trigger class="align-with-text">
+            <md-button class="md-fab md-primary">
+                <md-icon>menu</md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-toolbar>
+            <md-fab-actions class="md-toolbar-tools">
+                <md-button class="md-icon-button">
+                    <md-icon>settings</md-icon>
+                </md-button>
+
+                <md-button class="md-icon-button">
+                    <md-icon>autorenew</md-icon>
+                </md-button>
+            </md-fab-actions>
+        </md-toolbar>
+    </md-fab-toolbar>
+
+</md-content>

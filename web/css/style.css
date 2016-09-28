@@ -11,3 +11,31 @@
 .widget {
     background: rgb(255, 255, 255);
 }
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.top {
+    top: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.bottom {
+    bottom: 0;
+}
+
+.left {
+    left: 0;
+}
+
+.layout-fill-x {
+    min-width: 100% !important;
+}
