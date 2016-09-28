@@ -36,6 +36,9 @@
             .when('/settings', {
                 templateUrl: 'web/templates/settings/'
             })
+            .when('/dashboard', {
+                templateUrl: 'web/templates/dashboard/'
+            })
         ;
 
         $translateProvider.useStaticFilesLoader({
