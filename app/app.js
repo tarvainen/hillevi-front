@@ -9,6 +9,7 @@
     angular.module('App', [
         'ngMaterial',
         'pascalprecht.translate',
+        'chart.js',
         'angular-md5',
         'ngMaterialSidemenu',
         'App.Config',

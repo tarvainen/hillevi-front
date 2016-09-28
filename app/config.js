@@ -22,8 +22,16 @@
      * @param {*}   $routeProvider
      * @param {*}   $httpProvider
      * @param {*}   $translateProvider
+     * @param {*}   ChartJsProvider
      */
-    function config ($routeProvider, $httpProvider, $translateProvider) {
+    function config ($routeProvider, $httpProvider, $translateProvider, ChartJsProvider) {
+        // Setup chart.js
+        ChartJsProvider.setOptions({
+            global: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
 
         // Define routes
         $routeProvider

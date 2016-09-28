@@ -17,6 +17,7 @@ module.exports = function (grunt) {
             vendor: {
                 files: {
                     'build/vendor.min.js': [
+                        'node_modules/chart.js/dist/Chart.js',
                         'node_modules/angular/angular.js',
                         'node_modules/angular-route/angular-route.js',
                         'node_modules/angular-aria/angular-aria.js',
@@ -25,7 +26,8 @@ module.exports = function (grunt) {
                         'node_modules/angular-translate/dist/angular-translate.js',
                         'node_modules/angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
                         'node_modules/angular-md5/angular-md5.js',
-                        'node_modules/angular-material-sidemenu/dest/angular-material-sidemenu.js'
+                        'node_modules/angular-material-sidemenu/dest/angular-material-sidemenu.js',
+                        'node_modules/angular-chart.js/dist/angular-chart.js'
                     ]
                 }
             }
@@ -77,5 +79,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-strip-json-comments');
 
-    grunt.registerTask('default', ['uglify']);
+    grunt.registerTask('default', ['uglify', 'cssmin', 'stripJsonComments']);
 };

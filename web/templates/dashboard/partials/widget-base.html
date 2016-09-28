@@ -21,5 +21,13 @@
         </div>
     </md-toolbar>
 
-    <ng-transclude layout-padding></ng-transclude>
+    <!-- TODO: refactor this to be done in somewhere more specific widget and maintain this as a generic widget -->
+    <md-content layout-padding layout="column" layout-align="center center" flex>
+        <canvas id="line" class="chart chart-bar"
+                data-chart-data="vm.data"
+                data-chart-labels="vm.labels"
+        ></canvas>
+    </md-content>
+
+    <ng-transclude></ng-transclude>
 </div>
