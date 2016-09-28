@@ -1,3 +1,7 @@
 .text-muted {
     color: #9E9E9E;
 }
+
+.bring-front {
+    z-index: 1000;
+}

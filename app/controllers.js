@@ -45,6 +45,20 @@
         });
 
         /**
+         * Catch the load begin event and show the loading indicator.
+         */
+        $rootScope.$on('loadBegin', function () {
+            vm.loading = true;
+        });
+
+        /**
+         * Catch the load end event and hide the loader.
+         */
+        $rootScope.$on('loadEnd', function () {
+            vm.loading = false;
+        });
+
+        /**
          * Logs the user out. Clears the session by removing the jwt from
          * the local storage. Also clears all the user data saved to the storage.
          */

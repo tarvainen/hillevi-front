@@ -32,6 +32,12 @@
     </div>
 </md-toolbar>
 
+<md-progress-linear
+        class="top absolute bring-front md-warn"
+        md-mode="indeterminate"
+        data-ng-if="vm.loading"
+></md-progress-linear>
+
 <md-content layout="column" flex>
     <div layout="row" flex>
         <md-sidenav class="md-sidenav-left"

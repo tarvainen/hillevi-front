@@ -64,7 +64,17 @@
          */
         function interceptor ($rootScope, $q, $location) {
             return {
+                request: function (req) {
+                    $rootScope.$emit('loadBegin');
+                    return req;
+                },
+                response: function (res) {
+                    $rootScope.$emit('loadEnd');
+                    return res;
+                },
                 responseError: function (rej) {
+                    $rootScope.$emit('loadEnd');
+
                     if (rej.status === 401) {
                         $location.path('/login');
                         return $q.reject(rej);
