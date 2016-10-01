@@ -39,9 +39,9 @@
          * Watch authentication status changes.
          */
         $rootScope.$on('authChanged', function (oldVal, newVal) {
-            vm.user = JWTService.parse(newVal.msg);
+            vm.user = JWTService.parse(newVal);
             DataService.storage.set('user', vm.user);
-            DataService.storage.set('jwt', newVal.msg);
+            DataService.storage.set('jwt', newVal);
         });
 
         /**
