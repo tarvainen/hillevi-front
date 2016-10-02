@@ -16,6 +16,8 @@
   "SAVE_FAILED": "Tallentaminen epäonnistui",
   "SAVE_SUCCESSFULL": "Tallentaminen onnistui",
   "SAVE": "Tallenna",
+  "MANAGEMENT": "Hallintatyökalut",
+  "API_MANAGEMENT": "Rajapinnat",
 
   // Login interface
   "LOGIN_HEADLINE": "Kirjaudu Hilleviin",

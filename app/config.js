@@ -47,6 +47,9 @@
             .when('/dashboard', {
                 templateUrl: 'web/templates/dashboard/'
             })
+            .when('/apis', {
+                templateUrl: 'web/templates/api-manager/'
+            })
         ;
 
         $translateProvider.useStaticFilesLoader({
