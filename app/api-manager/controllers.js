@@ -96,6 +96,22 @@
             vm.api = null;
             vm.selected = [];
         };
+
+        /**
+         * Opens a new api creation tool.
+         */
+        vm.createNewApi = function createNewApi () {
+            // TODO: implement
+            $toast('NOT_IMPLEMENTED');
+        };
+
+        /**
+         * Removes all selected apis.
+         */
+        vm.removeApis = function () {
+            // TODO: implement
+            $toast('NOT_IMPLEMENTED');
+        };
     }
 
 })();
