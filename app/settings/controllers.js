@@ -168,13 +168,41 @@
         };
     }
 
+    AppSettingsController.$inject = ['api', '$toast'];
+
     /**
      * Controller for the app settings card.
      *
+     * @param {*}   api
+     * @param {*}   $toast
+     *
      * @constructor
      */
-    function AppSettingsController () {
+    function AppSettingsController (api, $toast) {
         var vm = this;
+
+        /**
+         * Loads the settings data from the server.
+         */
+        vm.load = function load () {
+            api.route('settings/all').then(onSuccess, onError);
+
+            /**
+             * Called when the settings data array is loaded.
+             *
+             * @param   {*}  data
+             */
+            function onSuccess (data) {
+                vm.form = data.data;
+            }
+
+            /**
+             * Called when the data fetch fails.
+             */
+            function onError () {
+                $toast('DATA_FETCH_FAILED');
+            }
+        };
     }
 
 })();
