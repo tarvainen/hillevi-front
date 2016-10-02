@@ -8,6 +8,7 @@
      */
     angular.module('App', [
         'ngMaterial',
+        'md.data.table',
         'pascalprecht.translate',
         'chart.js',
         'angular-md5',
@@ -15,6 +16,7 @@
         'App.Config',
         'App.Controllers',
         'App.Services',
+        'App.Filters',
         'App.Env',
         'Hillevi.Applications'
     ]);

@@ -27,7 +27,8 @@ module.exports = function (grunt) {
                         'node_modules/angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
                         'node_modules/angular-md5/angular-md5.js',
                         'node_modules/angular-material-sidemenu/dest/angular-material-sidemenu.js',
-                        'node_modules/angular-chart.js/dist/angular-chart.js'
+                        'node_modules/angular-chart.js/dist/angular-chart.js',
+                        'node_modules/angular-material-data-table/dist/md-data-table.js'
                     ]
                 }
             }
@@ -42,7 +43,8 @@ module.exports = function (grunt) {
                 files: {
                     'build/vendor.min.css': [
                         'node_modules/angular-material/angular-material.css',
-                        'node_modules/angular-material-sidemenu/dest/angular-material-sidemenu.css'
+                        'node_modules/angular-material-sidemenu/dest/angular-material-sidemenu.css',
+                        'node_modules/angular-material-data-table/dist/md-data-table.css'
                     ]
                 }
             }

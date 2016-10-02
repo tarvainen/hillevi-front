@@ -34,6 +34,8 @@
         vm.load = function load () {
             vm.loading = true;
 
+            vm.selected = [];
+
             api.route('interface/all')
                 .then(onSuccess, onError)
                 .finally(onDone)
