@@ -10,17 +10,17 @@
      * Controller initializations.
      */
     angular.module('Settings.Controllers')
-        .controller('Settings.MainController', MainController)
+        .controller('Settings.UserSettingsController', UserSettingsController)
     ;
 
     ///////////////
 
     /**
-     * Main controller for the settings interface.
+     * The controller for the user settings.
      *
      * @constructor
      */
-    function MainController () {
+    function UserSettingsController () {
         var vm = this;
     }
 

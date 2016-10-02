@@ -1,5 +1,9 @@
 <div data-ng-app="Settings" layout="column" flex>
-    <div data-ng-controller="Settings.MainController as vm">
-        <h1>TODO: add content</h1>
-    </div>
+    <md-card data-ng-controller="Settings.UserSettingsController as vm">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{ 'USER_SETTINGS' | translate }}</span>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
 </div>

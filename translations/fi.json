@@ -12,5 +12,8 @@
 
   // Login interface
   "LOGIN_HEADLINE": "Kirjaudu Hilleviin",
-  "LOGIN_FAILED": "Kirjautuminen epäonnistui"
+  "LOGIN_FAILED": "Kirjautuminen epäonnistui",
+
+  // Settings interface
+  "USER_SETTINGS": "Käyttäjätilin asetukset"
 }
