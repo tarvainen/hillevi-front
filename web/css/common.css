@@ -5,3 +5,7 @@
 .bring-front {
     z-index: 1000;
 }
+
+.text-center {
+    text-align: center !important;
+}
