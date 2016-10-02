@@ -1,0 +1,41 @@
+<md-card>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{ ::'DANGER_ZONE' | translate }}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <form data-ng-submit="vm.save()">
+        <md-card-content>
+            <span>{{ 'CHANGE_PASSWORD' | translate }}</span>
+            <md-input-container class="md-block" flex>
+                <label>{{ ::'OLD_PASSWORD' | translate }}</label>
+                <input id="user_settings_old_password" type="text"
+                       data-ng-model="vm.form.oldPassword"
+                       data-ng-disabled="vm.loading"
+                />
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>{{ ::'NEW_PASSWORD' | translate }}</label>
+                <input id="user_settings_new_password" type="text"
+                       data-ng-model="vm.form.newPassword"
+                       data-ng-disabled="vm.loading"
+                />
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>{{ ::'NEW_PASSWORD_AGAIN' | translate }}</label>
+                <input id="user_settings_new_password_again" type="text"
+                       data-ng-model="vm.form.newPasswordAgain"
+                       data-ng-disabled="vm.loading"
+                />
+            </md-input-container>
+
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button data-ng-disabled="vm.loading" type="submit">
+                    {{ ::'SAVE' | translate }}
+                </md-button>
+            </md-card-actions>
+        </md-card-content>
+    </form>
+</md-card>

@@ -1,11 +1,11 @@
-<md-card flex="50" data-ng-init="vm.load()">
+<md-card data-ng-init="vm.load()">
     <md-card-title>
         <md-card-title-text>
             <span class="md-headline">{{ ::'USER_SETTINGS' | translate }}</span>
         </md-card-title-text>
     </md-card-title>
-    <md-card-content>
-        <form>
+    <form data-ng-submit="vm.save()">
+        <md-card-content>
             <md-input-container class="md-block" flex>
                 <label>{{ ::'USERNAME' | translate }}</label>
                 <input id="user_settings_username" type="text"
@@ -37,13 +37,13 @@
                        data-ng-disabled="vm.loading"
                 />
             </md-input-container>
-        </form>
-        <md-card-actions layout="row" layout-align="end center">
-            <md-button data-ng-disabled="vm.loading"
-                       data-ng-click="vm.save()"
-            >
-                {{ ::'SAVE' | translate }}
-            </md-button>
-        </md-card-actions>
-    </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button data-ng-disabled="vm.loading" type="submit">
+                    {{ ::'SAVE' | translate }}
+                </md-button>
+            </md-card-actions>
+
+        </md-card-content>
+    </form>
+
 </md-card>

@@ -21,5 +21,10 @@
   "LOGIN_FAILED": "Kirjautuminen epäonnistui",
 
   // Settings interface
-  "USER_SETTINGS": "Käyttäjätilin asetukset"
+  "USER_SETTINGS": "Käyttäjätilin asetukset",
+  "DANGER_ZONE": "Vaara-alue",
+  "CHANGE_PASSWORD": "Salasanan vaihto",
+  "OLD_PASSWORD": "Vanha salasana",
+  "NEW_PASSWORD": "Uusi salasana",
+  "NEW_PASSWORD_AGAIN": "Uusi salasana uudestaan"
 }

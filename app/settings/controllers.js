@@ -11,6 +11,7 @@
      */
     angular.module('Settings.Controllers')
         .controller('Settings.UserSettingsController', UserSettingsController)
+        .controller('Settings.DangerZoneController', DangerZoneController)
     ;
 
     ///////////////
@@ -83,6 +84,15 @@
                 $toast('SAVE_FAILED');
             }
         };
+    }
+
+    /**
+     * Controller for the danger zone settings dialog.
+     *
+     * @constructor
+     */
+    function DangerZoneController () {
+        var vm = this;
     }
 
 })();
