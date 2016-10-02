@@ -12,6 +12,7 @@
     angular.module('Settings.Controllers')
         .controller('Settings.UserSettingsController', UserSettingsController)
         .controller('Settings.DangerZoneController', DangerZoneController)
+        .controller('Settings.AppSettingsController', AppSettingsController)
     ;
 
     ///////////////
@@ -165,6 +166,15 @@
                 && vm.form.newPassword
                 && vm.form.newPasswordAgain === vm.form.newPassword;
         };
+    }
+
+    /**
+     * Controller for the app settings card.
+     *
+     * @constructor
+     */
+    function AppSettingsController () {
+        var vm = this;
     }
 
 })();

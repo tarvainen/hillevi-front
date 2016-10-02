@@ -12,6 +12,7 @@
     angular.module('Settings.Directives')
         .directive('userSettings', userSettings)
         .directive('dangerZone', dangerZone)
+        .directive('appSettings', appSettings)
     ;
 
     ///////////////
@@ -42,6 +43,22 @@
             restrict: 'E',
             templateUrl: 'web/templates/settings/partials/danger-zone.html',
             controller: 'Settings.DangerZoneController',
+            controllerAs: 'vm',
+            scope: true,
+            bindToController: true
+        };
+    }
+
+    /**
+     * Directive for the danger zone dialog.
+     *
+     * @returns {*}
+     */
+    function appSettings () {
+        return {
+            restrict: 'E',
+            templateUrl: 'web/templates/settings/partials/app-settings.html',
+            controller: 'Settings.AppSettingsController',
             controllerAs: 'vm',
             scope: true,
             bindToController: true

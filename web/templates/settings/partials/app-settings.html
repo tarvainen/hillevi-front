@@ -1,0 +1,22 @@
+<md-card>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{ ::'APP_SETTINGS' | translate }}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <form>
+        <md-card-content>
+            <md-switch id="switch_notifications_enabled"
+                       data-ng-model="vm.form.notifications"
+            >
+                {{ ::'NOTIFICATIONS_ENABLED' | translate }}
+            </md-switch>
+
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button id="btn_app_settings_save" data-ng-disabled="vm.loading" type="submit">
+                    {{ ::'SAVE' | translate }}
+                </md-button>
+            </md-card-actions>
+        </md-card-content>
+    </form>
+</md-card>
