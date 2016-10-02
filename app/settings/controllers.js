@@ -61,8 +61,25 @@
             }
         };
 
+        /**
+         * Saves the user data to the server.
+         */
         vm.save = function save () {
-            $toast('NOT_IMPLEMENTED');
+            api.route('auth/settings/save', vm.form).then(onSuccess, onError);
+
+            /**
+             * Fired when the data save is done successfully.
+             */
+            function onSuccess () {
+                $toast('SAVE_SUCCESSFULL');
+            }
+
+            /**
+             * Fired when the save fails.
+             */
+            function onError () {
+                $toast('SAVE_FAILED');
+            }
         };
     }
 

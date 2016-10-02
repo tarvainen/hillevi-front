@@ -13,6 +13,8 @@
   "DIAGNOSTICS": "Diagnostiikkatyökalut",
   "NOT_IMPLEMENTED": "Tätä toimintoa ei ole vielä toteutettu",
   "DATA_FETCH_FAILED": "Tietojen lataus epäonnistui",
+  "SAVE_FAILED": "Tallentaminen epäonnistui",
+  "SAVE_SUCCESSFULL": "Tallentaminen onnistui",
 
   // Login interface
   "LOGIN_HEADLINE": "Kirjaudu Hilleviin",
