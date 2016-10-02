@@ -20,6 +20,7 @@
   "SAVE_FAILED": "Tallentaminen epäonnistui",
   "SAVE_SUCCESSFULL": "Tallentaminen onnistui",
   "SAVE": "Tallenna",
+  "CANCEL": "Peruuta",
   "MANAGEMENT": "Hallintatyökalut",
   "API_MANAGEMENT": "Rajapinnat",
 

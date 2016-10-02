@@ -28,13 +28,13 @@
     function MainController (api, $toast) {
         var vm = this;
 
+        vm.selected = [];
+
         /**
          * Loads the interface data to the ui.
          */
         vm.load = function load () {
             vm.loading = true;
-
-            vm.selected = [];
 
             api.route('interface/all')
                 .then(onSuccess, onError)
@@ -63,6 +63,38 @@
             function onDone () {
                 vm.loading = false;
             }
+        };
+
+        /**
+         * Fires when the row is selected.
+         *
+         * @param {*}   row
+         */
+        vm.onSelect = function onSelect (row) {
+            if (!vm.selected.length <= 1) {
+                vm.api = row;
+            } else {
+                vm.api = null;
+            }
+        };
+
+        /**
+         * Fires when the row is deselected.
+         */
+        vm.onDeselect = function onDeselect () {
+            if (vm.selected.length === 1) {
+                vm.api = vm.selected[0];
+            } else {
+                vm.api = null;
+            }
+        };
+
+        /**
+         * Fires when we cancel the api edition dialog.
+         */
+        vm.cancel = function cancel () {
+            vm.api = null;
+            vm.selected = [];
         };
     }
 

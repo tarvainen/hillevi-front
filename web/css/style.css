@@ -39,3 +39,7 @@
 .layout-fill-x {
     min-width: 100% !important;
 }
+
+.md-row:focus {
+    outline: none !important;
+}
