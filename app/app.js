@@ -41,6 +41,7 @@
 
         function onData (data) {
             DataService.storage.set('user', data.data);
+            $rootScope.$emit('userUpdate', data.data);
         }
 
         function onError (err) {

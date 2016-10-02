@@ -44,6 +44,12 @@
             DataService.storage.set('jwt', newVal);
         });
 
+        $rootScope.$on('userUpdate', function (oldVal, newVal) {
+            $timeout(function timeout () {
+                vm.user = newVal;
+            });
+        });
+
         /**
          * Catch the load begin event and show the loading indicator.
          */

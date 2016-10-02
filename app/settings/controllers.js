@@ -15,18 +15,19 @@
 
     ///////////////
 
-    UserSettingsController.$inject = ['$timeout', '$toast', 'api'];
+    UserSettingsController.$inject = ['$scope', '$timeout', '$toast', 'api'];
 
     /**
      * The controller for the user settings.
      *
+     * @param {*}   $scope
      * @param {*}   $timeout
      * @param {*}   $toast
      * @param {*}   api
 
      * @constructor
      */
-    function UserSettingsController ($timeout, $toast, api) {
+    function UserSettingsController ($scope, $timeout, $toast, api) {
         var vm = this;
 
         vm.loading = false;
@@ -70,7 +71,8 @@
             /**
              * Fired when the data save is done successfully.
              */
-            function onSuccess () {
+            function onSuccess (data) {
+                $scope.$emit('userUpdate', data.data);
                 $toast('SAVE_SUCCESSFULL');
             }
 
