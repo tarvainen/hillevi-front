@@ -110,6 +110,7 @@
 
             if (!vm.validate()) {
                 $toast('PASSWORD_VALIDATION_FAILED');
+                vm.loading = false;
                 return;
             }
 
@@ -208,8 +209,11 @@
          * Saves the app settings.
          */
         vm.save = function save () {
+            vm.loading = true;
+
             api.route('settings/save', vm.form)
-                .then(onSuccess, onError);
+                .then(onSuccess, onError)
+                .finally(onDone);
 
             /**
              * Called when the app settings is saved successfully.
@@ -223,6 +227,13 @@
              */
             function onError () {
                 $toast('SAVE_FAILED');
+            }
+
+            /**
+             * Called every time the request is gone to it's end.
+             */
+            function onDone () {
+                vm.loading = false;
             }
         };
     }
