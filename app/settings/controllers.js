@@ -125,6 +125,7 @@
                  */
                 function onSuccess () {
                     $toast('PASSWORD_CHANGED');
+                    vm.form = {};
                 }
 
                 /**
