@@ -4,7 +4,7 @@
             <span class="md-headline">{{ ::'APP_SETTINGS' | translate }}</span>
         </md-card-title-text>
     </md-card-title>
-    <form>
+    <form data-ng-submit="vm.save()">
         <md-card-content>
             <md-switch id="switch_notifications_enabled"
                        data-ng-model="vm.form.notifications"

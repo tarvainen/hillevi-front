@@ -203,6 +203,28 @@
                 $toast('DATA_FETCH_FAILED');
             }
         };
+
+        /**
+         * Saves the app settings.
+         */
+        vm.save = function save () {
+            api.route('settings/save', vm.form)
+                .then(onSuccess, onError);
+
+            /**
+             * Called when the app settings is saved successfully.
+             */
+            function onSuccess () {
+                $toast('SAVE_SUCCESSFULL');
+            }
+
+            /**
+             * Called when the app settings save fails.
+             */
+            function onError () {
+                $toast('SAVE_FAILED');
+            }
+        };
     }
 
 })();
