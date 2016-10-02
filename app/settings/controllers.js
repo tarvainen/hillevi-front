@@ -105,6 +105,8 @@
          * Does the actual password saving operation.
          */
         vm.save = function save () {
+            vm.loading = true;
+
             if (!vm.validate()) {
                 $toast('PASSWORD_VALIDATION_FAILED');
                 return;
@@ -125,6 +127,7 @@
                  */
                 function onSuccess () {
                     $toast('PASSWORD_CHANGED');
+                    vm.loading = false;
                     vm.form = {};
                 }
 
@@ -132,6 +135,7 @@
                  * Runs when the password change fails for some reason.
                  */
                 function onError () {
+                    vm.loading = false;
                     $toast('PASSWORD_CHANGE_FAILED');
                 }
             }
@@ -140,6 +144,7 @@
              * Runs when the old password does not match with the one saved in the database.
              */
             function onPasswordFail () {
+                vm.loading = false;
                 $toast('OLD_PASSWORD_DOES_NOT_MATCH');
             }
         };
