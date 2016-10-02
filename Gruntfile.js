@@ -71,6 +71,20 @@ module.exports = function (grunt) {
                     'build/translated/fi.json': 'translations/fi.json'
                 }
             }
+        },
+        copy: {
+            main: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: 'node_modules/material-design-icons/iconfont/',
+                        src: '**',
+                        dest: 'build/material-icons/'
+                    }
+                ]
+            }
+
         }
     });
 
@@ -78,6 +92,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-strip-json-comments');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['uglify', 'cssmin', 'stripJsonComments']);
+    grunt.registerTask('default', ['uglify', 'cssmin', 'stripJsonComments', 'copy']);
 };
