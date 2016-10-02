@@ -5,7 +5,8 @@
      * Main module initialization.
      */
     angular.module('Settings', [
-        'Settings.Controllers'
+        'Settings.Controllers',
+        'Settings.Directives'
     ]);
 
 })();
