@@ -26,5 +26,9 @@
   "CHANGE_PASSWORD": "Salasanan vaihto",
   "OLD_PASSWORD": "Vanha salasana",
   "NEW_PASSWORD": "Uusi salasana",
-  "NEW_PASSWORD_AGAIN": "Uusi salasana uudestaan"
+  "NEW_PASSWORD_AGAIN": "Uusi salasana uudestaan",
+  "OLD_PASSWORD_DOES_NOT_MATCH": "Antamasi salasana on väärin",
+  "PASSWORD_CHANGED": "Salasana vaihdettu",
+  "PASSWORD_CHANGE_FAILED": "Salasanan vaihto epäonnistui",
+  "PASSWORD_VALIDATION_FAILED": "Uudet salasanasi eivät täsmää keskenään"
 }
