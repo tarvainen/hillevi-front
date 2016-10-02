@@ -1,7 +1,49 @@
-<md-card>
+<md-card flex="50" data-ng-init="vm.load()">
     <md-card-title>
         <md-card-title-text>
-            <span class="md-headline">{{ 'USER_SETTINGS' | translate }}</span>
+            <span class="md-headline">{{ ::'USER_SETTINGS' | translate }}</span>
         </md-card-title-text>
     </md-card-title>
+    <md-card-content>
+        <form>
+            <md-input-container class="md-block" flex>
+                <label>{{ ::'USERNAME' | translate }}</label>
+                <input id="user_settings_username" type="text"
+                       data-ng-model="vm.form.username"
+                       data-ng-disabled="vm.loading"
+                />
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>{{ ::'FIRST_NAME' | translate }}</label>
+                <input id="user_settings_firstname" type="text"
+                       data-ng-model="vm.form.firstname"
+                       data-ng-disabled="vm.loading"
+                />
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>{{ ::'LAST_NAME' | translate }}</label>
+                <input id="user_settings_lastname" type="text"
+                       data-ng-model="vm.form.lastname"
+                       data-ng-disabled="vm.loading"
+                />
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>{{ ::'EMAIL' | translate }}</label>
+                <input id="user_settings_email" type="text"
+                       data-ng-model="vm.form.email"
+                       data-ng-disabled="vm.loading"
+                />
+            </md-input-container>
+        </form>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button data-ng-disabled="vm.loading"
+                       data-ng-click="vm.save()"
+            >
+                {{ ::'SAVE' | translate }}
+            </md-button>
+        </md-card-actions>
+    </md-card-content>
 </md-card>

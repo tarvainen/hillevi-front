@@ -87,6 +87,8 @@
                         $location.path('/login');
                         return $q.reject(rej);
                     }
+
+                    return $q.reject(rej);
                 }
             };
         }
