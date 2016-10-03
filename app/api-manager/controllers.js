@@ -66,13 +66,45 @@
         };
 
         /**
+         * Saves the interface information to the database.
+         */
+        vm.save = function save () {
+            api.route('interface/update', vm.api)
+                .then(onSuccess, onError)
+                .finally(onDone)
+            ;
+
+            /**
+             * Called when the data is saved successfully.
+             */
+            function onSuccess () {
+                $toast('SAVE_SUCCESSFULL');
+                vm.load();
+            }
+
+            /**
+             * Called when the save fails miserably.
+             */
+            function onError () {
+                $toast('SAVE_FAILED');
+            }
+
+            /**
+             * Called always after query.
+             */
+            function onDone () {
+                vm.loading = false;
+            }
+        };
+
+        /**
          * Fires when the row is selected.
          *
          * @param {*}   row
          */
         vm.onSelect = function onSelect (row) {
             if (!vm.selected.length <= 1) {
-                vm.api = row;
+                vm.api = angular.copy(row);
             } else {
                 vm.api = null;
             }
