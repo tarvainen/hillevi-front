@@ -25,6 +25,7 @@
   "CANCEL": "Peruuta",
   "MANAGEMENT": "Hallintatyökalut",
   "API_MANAGEMENT": "Rajapinnat",
+  "ARE_YOU_SURE": "Oletko varma?",
 
   // Login interface
   "LOGIN_HEADLINE": "Kirjaudu Hilleviin",

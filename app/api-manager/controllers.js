@@ -16,7 +16,7 @@
 
     ////////////////////
 
-    MainController.$inject = ['api', '$toast', '$mdDialog'];
+    MainController.$inject = ['api', '$toast', '$mdDialog', '$confirm'];
 
     /**
      * Main controller for the api manager interface.
@@ -24,10 +24,11 @@
      * @param   {*} api
      * @param   {*} $toast
      * @param   {*} $mdDialog
+     * @param   {*} $confirm
      *
      * @constructor
      */
-    function MainController (api, $toast, $mdDialog) {
+    function MainController (api, $toast, $mdDialog, $confirm) {
         var vm = this;
 
         vm.selected = [];
@@ -156,8 +157,40 @@
          * Removes all selected apis.
          */
         vm.removeApis = function () {
-            // TODO: implement
-            $toast('NOT_IMPLEMENTED');
+            $confirm('ARE_YOU_SURE').then(onConfirm);
+
+            /**
+             * Fires when the user presses ok in the confirm dialog.
+             */
+            function onConfirm () {
+                api.route('interface/delete/' + vm.api.id)
+                    .then(onSuccess, onError)
+                    .finally(onDone)
+                ;
+
+                /**
+                 * Fires when the api removal is done.
+                 */
+                function onSuccess () {
+                    $toast('DELETED');
+                }
+
+                /**
+                 * Fired when the api removal fails.
+                 */
+                function onError () {
+                    $toast('DELETION_FAILED');
+                }
+
+                /**
+                 * Fired after the deletion query either fails or completes.
+                 */
+                function onDone () {
+                    vm.api = null;
+                    vm.selected = [];
+                    vm.load();
+                }
+            }
         };
     }
 

@@ -15,6 +15,7 @@
         .factory('api', api)
         .factory('JWTService', JWTService)
         .factory('$toast', $toast)
+        .factory('$confirm', $confirm)
     ;
 
     ///////////////
@@ -176,6 +177,7 @@
      * The toast service for making toasts.
      *
      * @param   {*} $mdToast
+     * @param   {*} $translate
      *
      * @returns {Function}
      */
@@ -196,6 +198,33 @@
                         .hideDelay(3000)
                 );
             }
+        }
+    }
+
+    $confirm.inject = ['$mdDialog', '$translate', '$q'];
+
+    /**
+     * The confirm service for more fluent usage.
+     *
+     * @param   {*} $mdDialog
+     * @param   {*} $translate
+     * @param   {*} $q
+     *
+     * @returns {Function}
+     */
+    function $confirm ($mdDialog, $translate, $q) {
+        return function (text) {
+            var defer = $q.defer();
+
+            $mdDialog.show(
+                $mdDialog
+                    .confirm()
+                    .title($translate.instant(text))
+                    .ok($translate.instant('OK'))
+                    .cancel($translate.instant('CANCEL'))
+            ).then(defer.resolve, defer.reject);
+
+            return defer.promise;
         }
     }
 
