@@ -11,21 +11,23 @@
      */
     angular.module('ApiManager.Controllers')
         .controller('ApiManager.MainController', MainController)
+        .controller('ApiManager.CreateApiDialogController', CreateApiDialogController)
     ;
 
     ////////////////////
 
-    MainController.$inject = ['api', '$toast'];
+    MainController.$inject = ['api', '$toast', '$mdDialog'];
 
     /**
      * Main controller for the api manager interface.
      *
      * @param   {*} api
      * @param   {*} $toast
+     * @param   {*} $mdDialog
      *
      * @constructor
      */
-    function MainController (api, $toast) {
+    function MainController (api, $toast, $mdDialog) {
         var vm = this;
 
         vm.selected = [];
@@ -132,9 +134,22 @@
         /**
          * Opens a new api creation tool.
          */
-        vm.createNewApi = function createNewApi () {
-            // TODO: implement
-            $toast('NOT_IMPLEMENTED');
+        vm.createNewApi = function createNewApi ($event) {
+            $mdDialog.show({
+                parent: angular.element(document.body),
+                targetEvent: $event,
+                templateUrl: 'web/templates/api-manager/partials/dialog-create-api.html',
+                controller: 'ApiManager.CreateApiDialogController',
+                controllerAs: 'vm'
+            }).then(onSave);
+
+            /**
+             * Fires when the new API is saved an the dialog is closed.
+             * Then we need to refresh data on the table.
+             */
+            function onSave () {
+                vm.load();
+            }
         };
 
         /**
@@ -143,6 +158,62 @@
         vm.removeApis = function () {
             // TODO: implement
             $toast('NOT_IMPLEMENTED');
+        };
+    }
+
+    CreateApiDialogController.$inject = ['$mdDialog', 'api', '$toast'];
+
+    /**
+     * The controller for the create api dialog.
+     *
+     * @param   {*} $mdDialog
+     * @param   {*} api
+     * @param   {*} $toast
+     *
+     * @constructor
+     */
+    function CreateApiDialogController ($mdDialog, api, $toast) {
+        var vm = this;
+
+        /**
+         * Cancels the api creation and closes the dialog.
+         */
+        vm.cancel = function cancel () {
+            $mdDialog.cancel();
+        };
+
+        /**
+         * Saves the new interface created in the UI.
+         */
+        vm.save = function save () {
+            vm.loading = true;
+
+            api.route('interface/create', vm.form)
+                .then(onSuccess, onError)
+                .finally(onDone)
+            ;
+
+            /**
+             * Closes the dialog after the new API is saved.
+             */
+            function onSuccess () {
+                $toast('SAVE_SUCCESSFULL');
+                $mdDialog.hide(true);
+            }
+
+            /**
+             * Fired if the API saving fails.
+             */
+            function onError () {
+                $toast('SAVE_FAILED');
+            }
+
+            /**
+             * Always fires after the query is done.
+             */
+            function onDone () {
+                vm.loading = false;
+            }
         };
     }
 

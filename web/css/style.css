@@ -43,3 +43,26 @@
 .md-row:focus {
     outline: none !important;
 }
+
+loader {
+    position: absolute;
+    z-index: 10000;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.md-loader md-progress-circular {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -45,5 +45,6 @@
   "NOTIFICATIONS_ENABLED": "Notifikaatiot käytössä",
 
   // API interface
-  "LIST_OF_APIS": "Rajapinnat"
+  "LIST_OF_APIS": "Rajapinnat",
+  "CREATE_API": "Uusi rajapinta"
 }

@@ -17,6 +17,7 @@
         'App.Controllers',
         'App.Services',
         'App.Filters',
+        'App.Directives',
         'App.Env',
         'Hillevi.Applications'
     ]);

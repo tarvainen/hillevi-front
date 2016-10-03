@@ -16,7 +16,7 @@
                 </md-button>
 
                 <md-button class="md-icon-button"
-                           data-ng-click="vm.createNewApi()"
+                           data-ng-click="vm.createNewApi($event)"
                 >
                     <md-icon>add</md-icon>
                 </md-button>
@@ -30,9 +30,10 @@
             </div>
         </md-toolbar>
         <md-content layout="row" flex>
+            <loader data-ng-if="vm.loading"></loader>
             <md-content layout="column" flex>
                 <md-table-container layout="column" flex>
-                    <table md-table md-row-select multiple
+                    <table md-table md-row-select
                            data-ng-model="vm.selected"
                     >
                         <thead md-head>
@@ -51,11 +52,10 @@
                                 md-select-id="name"
                                 md-on-select="vm.onSelect"
                                 md-on-deselect="vm.onDeselect"
-                                multiple="false"
                             >
                                 <td md-cell>{{ ::api.name }}</td>
                                 <td md-cell class="text-center">
-                                    <md-icon>{{ ::api.active ? 'play' : 'pause' }}</md-icon>
+                                    <md-icon>{{ ::api.active ? 'play_arrow' : 'pause' }}</md-icon>
                                 </td>
                                 <td md-cell>{{ ::api.url }}</td>
                                 <td md-cell>{{ ::api.type }}</td>

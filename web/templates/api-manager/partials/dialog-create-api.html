@@ -1,0 +1,41 @@
+<md-dialog flex flex-gt-xs="50">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{ ::'CREATE_API' | translate }}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button"
+                       data-ng-click="vm.cancel()"
+            >
+                <md-icon>close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content layout-padding>
+        <md-content>
+            <loader data-ng-if="vm.loading"></loader>
+            <form data-ng-submit="vm.save()">
+                <md-input-container class="md-block" flex>
+                    <label>{{ ::'NAME' | translate }}</label>
+                    <input type="text" id="input_create_new_api_name" data-ng-model="vm.form.name" />
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label>{{ ::'TYPE' | translate }}</label>
+                    <input type="text" id="input_create_new_api_type" data-ng-model="vm.form.type" />
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label>{{ ::'URL' | translate }}</label>
+                    <input type="text" id="input_create_new_api_url" data-ng-model="vm.form.url" />
+                </md-input-container>
+
+                <md-content layout="row" layout-align="end center">
+                    <md-button type="submit" id="btn_save_new_api">
+                        {{ ::'SAVE' | translate }}
+                    </md-button>
+                </md-content>
+            </form>
+        </md-content>
+    </md-dialog-content>
+</md-dialog>
