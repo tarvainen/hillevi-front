@@ -66,3 +66,16 @@ loader {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.md-sidenav-large {
+    width: 420px !important;
+}
+
+.md-sub-toolbar {
+    height: 40px !important;
+    min-height: 40px !important;
+}
+
+.md-sub-toolbar .md-toolbar-tools {
+    height: 40px;
+}

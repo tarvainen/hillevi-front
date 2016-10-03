@@ -10,6 +10,7 @@
   "TYPE": "Tyyppi",
   "NAME": "Nimi",
   "URL": "URL",
+  "FIELD": "Kenttä",
   "ACTIVE": "Aktiivinen",
   "PASSIVE": "Passiivinen",
   "LAST_UPDATE": "Päivitetty viimeksi",
@@ -47,5 +48,6 @@
 
   // API interface
   "LIST_OF_APIS": "Rajapinnat",
-  "CREATE_API": "Uusi rajapinta"
+  "CREATE_API": "Uusi rajapinta",
+  "INTERFACE_COLUMNS": "Kentät"
 }

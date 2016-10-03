@@ -74,7 +74,7 @@
                 ></md-table-pagination>
             </md-content>
 
-            <md-sidenav class="md-sidenav-right"
+            <md-sidenav class="md-sidenav-right md-sidenav-large"
                         md-component-id="right"
                         md-is-locked-open="true"
                         md-whiteframe="4"
@@ -96,11 +96,47 @@
                         <input type="text" data-ng-model="vm.api.type" data-ng-disabled="!vm.api" />
                     </md-input-container>
 
+                    <md-toolbar layout="row" flex class="md-sub-toolbar">
+                        <div class="md-toolbar-tools">
+                            <span>{{ ::'INTERFACE_COLUMNS' | translate }}</span>
+                            <span flex></span>
+                            <md-button class="md-icon-button">
+                                <md-icon>add</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button">
+                                <md-icon>delete</md-icon>
+                            </md-button>
+                        </div>
+                    </md-toolbar>
+
+                    <md-table-container layout="column" flex>
+                        <table md-table md-row-select>
+                            <thead md-head>
+                                <tr md-row>
+                                    <th md-column><span>{{ ::'FIELD' | translate }}</span></th>
+                                    <th md-column><span>{{ ::'TYPE' | translate }}</span></th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row md-auto-select
+                                    data-ng-repeat="col in vm.api.columns"
+                                    md-select="col"
+                                    md-select-id="field"
+                                >
+                                    <td md-cell>{{ ::col.field }}</td>
+                                    <td md-cell>{{ ::col.type }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+
                     <md-content layout="row" layout-align="end center">
                         <md-button data-ng-click="vm.cancel()" data-ng-disabled="!vm.api">
                             {{ ::'CANCEL' | translate }}
                         </md-button>
-                        <md-button type="submit" data-ng-disabled="!vm.api">
+                        <md-button type="submit" class="md-primary md-raised"
+                                   data-ng-disabled="!vm.api"
+                        >
                             {{ ::'SAVE' | translate }}
                         </md-button>
                     </md-content>
