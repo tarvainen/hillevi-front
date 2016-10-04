@@ -79,3 +79,16 @@ loader {
 .md-sub-toolbar .md-toolbar-tools {
     height: 40px;
 }
+
+md-input-container.no-whitespace {
+    margin: 0;
+    padding: 0;
+    vertical-align: bottom;
+    height: 100%;
+}
+
+md-input-container.no-whitespace input {
+    height: 100%;
+    position: relative;
+    border-bottom: none;
+}

@@ -100,7 +100,9 @@
                         <div class="md-toolbar-tools">
                             <span>{{ ::'INTERFACE_COLUMNS' | translate }}</span>
                             <span flex></span>
-                            <md-button class="md-icon-button">
+                            <md-button class="md-icon-button"
+                                       data-ng-click="vm.addApiColumn()"
+                            >
                                 <md-icon>add</md-icon>
                             </md-button>
                             <md-button class="md-icon-button">
@@ -110,7 +112,11 @@
                     </md-toolbar>
 
                     <md-table-container layout="column" flex>
-                        <table md-table md-row-select>
+                        <table md-table
+                               multiple
+                               md-row-select
+                               data-ng-model="vm.selectedColumn"
+                        >
                             <thead md-head>
                                 <tr md-row>
                                     <th md-column><span>{{ ::'FIELD' | translate }}</span></th>
@@ -118,12 +124,19 @@
                                 </tr>
                             </thead>
                             <tbody md-body>
-                                <tr md-row md-auto-select
-                                    data-ng-repeat="col in vm.api.columns"
+                                <tr md-row
+                                    data-ng-repeat="col in vm.api.columns track by $index"
                                     md-select="col"
                                     md-select-id="field"
                                 >
-                                    <td md-cell>{{ ::col.field }}</td>
+                                    <td md-cell>
+                                        <md-input-container class="no-whitespace">
+                                            <input type="text"
+                                                   aria-label="{{ ::'COLUMN_FIELD' | translate }}"
+                                                   data-ng-model="col.field"
+                                            />
+                                        </md-input-container>
+                                    </td>
                                     <td md-cell>{{ ::col.type }}</td>
                                 </tr>
                             </tbody>

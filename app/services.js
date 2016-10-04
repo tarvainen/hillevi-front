@@ -10,7 +10,6 @@
      * Service initializations.
      */
     angular.module('App.Services')
-        .factory('HttpService', HttpService)
         .factory('DataService', DataService)
         .factory('api', api)
         .factory('JWTService', JWTService)
@@ -20,46 +19,13 @@
 
     ///////////////
 
-    /**
-     * The service to contain HTTP settings and functinalities.
-     *
-     * @returns {*}
-     *
-     * @constructor
-     */
-    function HttpService () {
-        return {
-            toUrlEncoded: toUrlEncoded
-        };
-
-        /**
-         * Converts object to url encoded string.
-         *
-         * @param   {*}         obj
-         *
-         * @returns {string}
-         */
-        function toUrlEncoded (obj) {
-            var str = [];
-
-            for (var p in obj) {
-                if (obj.hasOwnProperty(p)) {
-                    str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
-                }
-            }
-
-            return str.join('&');
-        }
-    }
-
-    DataService.$inject = ['$http', '$window', 'HttpService', 'API'];
+    DataService.$inject = ['$http', '$window', 'API', '$httpParamSerializerJQLike'];
 
     /**
      * The data service to handle the data requests.
      *
      * @param {*}   $http
      * @param {*}   $window
-     * @param {*}   HttpService
      * @param {*}   API
      *
      * @return {*}
@@ -68,7 +34,7 @@
      *
      * @ngInject
      */
-    function DataService ($http, $window, HttpService, API) {
+    function DataService ($http, $window, API, $httpParamSerializerJQLike) {
         return {
             get: get,
             storage: {
@@ -79,14 +45,13 @@
 
         function get (path, params) {
             var options = {
-                transformRequest: HttpService.toUrlEncoded,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'authorization': getFromStorage('jwt') || ''
                 }
             };
 
-            return $http.post(API.url + path, params || {}, options);
+            return $http.post(API.url + path, $httpParamSerializerJQLike(params || {}), options);
         }
 
         /**

@@ -32,6 +32,7 @@
         var vm = this;
 
         vm.selected = [];
+        vm.selectedColumn = [];
 
         /**
          * Loads the interface data to the ui.
@@ -191,6 +192,18 @@
                     vm.load();
                 }
             }
+        };
+
+        /**
+         * Adds a column to the api.
+         */
+        vm.addApiColumn = function () {
+            vm.api.columns.push(
+                {
+                    field: '',
+                    type: 'integer' // TODO: change this to the constant
+                }
+            );
         };
     }
 
