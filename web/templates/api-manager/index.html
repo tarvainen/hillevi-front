@@ -12,12 +12,14 @@
                 <md-button class="md-icon-button"
                            data-ng-click="vm.load()"
                 >
+                    <md-tooltip>{{ ::'TT_REFRESH' | translate }}</md-tooltip>
                     <md-icon>autorenew</md-icon>
                 </md-button>
 
                 <md-button class="md-icon-button"
                            data-ng-click="vm.createNewApi($event)"
                 >
+                    <md-tooltip>{{ ::'TT_ADD' | translate }}</md-tooltip>
                     <md-icon>add</md-icon>
                 </md-button>
 
@@ -25,6 +27,7 @@
                            data-ng-disabled="vm.selected.length < 1"
                            data-ng-click="vm.removeApis()"
                 >
+                    <md-tooltip>{{ ::'TT_DELETE' | translate }}</md-tooltip>
                     <md-icon>delete</md-icon>
                 </md-button>
             </div>
@@ -43,7 +46,10 @@
                                 <th md-column><span>{{ ::'URL' | translate }}</span></th>
                                 <th md-column><span>{{ ::'TYPE' | translate }}</span></th>
                                 <th md-column class="text-center">
-                                    <span><md-icon>assignment</md-icon></span>
+                                    <span>
+                                        <md-tooltip>{{ ::'TT_FIELD_AMOUNT' | translate }}</md-tooltip>
+                                        <md-icon>assignment</md-icon>
+                                    </span>
                                 </th>
                                 <th md-column><span>{{ ::'LAST_UPDATE' | translate }}</span></th>
                             </tr>
@@ -58,7 +64,10 @@
                             >
                                 <td md-cell>{{ ::api.name }}</td>
                                 <td md-cell class="text-center">
-                                    <md-icon>{{ ::api.active ? 'play_arrow' : 'pause' }}</md-icon>
+                                    <md-icon>
+                                        {{ ::api.active ? 'play_arrow' : 'pause' }}
+                                        <md-tooltip>{{ ::api.active ? 'TT_ACTIVE' : 'TT_PASSIVE' | translate }}</md-tooltip>
+                                    </md-icon>
                                 </td>
                                 <td md-cell>{{ ::api.url }}</td>
                                 <td md-cell>{{ ::api.type }}</td>
@@ -107,11 +116,13 @@
                             <md-button class="md-icon-button"
                                        data-ng-click="vm.addApiColumn()"
                             >
+                                <md-tooltip>{{ ::'TT_ADD' | translate }}</md-tooltip>
                                 <md-icon>add</md-icon>
                             </md-button>
                             <md-button class="md-icon-button"
                                        data-ng-click="vm.removeApiColumn()"
                             >
+                                <md-tooltip>{{ ::'TT_DELETE' | translate }}</md-tooltip>
                                 <md-icon>delete</md-icon>
                             </md-button>
                         </div>

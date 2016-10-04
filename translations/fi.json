@@ -55,5 +55,16 @@
   // API interface
   "LIST_OF_APIS": "Rajapinnat",
   "CREATE_API": "Uusi rajapinta",
-  "INTERFACE_COLUMNS": "Kentät"
+  "INTERFACE_COLUMNS": "Kentät",
+
+
+  // Tooltips
+  "TT_USER_SETTINGS": "Asetukset",
+  "TT_LOGOUT": "Kirjaudu ulos",
+  "TT_REFRESH": "Päivitä",
+  "TT_ADD": "Lisää",
+  "TT_DELETE": "Poista",
+  "TT_ACTIVE": "Aktiivinen",
+  "TT_PASSIVE": "Passiivinen",
+  "TT_FIELD_AMOUNT": "Rajapintakenttien määrä"
 }

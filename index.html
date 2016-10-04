@@ -20,6 +20,7 @@
         <md-button class="md-icon-button"
                    aria-label="Settings"
         >
+            <md-tooltip>{{ 'TT_USER_SETTINGS' | translate }}</md-tooltip>
             <a href="#/settings"><span class="material-icons">face</span></a>
         </md-button>
         <md-button class="md-icon-button"
@@ -27,6 +28,7 @@
                    data-ng-if="vm.user"
                    data-ng-click="vm.logout()"
         >
+            <md-tooltip>{{ 'TT_LOGOUT' | translate }}</md-tooltip>
             <span class="material-icons">close</span>
         </md-button>
     </div>
