@@ -139,7 +139,17 @@
                                             />
                                         </md-input-container>
                                     </td>
-                                    <td md-cell>{{ ::col.type }}</td>
+                                    <td md-cell>
+                                        <md-input-container>
+                                            <md-select data-ng-model="col.type" aria-label="{{ ::'TYPE' | translate }}" required>
+                                                <md-option value="{{ option }}"
+                                                           data-ng-repeat="option in vm.fieldTypes"
+                                                >
+                                                    {{ option.toUpperCase() | translate }}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

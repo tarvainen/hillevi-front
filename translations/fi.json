@@ -1,6 +1,11 @@
 {
   "APP_NAME": "Hillevi",
 
+  // Types
+  "INT": "Kokonaisluku",
+  "DECIMAL": "Desimaaliluku",
+  "STRING": "Teksti",
+
   // Common
   "USERNAME": "Käyttäjätunnus",
   "PASSWORD": "Salasana",

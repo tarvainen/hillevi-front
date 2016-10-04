@@ -40,10 +40,25 @@
         vm.load = function load () {
             vm.loading = true;
 
+            // Fetch all the interfaces
             api.route('interface/all')
                 .then(onSuccess, onError)
                 .finally(onDone)
             ;
+
+            // Fetch field types
+            api.route('interface/fields/types')
+                .then(onTypes, onError)
+            ;
+
+            /**
+             * Fired when the field types are fetched from the server.
+             *
+             * @param {*}   data
+             */
+            function onTypes (data) {
+                vm.fieldTypes = data.data;
+            }
 
             /**
              * Called when the data fetch is succeeded.
@@ -107,6 +122,8 @@
          * @param {*}   row
          */
         vm.onSelect = function onSelect (row) {
+            vm.selectedColumn = [];
+
             if (!vm.selected.length <= 1) {
                 vm.api = angular.copy(row);
             } else {
