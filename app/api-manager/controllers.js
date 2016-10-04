@@ -205,6 +205,19 @@
                 }
             );
         };
+
+        /**
+         * Removes the interface's column or columns.
+         */
+        vm.removeApiColumn = function removeApiColumn () {
+            for (var i = 0; i < vm.selectedColumn.length; i++) {
+                vm.api.columns.removeValue(vm.selectedColumn[i]);
+            }
+
+            vm.selectedColumn = [];
+
+            $toast('REMEMBER_TO_SAVE_CHANGES');
+        };
     }
 
     CreateApiDialogController.$inject = ['$mdDialog', 'api', '$toast'];

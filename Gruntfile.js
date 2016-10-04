@@ -11,7 +11,7 @@ module.exports = function (grunt) {
             },
             dev: {
                 files: {
-                    'build/<%= pkg.name %>.min.js': ['app/**/*.js', 'env/<%= env %>.js']
+                    'build/<%= pkg.name %>.min.js': ['app/prototype.js', 'app/**/*.js', 'env/<%= env %>.js']
                 }
             },
             vendor: {
