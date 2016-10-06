@@ -20,6 +20,7 @@
   "URL": "URL",
   "FIELD": "Kenttä",
   "ACTIVE": "Aktiivinen",
+  "INTERVAL": "Suoritusaikaväli (min)",
   "PASSIVE": "Passiivinen",
   "LAST_UPDATE": "Päivitetty viimeksi",
   "FILL_ALL_REQUIRED_FIELDS": "Täytä kaikki vaaditut kentät",

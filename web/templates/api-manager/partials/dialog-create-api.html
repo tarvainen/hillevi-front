@@ -21,14 +21,44 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
-                    <label>{{ ::'TYPE' | translate }}</label>
-                    <input type="text" id="input_create_new_api_type" data-ng-model="vm.form.type" />
-                </md-input-container>
-
-                <md-input-container class="md-block" flex>
                     <label>{{ ::'URL' | translate }}</label>
                     <input type="text" id="input_create_new_api_url" data-ng-model="vm.form.url" />
                 </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <md-select
+                            id="input_create_new_api_type"
+                            data-ng-model="vm.form.type"
+                            aria-label="{{ ::'TYPE' | translate }}"
+                            required
+                    >
+                        <md-option value="{{ option }}"
+                                   data-ng-repeat="option in vm.apiTypes"
+                        >
+                            {{ option.toUpperCase() | translate }}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <span>{{ ::'INTERVAL' | translate }}</span>
+                <md-slider-container data-ng-disabled="vm.form.type === 'inner'">
+                    <md-slider flex
+                               data-ng-model="vm.form.interval"
+                               min="5"
+                               max="3600"
+                               class="md-primary"
+                               aria-label="{{ ::'INTERVAL' | translate }}"
+                    ></md-slider>
+                    <md-input-container>
+                        <input flex type="number"
+                               min="5"
+                               max="3600"
+                               id="api_manager_update_api_interval"
+                               data-ng-model="vm.form.interval"
+                               aria-label="{{ ::'INTERVAL' | translate }}"
+                        />
+                    </md-input-container>
+                </md-slider-container>
 
                 <md-content layout="row" layout-align="end center">
                     <md-button type="submit" id="btn_save_new_api">

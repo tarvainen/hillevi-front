@@ -172,7 +172,10 @@
                 targetEvent: $event,
                 templateUrl: 'web/templates/api-manager/partials/dialog-create-api.html',
                 controller: 'ApiManager.CreateApiDialogController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                locals: {
+                    'apiTypes': vm.apiTypes
+                }
             }).then(onSave);
 
             /**
@@ -250,7 +253,7 @@
         };
     }
 
-    CreateApiDialogController.$inject = ['$mdDialog', 'api', '$toast'];
+    CreateApiDialogController.$inject = ['$mdDialog', 'api', '$toast', 'locals'];
 
     /**
      * The controller for the create api dialog.
@@ -258,11 +261,14 @@
      * @param   {*} $mdDialog
      * @param   {*} api
      * @param   {*} $toast
+     * @param   {*} locals
      *
      * @constructor
      */
-    function CreateApiDialogController ($mdDialog, api, $toast) {
+    function CreateApiDialogController ($mdDialog, api, $toast, locals) {
         var vm = this;
+
+        vm.apiTypes = locals.apiTypes;
 
         /**
          * Cancels the api creation and closes the dialog.
