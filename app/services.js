@@ -27,6 +27,7 @@
      * @param {*}   $http
      * @param {*}   $window
      * @param {*}   API
+     * @param {*}   $httpParamSerializerJQLike
      *
      * @return {*}
      *

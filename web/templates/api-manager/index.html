@@ -174,9 +174,8 @@
                             </thead>
                             <tbody md-body>
                                 <tr md-row
-                                    data-ng-repeat="col in vm.api.columns track by $index"
-                                    md-select="col"
-                                    md-select-id="field"
+                                    data-ng-repeat="(key, col) in vm.api.columns track by $index"
+                                    md-select="key"
                                 >
                                     <td md-cell>
                                         <md-input-container class="no-whitespace">

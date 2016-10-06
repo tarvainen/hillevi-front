@@ -16,7 +16,7 @@
 
     ////////////////////
 
-    MainController.$inject = ['api', '$toast', '$mdDialog', '$confirm'];
+    MainController.$inject = ['api', '$toast', '$mdDialog', '$confirm', 'md5'];
 
     /**
      * Main controller for the api manager interface.
@@ -25,10 +25,11 @@
      * @param   {*} $toast
      * @param   {*} $mdDialog
      * @param   {*} $confirm
+     * @param   {*} md5
      *
      * @constructor
      */
-    function MainController (api, $toast, $mdDialog, $confirm) {
+    function MainController (api, $toast, $mdDialog, $confirm, md5) {
         var vm = this;
 
         vm.selected = [];
@@ -231,12 +232,10 @@
          * Adds a column to the api.
          */
         vm.addApiColumn = function () {
-            vm.api.columns.push(
-                {
-                    field: '',
-                    type: 'integer' // TODO: change this to the constant
-                }
-            );
+            vm.api.columns[md5.createHash(Date.now() + '')] = {
+                field: '',
+                type: 'integer'
+            };
         };
 
         /**
@@ -244,7 +243,7 @@
          */
         vm.removeApiColumn = function removeApiColumn () {
             for (var i = 0; i < vm.selectedColumn.length; i++) {
-                vm.api.columns.removeValue(vm.selectedColumn[i]);
+                delete vm.api.columns[vm.selectedColumn[i]];
             }
 
             vm.selectedColumn = [];
