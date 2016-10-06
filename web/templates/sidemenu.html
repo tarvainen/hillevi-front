@@ -1,6 +1,8 @@
 <md-sidemenu locked="true">
     <md-sidemenu-group>
-        <md-subheader class="md-no-sticky">{{ ::'DIAGNOSTICS' | translate }}</md-subheader>
+        <md-subheader class="md-no-sticky">
+            {{ ::'DIAGNOSTICS' | translate }}
+        </md-subheader>
 
         <md-sidemenu-button href="#/dashboard">
             <md-icon>dashboard</md-icon>
@@ -9,11 +11,18 @@
     </md-sidemenu-group>
 
     <md-sidemenu-group>
-        <md-subheader class="md-no-sticky">{{ ::'MANAGEMENT' | translate }}</md-subheader>
+        <md-subheader class="md-no-sticky">
+            {{ ::'MANAGEMENT' | translate }}
+        </md-subheader>
 
         <md-sidemenu-button href="#/apis">
             <md-icon>leak_add</md-icon>
             <span>{{ ::'API_MANAGEMENT' | translate }}</span>
+        </md-sidemenu-button>
+
+        <md-sidemenu-button href="#/apidator">
+            <md-icon>list</md-icon>
+            <span>{{ ::'API_DATA_MANAGEMENT' | translate }}</span>
         </md-sidemenu-button>
     </md-sidemenu-group>
 </md-sidemenu>

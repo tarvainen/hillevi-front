@@ -50,6 +50,9 @@
             .when('/apis', {
                 templateUrl: 'web/templates/api-manager/'
             })
+            .when('/apidator', {
+                templateUrl: 'web/templates/api-data-manager/'
+            })
         ;
 
         $translateProvider.useStaticFilesLoader({
