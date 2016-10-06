@@ -105,8 +105,18 @@
                     </md-input-container>
 
                     <md-input-container class="md-block" flex>
-                        <label>{{ ::'TYPE' | translate }}</label>
-                        <input type="text" data-ng-model="vm.api.type" data-ng-disabled="!vm.api" />
+                        <md-select
+                                data-ng-model="vm.api.type"
+                                aria-label="{{ ::'TYPE' | translate }}"
+                                required
+                                data-ng-disabled="!vm.api"
+                        >
+                            <md-option value="{{ option }}"
+                                       data-ng-repeat="option in vm.apiTypes"
+                            >
+                                {{ option.toUpperCase() | translate }}
+                            </md-option>
+                        </md-select>
                     </md-input-container>
 
                     <md-toolbar layout="row" flex class="md-sub-toolbar">

@@ -51,13 +51,26 @@
                 .then(onTypes, onError)
             ;
 
+            api.route('interface/types')
+                .then(onApiTypes, onError)
+            ;
+
             /**
              * Fired when the field types are fetched from the server.
              *
-             * @param {*}   data
+             * @param   {*}   data
              */
             function onTypes (data) {
                 vm.fieldTypes = data.data;
+            }
+
+            /**
+             * Fired when the api types are fetched from the server.
+             *
+             * @param   {*} data
+             */
+            function onApiTypes (data) {
+                vm.apiTypes = data.data;
             }
 
             /**

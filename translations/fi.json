@@ -5,6 +5,9 @@
   "INT": "Kokonaisluku",
   "DECIMAL": "Desimaaliluku",
   "STRING": "Teksti",
+  "JSON": "JSON",
+  "XML": "XML",
+  "INNER": "Sisäinen",
 
   // Common
   "USERNAME": "Käyttäjätunnus",
