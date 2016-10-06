@@ -62,6 +62,8 @@
   "CREATE_API": "Uusi rajapinta",
   "INTERFACE_COLUMNS": "Kentät",
 
+  // API data manager interface
+  "SELECT_API": "Valitse rajapinta",
 
   // Tooltips
   "TT_USER_SETTINGS": "Asetukset",

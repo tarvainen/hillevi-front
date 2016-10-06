@@ -1,3 +1,20 @@
-<md-content data-ng-app="ApiDataManager">
-    <h1>ApiDataManager</h1>
+<md-content layout="column" flex layout-fill
+            data-ng-controller="ApiDataManager.MainController as vm"
+>
+    <md-content layout="column" flex md-whiteframe="4">
+        <md-content layout-padding>
+            <md-input-container>
+                <md-select data-ng-model="vm.selectedApi"
+                           md-on-open="vm.fetchApis()"
+                           placeholder="{{ ::'SELECT_API' | translate }}"
+                >
+                    <md-option data-ng-repeat="api in vm.apis"
+                               data-ng-value="api.id"
+                    >
+                        {{ ::api.name }}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </md-content>
+    </md-content>
 </md-content>
