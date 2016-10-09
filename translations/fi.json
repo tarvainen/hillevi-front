@@ -73,5 +73,9 @@
   "TT_DELETE": "Poista",
   "TT_ACTIVE": "Aktiivinen",
   "TT_PASSIVE": "Passiivinen",
-  "TT_FIELD_AMOUNT": "Rajapintakenttien määrä"
+  "TT_FIELD_AMOUNT": "Rajapintakenttien määrä",
+
+  // Sockets
+  "REALTIME_CONNECTION_OPENED": "Reaaliaikayhteys avattu",
+  "REALTIME_CONNECTION_FAILED_TO_OPEN": "Reaaliaikayhteyden avaamisessa tapahtui virhe"
 }

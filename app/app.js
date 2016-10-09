@@ -9,6 +9,7 @@
     angular.module('App', [
         'ngMaterial',
         'md.data.table',
+        'ngWebSocket',
         'pascalprecht.translate',
         'chart.js',
         'angular-md5',

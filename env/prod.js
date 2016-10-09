@@ -13,6 +13,9 @@
         .constant('API', {
             url: ''
         })
+        .constant('WS', {
+            url: ''
+        })
     ;
 
 })();

@@ -11,7 +11,10 @@
      */
     angular.module('App.Env')
         .constant('API', {
-            url: 'http://localhost:8000/api/'
+            url: 'http://192.168.8.109:8000/api/'
+        })
+        .constant('WS', {
+            url: 'ws://192.168.8.109:8080/'
         })
     ;
 

@@ -15,7 +15,9 @@
 
     ///////////////
 
-    AppController.$inject = ['$rootScope', 'DataService', 'JWTService', '$timeout', '$location'];
+    AppController.$inject = [
+        '$rootScope', 'DataService', 'JWTService', '$timeout', '$location', '$websocket', 'WS', '$toast'
+    ];
 
     /**
      * Main controller for the whole application.
@@ -25,15 +27,19 @@
      * @param   {*} JWTService
      * @param   {*} $timeout
      * @param   {*} $location
+     * @param   {*} $websocket
+     * @param   {*} WS
+     * @param   {*} $toast
      *
      * @constructor
      * 
      * @ngInject
      */
-    function AppController ($rootScope, DataService, JWTService, $timeout, $location) {
+    function AppController ($rootScope, DataService, JWTService, $timeout, $location, $websocket, WS, $toast) {
         var vm = this;
 
         vm.user = DataService.storage.get('user');
+        var socket;
 
         /**
          * Watch authentication status changes.
@@ -42,6 +48,8 @@
             vm.user = JWTService.parse(newVal);
             DataService.storage.set('user', vm.user);
             DataService.storage.set('jwt', newVal);
+
+            vm.connectSocket();
         });
 
         $rootScope.$on('userUpdate', function (oldVal, newVal) {
@@ -84,6 +92,55 @@
                 $location.path('/login');
             }
         };
+
+        /**
+         * Initialize the web socket events.
+         */
+        vm.initSocketEvents = function initSocketEvents () {
+            socket.onMessage(onMessage);
+            socket.onError(onError);
+
+            /**
+             * Called when a new message is fetched.
+             *
+             * @param {*} message
+             */
+            function onMessage (message) {
+                $toast(message.data);
+            }
+
+            /**
+             * Called when the web socket fails in some way.
+             */
+            function onError () {
+                $toast('REALTIME_CONNECTION_FAILED_TO_OPEN');
+            }
+        };
+
+        /**
+         * Connects the web socket.
+         */
+        vm.connectSocket = function connectSocket () {
+            socket = $websocket(WS.url);
+
+            vm.initSocketEvents();
+
+            if (vm.user) {
+                vm.authSocket();
+            } else {
+                $timeout(vm.connectSocket, 4000);
+            }
+        };
+
+        /**
+         * Sends the authentication data to the
+         */
+        vm.authSocket = function authSocket () {
+            var jwt = DataService.storage.get('jwt');
+            socket.send(DataService.storage.get('jwt'));
+        };
+
+        vm.connectSocket();
     }
 
 })();

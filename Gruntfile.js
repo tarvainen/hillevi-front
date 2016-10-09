@@ -28,7 +28,8 @@ module.exports = function (grunt) {
                         'node_modules/angular-md5/angular-md5.js',
                         'node_modules/angular-material-sidemenu/dest/angular-material-sidemenu.js',
                         'node_modules/angular-chart.js/dist/angular-chart.js',
-                        'node_modules/angular-material-data-table/dist/md-data-table.js'
+                        'node_modules/angular-material-data-table/dist/md-data-table.js',
+                        'node_modules/angular-websocket/dist/angular-websocket.js'
                     ]
                 }
             }
