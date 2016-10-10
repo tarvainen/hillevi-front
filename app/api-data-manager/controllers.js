@@ -29,7 +29,7 @@
     function MainController (api, $toast, $q) {
         var vm = this;
 
-        vm.selected = [];
+        vm.selectedRows = [];
 
         /**
          * Function for fetching APIs for the select input.
@@ -61,6 +61,7 @@
             vm.data = [];
             vm.columns = [];
             vm.selectedColumns = [];
+            vm.loading = true;
 
             var params = {
                 id: vm.selectedApi
@@ -83,6 +84,35 @@
             function onData (data) {
                 vm.data = data[0].data;
                 vm.columns = data[1].data;
+            }
+        };
+
+        /**
+         * Removes the rows from the currently selected api.
+         */
+        vm.removeRows = function removeRows () {
+            vm.loading = true;
+            var rows = vm.selectedRows.map(function (item) {
+                return item.ID;
+            });
+
+            var params = {
+                id: vm.selectedApi,
+                rows: rows.join(',')
+            };
+
+            api.route('interface/data/rows/remove', params)
+                .then(onRemove, onError)
+                .finally(onDone)
+            ;
+
+            /**
+             * Called after the rows are removed successfully and the data loading starts again.
+             */
+            function onRemove () {
+                $toast('ROWS_REMOVED_SUCCESSFULLY');
+
+                vm.loadData();
             }
         };
 
