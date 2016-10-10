@@ -44,14 +44,14 @@
                 <md-slider-container data-ng-disabled="vm.form.type === 'inner'">
                     <md-slider flex
                                data-ng-model="vm.form.interval"
-                               min="5"
+                               min="1"
                                max="3600"
                                class="md-primary"
                                aria-label="{{ ::'INTERVAL' | translate }}"
                     ></md-slider>
                     <md-input-container>
                         <input flex type="number"
-                               min="5"
+                               min="1"
                                max="3600"
                                id="api_manager_update_api_interval"
                                data-ng-model="vm.form.interval"
