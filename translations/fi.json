@@ -78,6 +78,7 @@
   "TT_ACTIVE": "Aktiivinen",
   "TT_PASSIVE": "Passiivinen",
   "TT_FIELD_AMOUNT": "Rajapintakenttien määrä",
+  "TT_NOTIFICATIONS": "Notifikaatiot",
 
   // Sockets
   "REALTIME_CONNECTION_OPENED": "Reaaliaikayhteys avattu",

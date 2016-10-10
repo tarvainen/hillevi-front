@@ -53,6 +53,9 @@
             .when('/apidator', {
                 templateUrl: 'web/templates/api-data-manager/'
             })
+            .when('/notifications', {
+                templateUrl: 'web/templates/notifications/'
+            })
         ;
 
         $translateProvider.useStaticFilesLoader({
