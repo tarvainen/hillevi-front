@@ -1,4 +1,5 @@
 node_modules/
 build/
 .idea/
-env/*
+env/dev.js
+env/prod.js
