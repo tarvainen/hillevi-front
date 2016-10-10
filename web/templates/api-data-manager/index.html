@@ -2,19 +2,85 @@
             data-ng-controller="ApiDataManager.MainController as vm"
 >
     <md-content layout="column" flex md-whiteframe="4">
-        <md-content layout-padding>
-            <md-input-container>
-                <md-select data-ng-model="vm.selectedApi"
-                           md-on-open="vm.fetchApis()"
-                           placeholder="{{ ::'SELECT_API' | translate }}"
-                >
-                    <md-option data-ng-repeat="api in vm.apis"
-                               data-ng-value="api.id"
+        <md-content layout-padding flex layout="column">
+            <md-content>
+                <md-input-container>
+                    <label>{{ ::'INTERFACE' | translate }}</label>
+                    <md-select data-ng-model="vm.selectedApi"
+                               placeholder="{{ ::'SELECT_API' | translate }}"
+                               data-ng-change="vm.loadData()"
+                               style="min-width: 200px;"
                     >
-                        {{ ::api.name }}
-                    </md-option>
-                </md-select>
-            </md-input-container>
+                        <md-option data-ng-repeat="api in vm.apis"
+                                   data-ng-value="api.id"
+                        >
+                            {{ ::api.name }}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container
+                        data-ng-if="vm.selectedApi"
+                >
+                    <label>{{ ::'COLUMNS' | translate }}</label>
+                    <md-select multiple
+                               data-ng-model="vm.selectedColumns"
+                    >
+                        <md-option data-ng-value="column"
+                                   data-ng-repeat="column in vm.columns"
+                        >
+                            {{ ::column.field }}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </md-content>
+
+            <md-content layout="column" flex>
+                <md-table-container layout="column" flex>
+                    <table md-table md-row-select
+                           multiple
+                           data-ng-model="vm.selected"
+                    >
+                        <thead md-head>
+                            <tr md-row>
+                                <th md-column><span>{{ ::'ID' | translate }}</span></th>
+                                <th md-column><span>{{ ::'TIMESTAMP' | translate }}</span></th>
+                                <th md-column
+                                    data-ng-repeat="column in vm.selectedColumns"
+                                >
+                                    <span>{{ ::column.field }}</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row md-auto-select
+                                data-ng-repeat="row in vm.data"
+                                md-select="row"
+                                md-select-id="ID"
+                                md-on-select="vm.onSelect"
+                                md-on-deselect="vm.onDeselect"
+                            >
+                                <td md-cell>{{ ::row.ID }}</td>
+                                <td md-cell>{{ ::row.REQUESTED_AT | date }}</td>
+                                <td md-cell
+                                    data-ng-repeat="column in vm.selectedColumns"
+                                >
+                                    {{ ::row[column.field] }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+
+                <md-table-pagination md-limit="10"
+                                     md-limit-options="[10, 20, 30]"
+                                     md-page="vm.page"
+                                     md-total="{{ vm.data.length }}"
+                                     md-on-paginate="getApis"
+                                     md-page-select
+                ></md-table-pagination>
+            </md-content>
+
         </md-content>
     </md-content>
 </md-content>
