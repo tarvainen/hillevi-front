@@ -38,9 +38,25 @@
                 <span flex></span>
 
                 <md-button class="md-icon-button"
+                           data-ng-disabled="!vm.selectedApi"
+                           data-ng-click="vm.loadData()"
+                >
+                    <md-tooltip>
+                        {{ ::'TT_REFRESH' | translate }}
+                    </md-tooltip>
+
+                    <md-icon>
+                        refresh
+                    </md-icon>
+                </md-button>
+
+                <md-button class="md-icon-button"
                            data-ng-disabled="vm.selectedRows.length <= 0"
                            data-ng-click="vm.removeRows()"
                 >
+                    <md-tooltip>
+                        {{ ::'TT_DELETE' | translate }}
+                    </md-tooltip>
                     <md-icon>
                         delete
                     </md-icon>
@@ -51,12 +67,19 @@
                 <md-table-container layout="column" flex>
                     <table md-table md-row-select
                            multiple
+                           md-progress="vm.dataFetcher"
                            data-ng-model="vm.selectedRows"
                     >
-                        <thead md-head>
+                        <thead md-head md-order="orderBy">
                             <tr md-row>
-                                <th md-column><span>{{ ::'ID' | translate }}</span></th>
-                                <th md-column><span>{{ ::'TIMESTAMP' | translate }}</span></th>
+                                <th md-column
+                                    data-md-order-by="ID"
+                                >
+                                    <span>{{ ::'ID' | translate }}</span>
+                                </th>
+                                <th md-column>
+                                    <span>{{ ::'TIMESTAMP' | translate }}</span>
+                                </th>
                                 <th md-column
                                     data-ng-repeat="column in vm.selectedColumns"
                                 >
@@ -66,7 +89,7 @@
                         </thead>
                         <tbody md-body>
                             <tr md-row md-auto-select
-                                data-ng-repeat="row in vm.data"
+                                data-ng-repeat="row in vm.data | orderBy:orderBy"
                                 md-select="row"
                                 md-select-id="ID"
                                 md-on-select="vm.onSelect"

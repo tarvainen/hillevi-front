@@ -71,6 +71,8 @@
             var dataCall = api.route('interface/data', params);
             var metaCall = api.route('interface/schema', params);
 
+            vm.dataFetcher = dataCall;
+
             $q.all([dataCall, metaCall])
                 .then(onData, onError)
                 .finally(onDone)
