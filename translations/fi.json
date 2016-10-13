@@ -63,6 +63,10 @@
   "APP_SETTINGS": "Sovellusasetukset",
   "NOTIFICATIONS_ENABLED": "Notifikaatiot käytössä",
 
+  // Dashboard
+  "DASHBOARD_SETTINGS": "Dashboardin asetukset",
+
+
   // API interface
   "LIST_OF_APIS": "Rajapinnat",
   "CREATE_API": "Uusi rajapinta",

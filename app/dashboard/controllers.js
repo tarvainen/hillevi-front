@@ -12,17 +12,41 @@
     angular.module('Dashboard.Controllers')
         .controller('Dashboard.MainController', MainController)
         .controller('Dashboard.WidgetController', WidgetController)
+        .controller('Dashboard.SettingsDialogController', SettingsDialogController)
     ;
     
     //////////////
 
+    MainController.$inject = ['$mdDialog'];
+
     /**
      * Main controller for the dashboard application.
      *
+     * @param {*} $mdDialog
+     *
      * @constructor
      */
-    function MainController () {
+    function MainController ($mdDialog) {
         var vm = this;
+
+        /**
+         * Opens the settings dialog.
+         *
+         * @param $event
+         */
+        vm.openSettings = function openSettings ($event) {
+            $mdDialog.show({
+                parent: angular.element(document.body),
+                targetEvent: $event,
+                templateUrl: 'web/templates/dashboard/partials/settings.html',
+                controller: 'Dashboard.SettingsDialogController',
+                controllerAs: 'vm'
+            }).then(onSave);
+
+            function onSave () {
+                // TODO: refresh view
+            }
+        };
     }
 
     WidgetController.$inject = ['$toast'];
@@ -69,6 +93,26 @@
         };
 
         vm.load();
+    }
+
+    SettingsDialogController.$inject = ['$mdDialog'];
+
+    /**
+     * Controller for the dashboard's settings dialog.
+     *
+     * @param {*} $mdDialog
+     *
+     * @constructor
+     */
+    function SettingsDialogController ($mdDialog) {
+        var vm = this;
+
+        /**
+         * Close the dialog.
+         */
+        vm.cancel = function cancel () {
+            $mdDialog.cancel();
+        };
     }
 
 })();
