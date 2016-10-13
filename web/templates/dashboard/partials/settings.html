@@ -1,4 +1,4 @@
-<md-dialog flex flex-gt-xs="50">
+<md-dialog flex flex-gt-xs="50" ng-cloak>
     <md-toolbar>
         <div class="md-toolbar-tools">
             <h2>{{ ::'DASHBOARD_SETTINGS' | translate }}</h2>
@@ -11,7 +11,41 @@
         </div>
     </md-toolbar>
 
-    <md-dialog-content layout-padding>
-        <h1>Todo: Add content</h1>
+    <md-dialog-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="{{ ::'DASHBOARD_TAB_WIDGETS' | translate }}">
+                <md-content layout-padding>
+                    <h1>TODO: Add content</h1>
+                </md-content>
+            </md-tab>
+            <md-tab label="{{ ::'DASHBOARD_TAB_SETTINGS' | translate }}">
+                <md-content layout-padding>
+                    <p class="md-headline">{{ ::'DASHBOARD_SETTINGS' | translate }}</p>
+                    <span>{{ ::'DASHBOARD_REFRESH_INTERVAL' | translate }}</span>
+                    <md-slider-container>
+                        <md-slider flex min="5" max="60"
+                                   id="slider_dashboard_settings_refresh_interval"
+                                   data-ng-model="vm.refreshInterval"
+                                   aria-label="{{ ::'DASHBOARD_REFRESH_INTERVAL' | translate }}"
+                        >
+                        </md-slider>
+                        <md-input-container>
+                            <input flex type="number"
+                                   data-ng-model="vm.refreshInterval"
+                                   aria-label="{{ ::'DASHBOARD_REFRESH_INTERVAL' | translate }}"
+                                   aria-controls="slider_dashboard_settings_refresh_interval"
+                            >
+                        </md-input-container>
+                    </md-slider-container>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+        <md-content layout="row" layout-margin layout-align="end center">
+            <md-button type="submit" id="btn_save_dashboard_settings" class="md-raised md-primary"
+                       data-ng-click="vm.save()"
+            >
+                {{ ::'SAVE' | translate }}
+            </md-button>
+        </md-content>
     </md-dialog-content>
 </md-dialog>

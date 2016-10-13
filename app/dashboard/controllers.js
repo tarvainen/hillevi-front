@@ -113,6 +113,16 @@
         vm.cancel = function cancel () {
             $mdDialog.cancel();
         };
+
+        /**
+         * Saves the dashboard settings.
+         */
+        vm.save = function save () {
+            vm.loading = true;
+            // TODO: implement data saving and close the dialog
+
+            $mdDialog.hide();
+        };
     }
 
 })();

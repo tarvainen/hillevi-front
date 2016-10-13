@@ -65,7 +65,9 @@
 
   // Dashboard
   "DASHBOARD_SETTINGS": "Dashboardin asetukset",
-
+  "DASHBOARD_REFRESH_INTERVAL": "Päivitysaikaväli (min)",
+  "DASHBOARD_TAB_WIDGETS": "Widgetit",
+  "DASHBOARD_TAB_SETTINGS": "Asetukset",
 
   // API interface
   "LIST_OF_APIS": "Rajapinnat",
