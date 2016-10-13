@@ -18,6 +18,15 @@
         <span flex></span>
 
         <md-button class="md-icon-button"
+                   data-ng-click="vm.toggleSocket()"
+        >
+            <md-tooltip>
+                {{ (vm.connected ? 'TT_REALTIME_CONNECTION_OPEN' : 'TT_REALTIME_CONNECTION_CLOSED') | translate }}
+            </md-tooltip>
+            <md-icon>{{ vm.connected ? 'network_wifi' : 'signal_wifi_off' }}</md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button"
                    data-ng-href="#/notifications"
         >
             <md-tooltip>{{ 'TT_NOTIFICATIONS' | translate }}</md-tooltip>

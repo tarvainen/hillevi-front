@@ -29,7 +29,8 @@
                     {{ ::notification.timestamp | date:'dd.MM.yyyy H:mm:ss' }}
                 </span>
                 <br/>
-                <span>{{ ::notification.content }}</span>
+                <span>{{ ::notification.content.tag | translate }}</span><br/>
+                <span>{{ ::notification.content.extra }}</span>
             </div>
             <md-checkbox class="md-secondary"
                          aria-label="{{ ::'SELECTED' | translate }}"

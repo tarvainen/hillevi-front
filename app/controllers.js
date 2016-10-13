@@ -40,6 +40,7 @@
 
         vm.user = DataService.storage.get('user');
         var socket;
+        vm.connected = false;
 
         /**
          * Watch authentication status changes.
@@ -99,6 +100,7 @@
         vm.initSocketEvents = function initSocketEvents () {
             socket.onMessage(onMessage);
             socket.onError(onError);
+            socket.onClose(onClose);
 
             /**
              * Called when a new message is fetched.
@@ -106,7 +108,9 @@
              * @param {*} message
              */
             function onMessage (message) {
-                $toast(message.data);
+                vm.connected = true;
+                message = JSON.parse(message.data);
+                $toast(message.tag);
             }
 
             /**
@@ -114,6 +118,14 @@
              */
             function onError () {
                 $toast('REALTIME_CONNECTION_FAILED_TO_OPEN');
+            }
+
+            /**
+             * Called when the socket connection is closed.
+             */
+            function onClose () {
+                $toast('REALTIME_CONNECTION_CLOSED');
+                vm.connected = false;
             }
         };
 
@@ -127,8 +139,17 @@
 
             if (vm.user) {
                 vm.authSocket();
+            }
+        };
+
+        /**
+         * Toggles the socket connection.
+         */
+        vm.toggleSocket = function toggleSocket() {
+            if (vm.connected) {
+                socket.close();
             } else {
-                $timeout(vm.connectSocket, 4000);
+                vm.connectSocket();
             }
         };
 

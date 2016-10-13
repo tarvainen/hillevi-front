@@ -43,6 +43,10 @@
              * @param {*}   data
              */
             function onSuccess (data) {
+                angular.forEach(data.data, function (notification) {
+                    notification.content = JSON.parse(notification.content);
+                });
+
                 vm.data = data.data;
             }
         };

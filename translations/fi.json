@@ -87,8 +87,16 @@
   "TT_PASSIVE": "Passiivinen",
   "TT_FIELD_AMOUNT": "Rajapintakenttien määrä",
   "TT_NOTIFICATIONS": "Notifikaatiot",
+  "TT_REALTIME_CONNECTION_OPEN": "Muhvi on auki",
+  "TT_REALTIME_CONNECTION_CLOSED": "Muhvi on kiinni",
+
+  // Notifications
+  "NOTIFICATION_YOU_HAVE_NEW_NOTIFICATIONS": "Sait uusia ilmoituksia",
+  "YOUR_INTERFACES_HAS_BEEN_READ": "Rajapintasi on luettu",
+  "MORE_INFORMATION": "Lisätietoja: ",
 
   // Sockets
-  "REALTIME_CONNECTION_OPENED": "Reaaliaikayhteys avattu",
-  "REALTIME_CONNECTION_FAILED_TO_OPEN": "Reaaliaikayhteyden avaamisessa tapahtui virhe"
+  "REALTIME_CONNECTION_OPENED": "Muhvi avattu",
+  "REALTIME_CONNECTION_CLOSED": "Muhvi suljettu",
+  "REALTIME_CONNECTION_FAILED_TO_OPEN": "Muhvin avaamisessa tapahtui virhe"
 }
