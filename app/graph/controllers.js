@@ -48,8 +48,16 @@
          */
         vm.load = function load () {
             vm.loading = true;
+            vm.data = {};
 
-            GraphDataService.getData(vm.graph)
+            vm.graph.chartType = vm.graphTypes[vm.chartType];
+
+            var params = angular.copy(vm.graph);
+
+            params.startDateTime = '@' + Math.round(params.startDateTime.getTime() / 1000);
+            params.endDateTime = '@' + Math.round(params.endDateTime.getTime() / 1000);
+
+            GraphDataService.getData(params)
                 .then(onSuccess)
                 .finally(onDone)
             ;
@@ -75,9 +83,13 @@
          * Reset the search setting.
          */
         vm.reset = function reset () {
-            vm.graph = {};
-            vm.endDateTime = new Date();
-            vm.startDateTime = new Date().setDate(vm.endDateTime.getDate() - 1);
+            vm.graph = {
+                chartType: 0
+            };
+
+            vm.data = {};
+            vm.graph.endDateTime = new Date();
+            vm.graph.startDateTime = new Date(new Date().setDate(vm.graph.endDateTime.getDate() - 1));
         };
 
         vm.init();

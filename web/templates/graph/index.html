@@ -26,11 +26,11 @@
             <label>{{ ::'GRAPH_TYPE' | translate }}</label>
             <md-select
                     id="input_graph_type"
-                    data-ng-model="vm.graph.type"
+                    data-ng-model="vm.chartType"
                     aria-label="{{ ::'TYPE' | translate }}"
                     required
             >
-                <md-option value="{{ option.id }}"
+                <md-option value="{{ $index }}" data-ng-selected="$first"
                            data-ng-repeat="option in vm.graphTypes track by option.id"
                 >
                     {{ ::option.name | translate }}
@@ -40,12 +40,12 @@
 
         <date-time-picker
                 data-label="{{ ::'START_DATE '| translate }}"
-                data-ng-model="vm.startDateTime"
+                data-ng-model="vm.graph.startDateTime"
         ></date-time-picker>
 
         <date-time-picker
                 data-label="{{ ::'END_DATE '| translate }}"
-                data-ng-model="vm.endDateTime"
+                data-ng-model="vm.graph.endDateTime"
         ></date-time-picker>
 
         <span flex></span>
@@ -56,7 +56,7 @@
                     data-ng-model="vm.setting"
                     aria-label="{{ ::'TYPE' | translate }}"
             >
-                <md-option value="{{ setting.id }}"
+                <md-option value="{{ setting }}"
                            data-ng-repeat="setting in vm.savedSettings track by setting.id"
                 >
                     {{ ::setting.name }}
@@ -83,9 +83,11 @@
 
     <md-content flex layout="column" flex>
         <canvas id="canvas_graph_interface_main"
-                class="chart-line"
+                class="chart-base"
+                data-chart-type="vm.graph.chartType.type"
                 data-chart-data="vm.data.data"
                 data-chart-labels="vm.data.labels"
+                data-chart-series="vm.data.series"
         ></canvas>
     </md-content>
 </md-content>
