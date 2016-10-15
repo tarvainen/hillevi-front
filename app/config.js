@@ -56,6 +56,9 @@
             .when('/notifications', {
                 templateUrl: 'web/templates/notifications/'
             })
+            .when('/graph', {
+                templateUrl: 'web/templates/graph/'
+            })
         ;
 
         $translateProvider.useStaticFilesLoader({
