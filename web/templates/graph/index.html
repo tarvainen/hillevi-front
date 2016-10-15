@@ -1,6 +1,7 @@
 <md-content data-ng-app="Graph"
             data-ng-controller="Graph.MainController as vm"
             layout="column"
+            layout-fill
             flex
 >
     <md-content layout="row">
@@ -46,5 +47,45 @@
                 data-label="{{ ::'END_DATE '| translate }}"
                 data-ng-model="vm.endDateTime"
         ></date-time-picker>
+
+        <span flex></span>
+        <md-input-container>
+            <label>{{ ::'SAVED_GRAPH_SETTINGS' | translate }}</label>
+            <md-select
+                    id="input_saved_graph_settings"
+                    data-ng-model="vm.setting"
+                    aria-label="{{ ::'TYPE' | translate }}"
+            >
+                <md-option value="{{ setting.id }}"
+                           data-ng-repeat="setting in vm.savedSettings track by setting.id"
+                >
+                    {{ ::setting.name }}
+                </md-option>
+            </md-select>
+        </md-input-container>
+    </md-content>
+
+    <md-content layout="row" layout-align="end center"layout-margin>
+        <md-button class="md-primary md-raised"
+                   data-ng-click="vm.reset()"
+        >
+            {{ ::'RESET_CHART_SETTINGS' | translate }}
+        </md-button>
+
+        <md-button class="md-primary md-raised"
+                   data-ng-click="vm.load()"
+        >
+            {{ ::'FETCH_CHART_DATA' | translate }}
+        </md-button>
+    </md-content>
+
+    <loader data-ng-if="vm.loading"></loader>
+
+    <md-content flex layout="column" flex>
+        <canvas id="canvas_graph_interface_main"
+                class="chart-line"
+                data-chart-data="vm.data.data"
+                data-chart-labels="vm.data.labels"
+        ></canvas>
     </md-content>
 </md-content>

@@ -27,7 +27,8 @@
     function GraphDataService (api) {
         return {
             getGraphTypes: getGraphTypes,
-            getColumns: getColumns
+            getColumns: getColumns,
+            getData: getData
         };
 
         /**
@@ -51,9 +52,25 @@
                 }
             ]
         }
-        
+
+        /**
+         * Fetches the available columns for the data fetch.
+         *
+         * @returns {*}
+         */
         function getColumns () {
             return api.route('graph/columns/all');
+        }
+
+        /**
+         * Fetch data for the graph.
+         *
+         * @param {*}   settings
+         *
+         * @returns {*}
+         */
+        function getData (settings) {
+            return api.route('graph/data', settings);
         }
     }
 

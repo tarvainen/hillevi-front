@@ -107,11 +107,15 @@
   "REALTIME_CONNECTION_FAILED_TO_OPEN": "Muhvin avaamisessa tapahtui virhe",
 
   // Graph
+  "GRAPH": "Trendikuvaaja",
   "PIE_CHART": "Piirakkakaavio",
   "BAR_CHART": "Pylväskaavio",
   "LINE_CHART": "Viivakaavio",
   "GRAPH_TYPE": "Kaavion tyyppi",
   "SHOWN_COLUMNS": "Näytettävät arvot",
   "START_DATE": "Mistä",
-  "END_DATE": "Mihin"
+  "END_DATE": "Mihin",
+  "SAVED_GRAPH_SETTINGS": "Tallennettu haku",
+  "FETCH_CHART_DATA": "Hae",
+  "RESET_CHART_SETTINGS": "Tyhjennä"
 }
