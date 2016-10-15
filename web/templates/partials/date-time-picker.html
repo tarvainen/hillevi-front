@@ -1,0 +1,12 @@
+<md-content layout="row" layout-align="end center">
+    <md-input-container>
+        <label>{{ ::vm.label }}</label>
+        <input type="text" readonly value="{{ vm.ngModel | date:(vm.format || 'd.M.yyyy HH:mm') }}"/>
+    </md-input-container>
+    <md-button class="md-icon-button md-date-time-picker-button"
+               data-ng-model="vm.ngModel"
+               date-time-picker-popup
+    >
+        <md-icon>event</md-icon>
+    </md-button>
+</md-content>

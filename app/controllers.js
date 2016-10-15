@@ -11,6 +11,7 @@
      */
     angular.module('App.Controllers')
         .controller('AppController', AppController)
+        .controller('DateTimePickerPopupController', DateTimePickerPopupController)
     ;
 
     ///////////////
@@ -162,6 +163,36 @@
         };
 
         vm.connectSocket();
+    }
+
+    DateTimePickerPopupController.$inject = ['$mdDialog', 'locals'];
+
+    /**
+     * Controller for the date time picker popup dialog.
+     *
+     * @param {*}    $mdDialog
+     * @param {*}    locals
+     *
+     * @constructor
+     */
+    function DateTimePickerPopupController ($mdDialog, locals) {
+        var vm = this;
+
+        vm.model = locals.date || new Date();
+
+        /**
+         * Cancel the dialog.
+         */
+        vm.cancel = function cancel () {
+            $mdDialog.cancel();
+        };
+
+        /**
+         * Save the dialog and close it.
+         */
+        vm.save = function save () {
+            $mdDialog.hide(vm.model);
+        };
     }
 
 })();

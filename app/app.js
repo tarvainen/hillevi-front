@@ -11,6 +11,7 @@
         'md.data.table',
         'ngWebSocket',
         'pascalprecht.translate',
+        'scDateTime',
         'chart.js',
         'angular-md5',
         'ngMaterialSidemenu',
@@ -52,5 +53,4 @@
             DataService.storage.set('user', null);
         }
     }
-
 })();

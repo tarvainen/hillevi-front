@@ -92,3 +92,7 @@ md-input-container.no-whitespace input {
     position: relative;
     border-bottom: none;
 }
+
+.md-date-time-picker-button {
+    margin-top: -16px !important;
+}

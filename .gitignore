@@ -3,3 +3,5 @@ build/
 .idea/
 env/dev.js
 env/prod.js
+bower_components/
+fonts/

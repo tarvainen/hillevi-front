@@ -1,0 +1,20 @@
+{
+  "name": "hillevi-front",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Atte Tarvainen <atte.tarvainen@pp1.inet.fi>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/tarvainen/hillevi-front",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "sc-date-time": "^1.1.6"
+  }
+}

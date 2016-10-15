@@ -3,5 +3,48 @@
             layout="column"
             flex
 >
+    <md-content layout="row">
+        <md-input-container flex="20">
+            <label>{{ ::'SHOWN_COLUMNS' | translate }}</label>
+            <md-select
+                    id="input_graph_selected_columns"
+                    multiple
+                    data-ng-model="vm.graph.columns"
+                    aria-label="{{ ::'TYPE' | translate }}"
+                    required
+            >
+                <md-option value="{{ column }}"
+                           data-ng-repeat="column in vm.columns track by $index"
+                >
+                    {{ ::column.field }} ({{ ::column.api }})
+                </md-option>
+            </md-select>
+        </md-input-container>
 
+        <md-input-container>
+            <label>{{ ::'GRAPH_TYPE' | translate }}</label>
+            <md-select
+                    id="input_graph_type"
+                    data-ng-model="vm.graph.type"
+                    aria-label="{{ ::'TYPE' | translate }}"
+                    required
+            >
+                <md-option value="{{ option.id }}"
+                           data-ng-repeat="option in vm.graphTypes track by option.id"
+                >
+                    {{ ::option.name | translate }}
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+        <date-time-picker
+                data-label="{{ ::'START_DATE '| translate }}"
+                data-ng-model="vm.startDateTime"
+        ></date-time-picker>
+
+        <date-time-picker
+                data-label="{{ ::'END_DATE '| translate }}"
+                data-ng-model="vm.endDateTime"
+        ></date-time-picker>
+    </md-content>
 </md-content>

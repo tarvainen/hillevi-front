@@ -104,5 +104,14 @@
   // Sockets
   "REALTIME_CONNECTION_OPENED": "Muhvi avattu",
   "REALTIME_CONNECTION_CLOSED": "Muhvi suljettu",
-  "REALTIME_CONNECTION_FAILED_TO_OPEN": "Muhvin avaamisessa tapahtui virhe"
+  "REALTIME_CONNECTION_FAILED_TO_OPEN": "Muhvin avaamisessa tapahtui virhe",
+
+  // Graph
+  "PIE_CHART": "Piirakkakaavio",
+  "BAR_CHART": "Pylväskaavio",
+  "LINE_CHART": "Viivakaavio",
+  "GRAPH_TYPE": "Kaavion tyyppi",
+  "SHOWN_COLUMNS": "Näytettävät arvot",
+  "START_DATE": "Mistä",
+  "END_DATE": "Mihin"
 }
