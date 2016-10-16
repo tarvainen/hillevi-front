@@ -98,7 +98,8 @@
          */
         vm.reset = function reset () {
             vm.graph = {
-                chartType: 0
+                chartType: 0,
+                scale: 0
             };
 
             vm.setting = -1;

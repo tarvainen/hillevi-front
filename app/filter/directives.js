@@ -30,6 +30,7 @@
                 ngModel: '=',
                 label: '@',
                 id: '@',
+                require: '@',
                 collection: '='
             },
             templateUrl: 'web/templates/filters/generic-filter.html',
