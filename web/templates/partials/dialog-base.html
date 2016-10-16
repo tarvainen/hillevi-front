@@ -1,0 +1,32 @@
+<div>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{ ::vm.title }}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button"
+                       data-ng-click="vm.cancel()"
+            >
+                <md-icon>close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <ng-transclude></ng-transclude>
+    </md-dialog-content>
+
+    <md-content layout="row"
+                layout-align="end center"
+    >
+        <md-button data-ng-click="vm.cancel()"
+        >
+            {{ ::'CANCEL' | translate }}
+        </md-button>
+
+        <md-button class="md-primary md-raised"
+                   data-ng-click="vm.save()"
+        >
+            {{ ::'SAVE' | translate }}
+        </md-button>
+    </md-content>
+</div>

@@ -12,6 +12,7 @@
     angular.module('App.Controllers')
         .controller('AppController', AppController)
         .controller('DateTimePickerPopupController', DateTimePickerPopupController)
+        .controller('DialogBaseController', DialogBaseController)
     ;
 
     ///////////////
@@ -192,6 +193,41 @@
          */
         vm.save = function save () {
             $mdDialog.hide(vm.model);
+        };
+    }
+
+    DialogBaseController.$inject = ['$mdDialog'];
+
+    /**
+     * Controller for the dialog base directive.
+     *
+     * @param {*}   $mdDialog
+     *
+     * @constructor
+     */
+    function DialogBaseController ($mdDialog) {
+        var vm = this;
+
+        /**
+         * Cancel the dialog.
+         */
+        vm.cancel = function cancel () {
+            if (vm.onCancel instanceof Function) {
+                vm.onCancel();
+            }
+
+            $mdDialog.cancel();
+        };
+
+        /**
+         * Save the data and close the dialog.
+         */
+        vm.save = function save () {
+            if (vm.onSave instanceof Function) {
+                vm.onSave();
+            }
+
+            $mdDialog.hide();
         };
     }
 

@@ -16,6 +16,7 @@
         .factory('$toast', $toast)
         .factory('$confirm', $confirm)
         .factory('$prompt', $prompt)
+        .factory('$dialog', $dialog)
     ;
 
     ///////////////
@@ -202,6 +203,8 @@
         }
     }
 
+    $prompt.inject = ['$mdDialog', '$translate', '$q'];
+
     /**
      * The prompt service for more fluent usage.
      *
@@ -229,6 +232,34 @@
                 .cancel($translate.instant('CANCEL'));
 
             $mdDialog.show(confirm).then(defer.resolve, defer.reject);
+
+            return defer.promise;
+        }
+    }
+
+    $dialog.inject = ['$mdDialog', '$q'];
+
+    /**
+     * The dialog service for more fluent usage.
+     *
+     * @param   {*} $mdDialog
+     * @param   {*} $q
+     *
+     * @returns {Function}
+     */
+    function $dialog ($mdDialog, $q) {
+        return function (params) {
+            var defer = $q.defer();
+
+            $mdDialog.show({
+                controller: params.controller,
+                controllerAs: 'vm',
+                bindToController: true,
+                locals: params.locals,
+                templateUrl: params.template,
+                parent: angular.element(document.body),
+                clickOutsideToClose: false
+            }).then(defer.resolve, defer.reject);
 
             return defer.promise;
         }

@@ -13,6 +13,7 @@
         .directive('loader', loader)
         .directive('dateTimePicker', dateTimePicker)
         .directive('dateTimePickerPopup', dateTimePickerPopup)
+        .directive('dialogBase', dialogBase)
     ;
 
     ////////////////////
@@ -85,4 +86,27 @@
             }
         };
     }
+
+    /**
+     * Directive for the base dialog.
+     *
+     * @returns {*}
+     */
+    function dialogBase () {
+        return {
+            restrict: 'E',
+            templateUrl: 'web/templates/partials/dialog-base.html',
+            controller: 'DialogBaseController',
+            controllerAs: 'vm',
+            bindToController: true,
+            replace: true,
+            transclude: true,
+            scope: {
+                onSave: '=',
+                onCancel: '=',
+                title: '@'
+            }
+        };
+    }
+
 })();

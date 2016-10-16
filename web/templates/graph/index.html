@@ -5,7 +5,7 @@
             flex
 >
     <form name="form_search_settings" flex layout="column">
-        <md-content layout="row">
+        <md-content layout="row" layout-align="start center">
             <md-input-container flex="20">
                 <label>{{ ::'SHOWN_COLUMNS' | translate }}</label>
                 <md-select
@@ -40,6 +40,12 @@
                     data-action="settings/search/trend"
                     flex="20"
             ></generic-filter>
+
+            <md-button class="md-icon-button"
+                       data-ng-click="vm.openSettings()"
+            >
+                <md-icon>settings</md-icon>
+            </md-button>
         </md-content>
 
         <md-content layout="row">
@@ -64,14 +70,12 @@
             <span flex></span>
 
             <md-content layout-align="end center">
-                <md-button class="md-primary md-raised"
-                           data-ng-click="vm.save()"
+                <md-button data-ng-click="vm.save()"
                 >
                     {{ ::'SAVE_SEARCH_SETTING' | translate }}
                 </md-button>
 
-                <md-button class="md-primary md-raised"
-                           data-ng-click="vm.reset()"
+                <md-button data-ng-click="vm.reset()"
                 >
                     {{ ::'RESET_CHART_SETTINGS' | translate }}
                 </md-button>

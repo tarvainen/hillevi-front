@@ -5,11 +5,12 @@
 
     angular.module('Graph.Controllers')
         .controller('Graph.MainController', MainController)
+        .controller('Graph.SettingsController', SettingsController)
     ;
 
     ////////////////
 
-    MainController.$inject = ['$scope', 'GraphDataService', '$prompt', '$confirm', '$timeout'];
+    MainController.$inject = ['$scope', 'GraphDataService', '$prompt', '$confirm', '$timeout', '$dialog'];
 
     /**
      * Main controller for the graph interface.
@@ -19,10 +20,11 @@
      * @param {*} $prompt
      * @param {*} $confirm
      * @param {*} $timeout
+     * @param {*} $dialog
      *
      * @constructor
      */
-    function MainController ($scope, GraphDataService, $prompt, $confirm, $timeout) {
+    function MainController ($scope, GraphDataService, $prompt, $confirm, $timeout, $dialog) {
         var vm = this;
 
         vm.columns = [];
@@ -150,7 +152,7 @@
                         id: vm.graph.id,
                         name: name,
                         settings: vm.graph
-                    }).then(vm.reload);
+                    }).then(onSave);
                 }
 
                 /**
@@ -162,26 +164,63 @@
                     GraphDataService.saveSettings({
                         name: name,
                         settings: vm.graph
-                    }).then(vm.reload);
+                    }).then(onSave);
+                }
+
+                /**
+                 * Called when the setting is saved.
+                 *
+                 * @param data
+                 */
+                function onSave (data) {
+                    vm.settings.push(data.data);
+
+                    $timeout(function () {
+                        vm.setting = data.data.id;
+                    });
+
+                    vm.reload();
                 }
             }
         };
 
         /**
          * Reload filters.
-         *
-         * @param data
          */
-        vm.reload = function reload (data) {
+        vm.reload = function reload () {
             $scope.$broadcast('reloadFilters');
-            vm.settings.push(data.data);
+        };
 
-            $timeout(function () {
-                vm.setting = data.data.id;
-            });
+        /**
+         * Open the setting dialog.
+         */
+        vm.openSettings = function openSettings () {
+            $dialog({
+                controller: 'Graph.SettingsController',
+                template: 'web/templates/graph/partials/settings.html'
+            }).then(onSave);
+
+            function onSave () {
+                vm.reload();
+            }
         };
 
         vm.init();
+    }
+
+    SettingsController.$inject = ['$mdDialog'];
+
+    /**
+     * Controller for the settings dialog.
+     *
+     * @constructor
+     */
+    function SettingsController () {
+        var vm = this;
+
+        vm.save = function save () {
+            // TODO: implement save
+        };
     }
 
 })();
