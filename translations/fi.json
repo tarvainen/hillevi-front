@@ -123,5 +123,10 @@
   "SCALE_WEEK": "Viikoittain",
   "SCALE_DAY": "Päivittäin",
   "SCALE_HOUR": "Tunneittain",
-  "SCALE_YEAR": "Vuosittain"
+  "SCALE_YEAR": "Vuosittain",
+  "SAVE_SEARCH_SETTING": "Tallenna asetukset",
+  "GIVE_THIS_SEARCH_A_NAME": "Anna asetuksillesi nimi",
+  "DESC_GIVE_THIS_SEARCH_A_NAME": "Anna asetuksillesi jokin niitä hyvin kuvaava nimi.",
+  "NAME_FOR_YOUR_SAVED_SEARCH": "Nimi tallennetulle asetuksellesi",
+  "DO_WE_OVERWRITE_OLD_SETTING": "Ylikirjoitetaanko vanha asetus?"
 }

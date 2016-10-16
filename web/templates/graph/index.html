@@ -4,82 +4,95 @@
             layout-fill
             flex
 >
-    <md-content layout="row">
-        <md-input-container flex="20">
-            <label>{{ ::'SHOWN_COLUMNS' | translate }}</label>
-            <md-select
-                    id="input_graph_selected_columns"
-                    multiple
-                    data-ng-model="vm.graph.columns"
-                    aria-label="{{ ::'TYPE' | translate }}"
-                    required
-            >
-                <md-option value="{{ column }}"
-                           data-ng-repeat="column in vm.columns track by $index"
+    <form name="form_search_settings" flex layout="column">
+        <md-content layout="row">
+            <md-input-container flex="20">
+                <label>{{ ::'SHOWN_COLUMNS' | translate }}</label>
+                <md-select
+                        id="input_graph_selected_columns"
+                        multiple
+                        data-ng-model="vm.graph.columns"
+                        aria-label="{{ ::'TYPE' | translate }}"
+                        required
                 >
-                    {{ ::column.name }} ({{ ::column.api }}::{{ ::column.field }})
-                </md-option>
-            </md-select>
-        </md-input-container>
+                    <md-option value="{{ column }}"
+                               data-ng-repeat="column in vm.columns track by $index"
+                    >
+                        {{ ::column.name }} ({{ ::column.api }}::{{ ::column.field }})
+                    </md-option>
+                </md-select>
+            </md-input-container>
 
-        <generic-filter
-                data-ng-model="vm.chartType"
-                data-action="charttype"
-                data-label="{{ ::'CHART_TYPE' | translate }}"
-        ></generic-filter>
+            <generic-filter
+                    data-ng-model="vm.graph.chartType"
+                    data-action="filters/charttype"
+                    data-collection="vm.chartTypes"
+                    data-label="{{ ::'CHART_TYPE' | translate }}"
+            ></generic-filter>
 
-        <span flex></span>
+            <span flex></span>
 
-        <generic-filter
-            data-ng-model="vm.setting"
-            data-label="{{ ::'SAVED_GRAPH_SETTINGS' | translate }}"
-            data-action="setting/trend"
-        ></generic-filter>
-    </md-content>
-
-    <md-content layout="row">
-        <generic-filter
-            data-ng-model="vm.scale"
-            data-action="timescale"
-            data-label="{{ ::'SCALE_SELECT' | translate }}"
-        ></generic-filter>
-
-        <date-time-picker
-                data-label="{{ ::'START_DATE '| translate }}"
-                data-ng-model="vm.graph.startDateTime"
-        ></date-time-picker>
-
-        <date-time-picker
-                data-label="{{ ::'END_DATE '| translate }}"
-                data-ng-model="vm.graph.endDateTime"
-        ></date-time-picker>
-
-        <span flex></span>
-
-        <md-content layout-align="end center">
-            <md-button class="md-primary md-raised"
-                       data-ng-click="vm.reset()"
-            >
-                {{ ::'RESET_CHART_SETTINGS' | translate }}
-            </md-button>
-
-            <md-button class="md-primary md-raised"
-                       data-ng-click="vm.load()"
-            >
-                {{ ::'FETCH_CHART_DATA' | translate }}
-            </md-button>
+            <generic-filter
+                    data-ng-model="vm.setting"
+                    data-collection="vm.settings"
+                    data-label="{{ ::'SAVED_GRAPH_SETTINGS' | translate }}"
+                    data-action="settings/search/trend"
+                    flex="20"
+            ></generic-filter>
         </md-content>
-    </md-content>
 
-    <loader data-ng-if="vm.loading"></loader>
+        <md-content layout="row">
+            <generic-filter
+                    data-ng-model="vm.graph.scale"
+                    data-collection="vm.scales"
+                    data-action="filters/timescale"
+                    data-label="{{ ::'SCALE_SELECT' | translate }}"
+            ></generic-filter>
 
-    <md-content flex layout="column" flex>
-        <canvas id="canvas_graph_interface_main"
-                class="chart-base"
-                data-chart-type="vm.graph.chartType.type"
-                data-chart-data="vm.data.data"
-                data-chart-labels="vm.data.labels"
-                data-chart-series="vm.data.series"
-        ></canvas>
-    </md-content>
+            <date-time-picker
+                    data-label="{{ ::'START_DATE '| translate }}"
+                    data-ng-model="vm.graph.startDateTime"
+            ></date-time-picker>
+
+            <date-time-picker
+                    data-label="{{ ::'END_DATE '| translate }}"
+                    data-ng-model="vm.graph.endDateTime"
+            ></date-time-picker>
+
+            <span flex></span>
+
+            <md-content layout-align="end center">
+                <md-button class="md-primary md-raised"
+                           data-ng-click="vm.save()"
+                >
+                    {{ ::'SAVE_SEARCH_SETTING' | translate }}
+                </md-button>
+
+                <md-button class="md-primary md-raised"
+                           data-ng-click="vm.reset()"
+                >
+                    {{ ::'RESET_CHART_SETTINGS' | translate }}
+                </md-button>
+
+                <md-button class="md-primary md-raised"
+                           data-ng-click="vm.load()"
+                           data-ng-disabled="form_search_settings.$invalid"
+                >
+                    {{ ::'FETCH_CHART_DATA' | translate }}
+                </md-button>
+            </md-content>
+        </md-content>
+
+        <loader data-ng-if="vm.loading"></loader>
+
+        <md-content flex layout="column" flex>
+            <canvas id="canvas_graph_interface_main"
+                    class="chart-base"
+                    data-chart-type="vm.chartTypes[vm.graph.chartType].type"
+                    data-chart-data="vm.data.data"
+                    data-chart-labels="vm.data.labels"
+                    data-chart-series="vm.data.series"
+            ></canvas>
+        </md-content>
+    </form>
 </md-content>

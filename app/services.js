@@ -15,6 +15,7 @@
         .factory('JWTService', JWTService)
         .factory('$toast', $toast)
         .factory('$confirm', $confirm)
+        .factory('$prompt', $prompt)
     ;
 
     ///////////////
@@ -196,6 +197,38 @@
                     .ok($translate.instant('OK'))
                     .cancel($translate.instant('CANCEL'))
             ).then(defer.resolve, defer.reject);
+
+            return defer.promise;
+        }
+    }
+
+    /**
+     * The prompt service for more fluent usage.
+     *
+     * @param   {*} $mdDialog
+     * @param   {*} $translate
+     * @param   {*} $q
+     *
+     * @returns {Function}
+     */
+    function $prompt ($mdDialog, $translate, $q) {
+        return function (params) {
+            params.title = params.title || 'TELL_ME';
+            params.textContent = params.textContent || 'I_ASK_YOU_TELL';
+            params.placeholder = params.placeholder || 'TYPE_IT_HERE';
+
+            var defer = $q.defer();
+
+            var confirm = $mdDialog.prompt()
+                .title($translate.instant(params.title))
+                .textContent($translate.instant(params.textContent))
+                .placeholder($translate.instant(params.placeholder))
+                .initialValue(params.value)
+                .ariaLabel($translate.instant(params.placeholder))
+                .ok($translate.instant('OK'))
+                .cancel($translate.instant('CANCEL'));
+
+            $mdDialog.show(confirm).then(defer.resolve, defer.reject);
 
             return defer.promise;
         }

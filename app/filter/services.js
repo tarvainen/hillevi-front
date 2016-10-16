@@ -33,7 +33,7 @@
          * @returns {*}
          */
         function getOptions (action) {
-            return api.route('filters/' + action);
+            return api.route(action);
         }
     }
 

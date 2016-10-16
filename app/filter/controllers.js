@@ -15,26 +15,34 @@
 
     ///////////
 
-    GenericFilterController.$inject = ['FilterDataService'];
+    GenericFilterController.$inject = ['$scope', 'FilterDataService'];
 
     /**
      * Controller for the generic filter.
      *
+     * @param  {*} $scope
      * @param  {*} FilterDataService
      *
      * @constructor
      */
-    function GenericFilterController (FilterDataService) {
+    function GenericFilterController ($scope, FilterDataService) {
         var vm = this;
 
-        FilterDataService
-            .getOptions(vm.action)
-            .then(onSuccess)
-        ;
+        vm.load = function load () {
+            FilterDataService
+                .getOptions(vm.action)
+                .then(onSuccess)
+            ;
 
-        function onSuccess (data) {
-            vm.options = data.data;
-        }
+            function onSuccess (data) {
+                vm.options = data.data;
+                vm.collection = vm.options;
+            }
+        };
+
+        $scope.$on('reloadFilters', vm.load);
+
+        vm.load();
     }
 
 })();

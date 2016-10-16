@@ -26,71 +26,10 @@
      */
     function GraphDataService (api) {
         return {
-            getGraphTypes: getGraphTypes,
             getColumns: getColumns,
             getData: getData,
-            getGraphScales: getGraphScales
+            saveSettings: saveSettings
         };
-
-        /**
-         * Returns graph types.
-         *
-         * @returns {*}
-         */
-        function getGraphTypes () {
-            return [
-                {
-                    id: 0,
-                    name: 'LINE_CHART',
-                    type: 'line'
-                },
-                {
-                    id: 1,
-                    name: 'PIE_CHART',
-                    type: 'pie'
-                },
-                {
-                    id: 2,
-                    name: 'BAR_CHART',
-                    type: 'bar'
-                }
-            ]
-        }
-
-        /**
-         * Returns scaling options.
-         *
-         * @returns {*}
-         */
-        function getGraphScales () {
-            return [
-                {
-                    id: 0,
-                    name: 'SCALE_HOUR',
-                    type: '%d.%m %k'
-                },
-                {
-                    id: 1,
-                    name: 'SCALE_DAY',
-                    type: '%d.%m'
-                },
-                {
-                    id: 2,
-                    name: 'SCALE_WEEK',
-                    type: '%x/%v'
-                },
-                {
-                    id: 3,
-                    name: 'SCALE_MONTH',
-                    type: '%m/%Y'
-                },
-                {
-                    id: 4,
-                    name: 'SCALE_YEAR',
-                    type: '%Y'
-                }
-            ];
-        }
 
         /**
          * Fetches the available columns for the data fetch.
@@ -110,6 +49,17 @@
          */
         function getData (settings) {
             return api.route('graph/data', settings);
+        }
+
+        /**
+         * Save the search settings.
+         *
+         * @param {*}   settings
+         *
+         * @returns {*}
+         */
+        function saveSettings (settings) {
+            return api.route('settings/search/trend/save', settings);
         }
     }
 

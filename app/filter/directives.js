@@ -29,7 +29,8 @@
                 action: '@',
                 ngModel: '=',
                 label: '@',
-                id: '@'
+                id: '@',
+                collection: '='
             },
             templateUrl: 'web/templates/filters/generic-filter.html',
             controller: 'GenericFilterController',
