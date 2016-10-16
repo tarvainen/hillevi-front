@@ -89,8 +89,8 @@
 
             <md-sidenav class="md-sidenav-right md-sidenav-large"
                         md-component-id="right"
-                        md-is-locked-open="true"
                         md-whiteframe="4"
+                        md-disable-backdrop
                         layout-padding
             >
                 <form data-ng-submit="vm.save()">
@@ -168,6 +168,7 @@
                         >
                             <thead md-head>
                                 <tr md-row>
+                                    <th md-column><span>{{ ::'NAME' | translate }}</span></th>
                                     <th md-column><span>{{ ::'FIELD' | translate }}</span></th>
                                     <th md-column><span>{{ ::'TYPE' | translate }}</span></th>
                                 </tr>
@@ -177,6 +178,14 @@
                                     data-ng-repeat="(key, col) in vm.api.columns track by $index"
                                     md-select="key"
                                 >
+                                    <td md-cell>
+                                        <md-input-container class="no-whitespace">
+                                            <input type="text"
+                                                   aria-label="{{ ::'COLUMN_FIELD_NAME' | translate }}"
+                                                   data-ng-model="col.name"
+                                            />
+                                        </md-input-container>
+                                    </td>
                                     <td md-cell>
                                         <md-input-container class="no-whitespace">
                                             <input type="text"

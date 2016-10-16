@@ -16,7 +16,7 @@
 
     ////////////////////
 
-    MainController.$inject = ['api', '$toast', '$mdDialog', '$confirm', 'md5'];
+    MainController.$inject = ['api', '$toast', '$mdDialog', '$confirm', 'md5', '$mdSidenav'];
 
     /**
      * Main controller for the api manager interface.
@@ -26,10 +26,11 @@
      * @param   {*} $mdDialog
      * @param   {*} $confirm
      * @param   {*} md5
+     * @param   {*} $mdSidenav
      *
      * @constructor
      */
-    function MainController (api, $toast, $mdDialog, $confirm, md5) {
+    function MainController (api, $toast, $mdDialog, $confirm, md5, $mdSidenav) {
         var vm = this;
 
         vm.selected = [];
@@ -137,6 +138,7 @@
          */
         vm.onSelect = function onSelect (row) {
             vm.selectedColumn = [];
+            $mdSidenav('right').open();
 
             if (!vm.selected.length <= 1) {
                 vm.api = angular.copy(row);
@@ -151,8 +153,10 @@
         vm.onDeselect = function onDeselect () {
             if (vm.selected.length === 1) {
                 vm.api = vm.selected[0];
+                $mdSidenav('right').open();
             } else {
                 vm.api = null;
+                $mdSidenav('right').close();
             }
         };
 
@@ -162,6 +166,7 @@
         vm.cancel = function cancel () {
             vm.api = null;
             vm.selected = [];
+            $mdSidenav('right').close();
         };
 
         /**
