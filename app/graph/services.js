@@ -28,7 +28,8 @@
         return {
             getGraphTypes: getGraphTypes,
             getColumns: getColumns,
-            getData: getData
+            getData: getData,
+            getGraphScales: getGraphScales
         };
 
         /**
@@ -54,6 +55,41 @@
                     type: 'bar'
                 }
             ]
+        }
+
+        /**
+         * Returns scaling options.
+         *
+         * @returns {*}
+         */
+        function getGraphScales () {
+            return [
+                {
+                    id: 0,
+                    name: 'SCALE_HOUR',
+                    type: '%d.%m %k'
+                },
+                {
+                    id: 1,
+                    name: 'SCALE_DAY',
+                    type: '%d.%m'
+                },
+                {
+                    id: 2,
+                    name: 'SCALE_WEEK',
+                    type: '%x/%v'
+                },
+                {
+                    id: 3,
+                    name: 'SCALE_MONTH',
+                    type: '%m/%Y'
+                },
+                {
+                    id: 4,
+                    name: 'SCALE_YEAR',
+                    type: '%Y'
+                }
+            ];
         }
 
         /**

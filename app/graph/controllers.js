@@ -21,12 +21,7 @@
 
         vm.columns = [];
         vm.graphTypes = GraphDataService.getGraphTypes();
-
-        // TODO: remove this and make everything goooood!
-        vm.data = {
-            labels: ['ma', 'ti', 'ke', 'to', 'pe'],
-            data: [[1, 2, 3, 2, 1], [2,6,1,2,6]]
-        };
+        vm.scales = GraphDataService.getGraphScales();
 
         /**
          * Initialize the interface's data.
@@ -51,11 +46,9 @@
             vm.data = {};
 
             vm.graph.chartType = vm.graphTypes[vm.chartType];
+            vm.graph.scale = vm.scales[vm.scale];
 
             var params = angular.copy(vm.graph);
-
-            params.startDateTime = '@' + Math.round(params.startDateTime.getTime() / 1000);
-            params.endDateTime = '@' + Math.round(params.endDateTime.getTime() / 1000);
 
             GraphDataService.getData(params)
                 .then(onSuccess)

@@ -38,17 +38,8 @@
             </md-select>
         </md-input-container>
 
-        <date-time-picker
-                data-label="{{ ::'START_DATE '| translate }}"
-                data-ng-model="vm.graph.startDateTime"
-        ></date-time-picker>
-
-        <date-time-picker
-                data-label="{{ ::'END_DATE '| translate }}"
-                data-ng-model="vm.graph.endDateTime"
-        ></date-time-picker>
-
         <span flex></span>
+
         <md-input-container>
             <label>{{ ::'SAVED_GRAPH_SETTINGS' | translate }}</label>
             <md-select
@@ -65,18 +56,48 @@
         </md-input-container>
     </md-content>
 
-    <md-content layout="row" layout-align="end center"layout-margin>
-        <md-button class="md-primary md-raised"
-                   data-ng-click="vm.reset()"
-        >
-            {{ ::'RESET_CHART_SETTINGS' | translate }}
-        </md-button>
+    <md-content layout="row">
+        <md-input-container>
+            <label>{{ ::'SCALE_SELECT' | translate }}</label>
+            <md-select
+                    id="input_graph_scale_select"
+                    data-ng-model="vm.scale"
+                    aria-label="{{ ::'SCALE_SELECT' | translate }}"
+            >
+                <md-option value="{{ $index }}"
+                           data-ng-repeat="scale in vm.scales track by scale.id"
+                           data-ng-selected="$first"
+                >
+                    {{ ::scale.name | translate }}
+                </md-option>
+            </md-select>
+        </md-input-container>
 
-        <md-button class="md-primary md-raised"
-                   data-ng-click="vm.load()"
-        >
-            {{ ::'FETCH_CHART_DATA' | translate }}
-        </md-button>
+        <date-time-picker
+                data-label="{{ ::'START_DATE '| translate }}"
+                data-ng-model="vm.graph.startDateTime"
+        ></date-time-picker>
+
+        <date-time-picker
+                data-label="{{ ::'END_DATE '| translate }}"
+                data-ng-model="vm.graph.endDateTime"
+        ></date-time-picker>
+
+        <span flex></span>
+
+        <md-content layout-align="end center">
+            <md-button class="md-primary md-raised"
+                       data-ng-click="vm.reset()"
+            >
+                {{ ::'RESET_CHART_SETTINGS' | translate }}
+            </md-button>
+
+            <md-button class="md-primary md-raised"
+                       data-ng-click="vm.load()"
+            >
+                {{ ::'FETCH_CHART_DATA' | translate }}
+            </md-button>
+        </md-content>
     </md-content>
 
     <loader data-ng-if="vm.loading"></loader>

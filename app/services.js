@@ -19,7 +19,7 @@
 
     ///////////////
 
-    DataService.$inject = ['$http', '$window', 'API', '$httpParamSerializerJQLike'];
+    DataService.$inject = ['$http', '$window', 'API', '$httpParamSerializerJQLike', '$filter'];
 
     /**
      * The data service to handle the data requests.
@@ -28,6 +28,7 @@
      * @param {*}   $window
      * @param {*}   API
      * @param {*}   $httpParamSerializerJQLike
+     * @param {*}   $filter
      *
      * @return {*}
      *
@@ -35,7 +36,7 @@
      *
      * @ngInject
      */
-    function DataService ($http, $window, API, $httpParamSerializerJQLike) {
+    function DataService ($http, $window, API, $httpParamSerializerJQLike, $filter) {
         return {
             get: get,
             storage: {
@@ -51,6 +52,12 @@
                     'authorization': getFromStorage('jwt') || ''
                 }
             };
+
+            angular.forEach(params, function convert (value, key) {
+                if (value instanceof Date) {
+                    params[key] = $filter('date')(value, 'd.M.yyyy HH:mm');
+                }
+            });
 
             return $http.post(API.url + path, $httpParamSerializerJQLike(params || {}), options);
         }
