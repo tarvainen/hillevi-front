@@ -111,7 +111,7 @@
   "PIE_CHART": "Piirakkakaavio",
   "BAR_CHART": "Pylväskaavio",
   "LINE_CHART": "Viivakaavio",
-  "GRAPH_TYPE": "Kaavion tyyppi",
+  "CHART_TYPE": "Kaavion tyyppi",
   "SHOWN_COLUMNS": "Näytettävät arvot",
   "START_DATE": "Mistä",
   "END_DATE": "Mihin",

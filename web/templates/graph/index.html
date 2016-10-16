@@ -22,56 +22,27 @@
             </md-select>
         </md-input-container>
 
-        <md-input-container>
-            <label>{{ ::'GRAPH_TYPE' | translate }}</label>
-            <md-select
-                    id="input_graph_type"
-                    data-ng-model="vm.chartType"
-                    aria-label="{{ ::'TYPE' | translate }}"
-                    required
-            >
-                <md-option value="{{ $index }}" data-ng-selected="$first"
-                           data-ng-repeat="option in vm.graphTypes track by option.id"
-                >
-                    {{ ::option.name | translate }}
-                </md-option>
-            </md-select>
-        </md-input-container>
+        <generic-filter
+                data-ng-model="vm.chartType"
+                data-action="charttype"
+                data-label="{{ ::'CHART_TYPE' | translate }}"
+        ></generic-filter>
 
         <span flex></span>
 
-        <md-input-container>
-            <label>{{ ::'SAVED_GRAPH_SETTINGS' | translate }}</label>
-            <md-select
-                    id="input_saved_graph_settings"
-                    data-ng-model="vm.setting"
-                    aria-label="{{ ::'TYPE' | translate }}"
-            >
-                <md-option value="{{ setting }}"
-                           data-ng-repeat="setting in vm.savedSettings track by setting.id"
-                >
-                    {{ ::setting.name }}
-                </md-option>
-            </md-select>
-        </md-input-container>
+        <generic-filter
+            data-ng-model="vm.setting"
+            data-label="{{ ::'SAVED_GRAPH_SETTINGS' | translate }}"
+            data-action="setting/trend"
+        ></generic-filter>
     </md-content>
 
     <md-content layout="row">
-        <md-input-container>
-            <label>{{ ::'SCALE_SELECT' | translate }}</label>
-            <md-select
-                    id="input_graph_scale_select"
-                    data-ng-model="vm.scale"
-                    aria-label="{{ ::'SCALE_SELECT' | translate }}"
-            >
-                <md-option value="{{ $index }}"
-                           data-ng-repeat="scale in vm.scales track by scale.id"
-                           data-ng-selected="$first"
-                >
-                    {{ ::scale.name | translate }}
-                </md-option>
-            </md-select>
-        </md-input-container>
+        <generic-filter
+            data-ng-model="vm.scale"
+            data-action="timescale"
+            data-label="{{ ::'SCALE_SELECT' | translate }}"
+        ></generic-filter>
 
         <date-time-picker
                 data-label="{{ ::'START_DATE '| translate }}"

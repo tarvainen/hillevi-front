@@ -5,7 +5,7 @@
      * Application injections.
      */
     angular.module('Hillevi.Applications', [
-        'Login', 'Settings', 'Dashboard', 'ApiManager', 'ApiDataManager', 'Notifications', 'Graph'
+        'Login', 'Settings', 'Dashboard', 'ApiManager', 'ApiDataManager', 'Notifications', 'Graph', 'Filters'
     ]);
 
 })();

@@ -1,0 +1,15 @@
+<md-input-container>
+    <label>{{ ::vm.label }}</label>
+    <md-select
+            id="{{ ::vm.id }}"
+            data-ng-model="vm.ngModel"
+            aria-label="{{ ::vm.label }}"
+            required
+    >
+        <md-option value="{{ $index }}" data-ng-selected="$first"
+                   data-ng-repeat="option in vm.options track by option.id"
+        >
+            {{ ::option.name | translate }}
+        </md-option>
+    </md-select>
+</md-input-container>
