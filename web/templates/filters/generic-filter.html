@@ -7,7 +7,7 @@
                 aria-label="{{ ::vm.label }}"
                 required="{{ ::vm.require }}"
         >
-            <md-option data-ng-value="option.id" data-ng-selected="$first"
+            <md-option data-ng-value="option.id" data-ng-selected="vm.require ? $first : 0"
                        data-ng-repeat="option in vm.options track by option.id"
             >
                 {{ ::option.name | translate }}
