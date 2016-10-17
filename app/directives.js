@@ -104,7 +104,9 @@
             scope: {
                 onSave: '=',
                 onCancel: '=',
-                title: '@'
+                title: '@',
+                okButton: '@',
+                backButton: '@'
             }
         };
     }

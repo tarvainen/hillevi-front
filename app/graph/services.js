@@ -28,7 +28,9 @@
         return {
             getColumns: getColumns,
             getData: getData,
-            saveSettings: saveSettings
+            saveSettings: saveSettings,
+            getSavedSettings: getSavedSettings,
+            removeSavedSettings: removeSavedSetting
         };
 
         /**
@@ -60,6 +62,26 @@
          */
         function saveSettings (settings) {
             return api.route('settings/search/trend/save', settings);
+        }
+
+        /**
+         * Returns the saved settings.
+         *
+         * @returns {*}
+         */
+        function getSavedSettings () {
+            return api.route('settings/search/trend');
+        }
+
+        /**
+         * Remove saved settings.
+         *
+         * @param {*} params
+         *
+         * @returns {*}
+         */
+        function removeSavedSetting (params) {
+            return api.route('settings/search/trend/delete', params);
         }
     }
 

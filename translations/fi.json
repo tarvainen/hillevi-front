@@ -128,5 +128,9 @@
   "GIVE_THIS_SEARCH_A_NAME": "Anna asetuksillesi nimi",
   "DESC_GIVE_THIS_SEARCH_A_NAME": "Anna asetuksillesi jokin niitä hyvin kuvaava nimi.",
   "NAME_FOR_YOUR_SAVED_SEARCH": "Nimi tallennetulle asetuksellesi",
-  "DO_WE_OVERWRITE_OLD_SETTING": "Ylikirjoitetaanko vanha asetus?"
+  "DO_WE_OVERWRITE_OLD_SETTING": "Ylikirjoitetaanko vanha asetus?",
+  "SEARCH_SETTINGS": "Hakuasetukset",
+  "SAVED_SEARCH_SETTINGS": "Tallennetut haut",
+  "HINT_SAVED_SEARCH_SETTINGS": "Ohje: voit muokata asetuksiasi suoraan taulukossa ja ne tallentuvat automaattisesti",
+  "DEFAULT_SEARCH_SETTINGS": "Oletusasetukset"
 }

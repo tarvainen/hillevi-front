@@ -151,7 +151,7 @@
                     GraphDataService.saveSettings({
                         id: vm.graph.id,
                         name: name,
-                        settings: vm.graph
+                        setting: vm.graph
                     }).then(onSave);
                 }
 
@@ -163,7 +163,7 @@
 
                     GraphDataService.saveSettings({
                         name: name,
-                        settings: vm.graph
+                        setting: vm.graph
                     }).then(onSave);
                 }
 
@@ -208,19 +208,83 @@
         vm.init();
     }
 
-    SettingsController.$inject = ['$mdDialog'];
+    SettingsController.$inject = ['GraphDataService'];
 
     /**
      * Controller for the settings dialog.
      *
+     * @param {*}   GraphDataService
+     *
      * @constructor
      */
-    function SettingsController () {
+    function SettingsController (GraphDataService) {
         var vm = this;
 
-        vm.save = function save () {
-            // TODO: implement save
+        vm.selectedSettings = [];
+
+        /**
+         * Save settings.
+         */
+        vm.save = function save (setting) {
+
         };
+
+        /**
+         * Saves the single setting on the fly.
+         *
+         * @param {*} setting
+         */
+        vm.saveSettings = function saveSettings (setting) {
+            GraphDataService.saveSettings(setting);
+        };
+
+        /**
+         * Load settings data.
+         */
+        vm.load = function load () {
+            vm.loading = true;
+
+            GraphDataService.getSavedSettings()
+                .then(onSuccess)
+                .finally(onDone)
+            ;
+
+            /**
+             * Fired when the setting is saved.
+             *
+             * @param  {*}  data
+             */
+            function onSuccess (data) {
+                vm.savedSettings = data.data;
+            }
+
+            /**
+             * Fired after the query is done.
+             */
+            function onDone () {
+                vm.loading = false;
+            }
+        };
+
+        /**
+         * Remove saved settings.
+         */
+        vm.removeSavedSettings = function removeSavedSettings () {
+            GraphDataService
+                .removeSavedSettings({
+                    settings: vm.selectedSettings
+                }).then(onSuccess)
+            ;
+
+            /**
+             * Fired after we had removed search settings.
+             */
+            function onSuccess () {
+                vm.load();
+            }
+        };
+
+        vm.load();
     }
 
 })();

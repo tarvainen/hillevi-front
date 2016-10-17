@@ -15,17 +15,18 @@
 
     ///////////
 
-    GenericFilterController.$inject = ['$scope', 'FilterDataService'];
+    GenericFilterController.$inject = ['$scope', 'FilterDataService', '$timeout'];
 
     /**
      * Controller for the generic filter.
      *
      * @param  {*} $scope
      * @param  {*} FilterDataService
+     * @param  {*} $timeout
      *
      * @constructor
      */
-    function GenericFilterController ($scope, FilterDataService) {
+    function GenericFilterController ($scope, FilterDataService, $timeout) {
         var vm = this;
 
         vm.load = function load () {
@@ -35,8 +36,10 @@
             ;
 
             function onSuccess (data) {
-                vm.options = data.data;
-                vm.collection = vm.options;
+                $timeout(function () {
+                    vm.options = data.data;
+                    vm.collection = vm.options;
+                });
             }
         };
 

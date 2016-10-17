@@ -3,7 +3,56 @@
 >
     <dialog-base data-on-save="vm.save"
                  data-title="{{ ::'SEARCH_SETTINGS' | translate }}"
+                 data-back-button="false"
+                 data-ok-button="OK"
     >
-        <h1>Todo! Add some shit</h1>
+        <loader data-ng-if="vm.loading"></loader>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="{{ ::'SAVED_SEARCH_SETTINGS' | translate }}">
+                <md-content layout="row" layout-align="start center" md-whiteframe="1">
+                    <span class="text-muted" layout-padding>{{ ::'HINT_SAVED_SEARCH_SETTINGS' | translate }}</span>
+                    <span flex></span>
+                    <md-button class="md-raised md-warn"
+                               data-ng-disabled="vm.selectedSettings.length === 0"
+                               data-ng-click="vm.removeSavedSettings()"
+                    >
+                        {{ ::'DELETE' | translate }}
+                    </md-button>
+                </md-content>
+                <md-table-container layout="column" flex style="max-height: 400px;">
+                    <table md-table
+                           multiple
+                           md-row-select
+                           data-ng-model="vm.selectedSettings"
+                    >
+                        <thead md-head>
+                            <tr md-row>
+                                <th md-column><span>{{ ::'NAME' | translate }}</span></th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row
+                                data-ng-repeat="setting in vm.savedSettings track by $index"
+                                md-select="setting.id"
+                            >
+                                <td md-cell>
+                                    <md-input-container class="no-whitespace">
+                                        <input type="text"
+                                               aria-label="{{ ::'NAME' | translate }}"
+                                               data-ng-model="setting.name"
+                                               data-ng-change="vm.saveSettings(setting)"
+                                               data-ng-model-options="{updateOn: 'blur'}"
+                                        />
+                                    </md-input-container>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+            </md-tab>
+            <md-tab label="{{ ::'DEFAULT_SEARCH_SETTINGS' | translate }}">
+                <!-- TODO: IMPLEMENT -->
+            </md-tab>
+        </md-tabs>
     </dialog-base>
 </md-dialog>

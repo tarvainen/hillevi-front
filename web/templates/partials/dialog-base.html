@@ -19,14 +19,15 @@
                 layout-align="end center"
     >
         <md-button data-ng-click="vm.cancel()"
+                   data-ng-if="vm.backButton != 'false'"
         >
-            {{ ::'CANCEL' | translate }}
+            {{ ::(vm.backButton || 'CANCEL') | translate }}
         </md-button>
 
         <md-button class="md-primary md-raised"
                    data-ng-click="vm.save()"
         >
-            {{ ::'SAVE' | translate }}
+            {{ ::(vm.okButton || 'SAVE') | translate }}
         </md-button>
     </md-content>
 </div>
