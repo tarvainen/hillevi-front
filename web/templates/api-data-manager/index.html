@@ -39,7 +39,7 @@
 
                 <md-button class="md-icon-button"
                            data-ng-disabled="!vm.selectedApi"
-                           data-ng-click="vm.loadData()"
+                           data-ng-click="vm.loadData(1)"
                 >
                     <md-tooltip>
                         {{ ::'TT_REFRESH' | translate }}
@@ -89,7 +89,7 @@
                         </thead>
                         <tbody md-body>
                             <tr md-row md-auto-select
-                                data-ng-repeat="row in vm.data | orderBy:orderBy"
+                                data-ng-repeat="row in vm.data | orderBy:orderBy | limitTo: vm.limit: (vm.page - 1) * vm.limit"
                                 md-select="row"
                                 md-select-id="ID"
                                 md-on-select="vm.onSelect"
@@ -107,11 +107,10 @@
                     </table>
                 </md-table-container>
 
-                <md-table-pagination md-limit="10"
+                <md-table-pagination md-limit="vm.limit"
                                      md-limit-options="[10, 20, 30]"
                                      md-page="vm.page"
                                      md-total="{{ vm.data.length }}"
-                                     md-on-paginate="getApis"
                                      md-page-select
                 ></md-table-pagination>
             </md-content>

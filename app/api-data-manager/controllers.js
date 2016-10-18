@@ -15,21 +15,23 @@
 
     //////////////////
 
-    MainController.$inject = ['api', '$toast', '$q'];
+    MainController.$inject = ['ApiDataManagerDataService', '$toast', '$q'];
 
     /**
      * Main controller for the api data manager interface.
      *
-     * @param {*}   api
+     * @param {*}   ApiDataManagerDataService
      * @param {*}   $toast
      * @param {*}   $q
      *
      * @constructor
      */
-    function MainController (api, $toast, $q) {
+    function MainController (ApiDataManagerDataService, $toast, $q) {
         var vm = this;
 
         vm.selectedRows = [];
+        vm.page = 1;
+        vm.limit = 10;
 
         /**
          * Function for fetching APIs for the select input.
@@ -39,7 +41,7 @@
             vm.selectedApi = null;
             vm.loading = true;
 
-            api.route('interface/all')
+            ApiDataManagerDataService.getInterfaces()
                 .then(onSuccess, onError)
                 .finally(onDone)
             ;
@@ -58,6 +60,7 @@
          * Loads the api's data when the api selection is changed.
          */
         vm.loadData = function loadData () {
+            var page = vm.page;
             vm.data = [];
             vm.columns = [];
             vm.selectedColumns = [];
@@ -65,11 +68,10 @@
 
             var params = {
                 id: vm.selectedApi
-                // TODO add pager data
             };
 
-            var dataCall = api.route('interface/data', params);
-            var metaCall = api.route('interface/schema', params);
+            var dataCall = ApiDataManagerDataService.getData(params);
+            var metaCall = ApiDataManagerDataService.getSchema(params);
 
             vm.dataFetcher = dataCall;
 
@@ -86,6 +88,7 @@
             function onData (data) {
                 vm.data = data[0].data;
                 vm.columns = data[1].data;
+                vm.page = page;
             }
         };
 
@@ -103,7 +106,7 @@
                 rows: rows.join(',')
             };
 
-            api.route('interface/data/rows/remove', params)
+            ApiDataManagerDataService.remove(params)
                 .then(onRemove, onError)
                 .finally(onDone)
             ;

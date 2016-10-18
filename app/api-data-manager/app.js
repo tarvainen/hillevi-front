@@ -5,7 +5,8 @@
      * Main module initialization.
      */
     angular.module('ApiDataManager', [
-        'ApiDataManager.Controllers'
+        'ApiDataManager.Controllers',
+        'ApiDataManager.Services'
     ]);
 
 })();
