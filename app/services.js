@@ -55,6 +55,7 @@
                 }
             };
 
+            // Convert all sent dates to custom format
             angular.forEach(params, function convert (value, key) {
                 if (value instanceof Date) {
                     params[key] = $filter('date')(value, 'd.M.yyyy HH:mm');

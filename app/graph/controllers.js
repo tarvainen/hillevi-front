@@ -31,6 +31,7 @@
         vm.chartTypes = [];
         vm.scales = [];
         vm.settings = [];
+        vm.settingObject = {};
 
         $scope.$watch('vm.setting', settingWatcher);
 
@@ -39,6 +40,9 @@
                 angular.forEach(vm.settings, function (setting) {
                    if (setting.id == valueNew) {
                        vm.graph = setting.setting;
+                       vm.graph.startDateTime = new Date(vm.graph.startDateTime);
+                       vm.graph.endDateTime = new Date(vm.graph.endDateTime);
+                       vm.settingObject = setting;
                    }
                 });
             }
@@ -118,7 +122,7 @@
                 title: 'GIVE_THIS_SEARCH_A_NAME',
                 textContent: 'DESC_GIVE_THIS_SEARCH_A_NAME',
                 placeholder: 'NAME_FOR_YOUR_SAVED_SEARCH',
-                value: vm.graph.name
+                value: vm.settingObject.name
             };
 
             $prompt(opts)
@@ -135,7 +139,7 @@
                     return;
                 }
 
-                if (name === vm.graph.name) {
+                if (name === vm.settingObject.name) {
                     $confirm('DO_WE_OVERWRITE_OLD_SETTING')
                         .then(overwrite, saveNew);
                 } else {
@@ -146,10 +150,9 @@
                  * Case we overwrite the existing saved search with this.
                  */
                 function overwrite () {
-                    vm.graph.name = name;
-
+                    console.log(vm.graph);
                     GraphDataService.saveSettings({
-                        id: vm.graph.id,
+                        id: vm.setting,
                         name: name,
                         setting: vm.graph
                     }).then(onSave);
@@ -159,8 +162,6 @@
                  * Case we want to save new setting.
                  */
                 function saveNew () {
-                    vm.graph.name = name;
-
                     GraphDataService.saveSettings({
                         name: name,
                         setting: vm.graph
@@ -173,7 +174,9 @@
                  * @param data
                  */
                 function onSave (data) {
-                    vm.settings.push(data.data);
+                    if (vm.settingObject.name !== data.data.name) {
+                        vm.settings.push(data.data);
+                    }
 
                     $timeout(function () {
                         vm.setting = data.data.id;
