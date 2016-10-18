@@ -45,18 +45,12 @@
                                 <th md-column class="text-center"><span>{{ ::'ACTIVE' | translate }}</span></th>
                                 <th md-column><span>{{ ::'URL' | translate }}</span></th>
                                 <th md-column><span>{{ ::'TYPE' | translate }}</span></th>
-                                <th md-column class="text-center">
-                                    <span>
-                                        <md-tooltip>{{ ::'TT_FIELD_AMOUNT' | translate }}</md-tooltip>
-                                        <md-icon>assignment</md-icon>
-                                    </span>
-                                </th>
                                 <th md-column><span>{{ ::'LAST_UPDATE' | translate }}</span></th>
                             </tr>
                         </thead>
                         <tbody md-body>
                             <tr md-row md-auto-select
-                                data-ng-repeat="api in vm.data"
+                                data-ng-repeat="api in vm.data | limitTo: vm.limit: (vm.page - 1) * vm.limit"
                                 md-select="api"
                                 md-select-id="name"
                                 md-on-select="vm.onSelect"
@@ -71,18 +65,16 @@
                                 </td>
                                 <td md-cell>{{ ::api.url }}</td>
                                 <td md-cell>{{ ::api.type }}</td>
-                                <td md-cell class="text-center">{{ ::api.columns.length }}</td>
                                 <td md-cell>{{ ::api.lastUpdate | apiDate | date:'dd.MM.yyyy' }}</td>
                             </tr>
                         </tbody>
                     </table>
                 </md-table-container>
 
-                <md-table-pagination md-limit="30"
-                                     md-limit-options="[30, 50, 100]"
+                <md-table-pagination md-limit="vm.limit"
+                                     md-limit-options="[10, 30, 50]"
                                      md-page="vm.page"
                                      md-total="{{ vm.data.length }}"
-                                     md-on-paginate="getApis"
                                      md-page-select
                 ></md-table-pagination>
             </md-content>

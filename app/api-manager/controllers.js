@@ -16,12 +16,12 @@
 
     ////////////////////
 
-    MainController.$inject = ['api', '$toast', '$mdDialog', '$confirm', 'md5', '$mdSidenav'];
+    MainController.$inject = ['ApiManagerDataService', '$toast', '$mdDialog', '$confirm', 'md5', '$mdSidenav'];
 
     /**
      * Main controller for the api manager interface.
      *
-     * @param   {*} api
+     * @param   {*} ApiManagerDataService
      * @param   {*} $toast
      * @param   {*} $mdDialog
      * @param   {*} $confirm
@@ -30,11 +30,13 @@
      *
      * @constructor
      */
-    function MainController (api, $toast, $mdDialog, $confirm, md5, $mdSidenav) {
+    function MainController (ApiManagerDataService, $toast, $mdDialog, $confirm, md5, $mdSidenav) {
         var vm = this;
 
         vm.selected = [];
         vm.selectedColumn = [];
+        vm.page = 1;
+        vm.limit = 10;
 
         /**
          * Loads the interface data to the ui.
@@ -43,18 +45,18 @@
             vm.loading = true;
 
             // Fetch all the interfaces
-            api.route('interface/all')
-                .then(onSuccess, onError)
+            ApiManagerDataService.getInterfaces()
+                .then(onSuccess)
                 .finally(onDone)
             ;
 
             // Fetch field types
-            api.route('interface/fields/types')
-                .then(onTypes, onError)
+            ApiManagerDataService.getFieldTypes()
+                .then(onTypes)
             ;
 
-            api.route('interface/types')
-                .then(onApiTypes, onError)
+            ApiManagerDataService.getApiTypes()
+                .then(onApiTypes)
             ;
 
             /**
@@ -85,13 +87,6 @@
             }
 
             /**
-             * Called on the data fetch fail.
-             */
-            function onError () {
-                $toast('DATA_FETCH_FAILED');
-            }
-
-            /**
              * Called after the query is completed.
              */
             function onDone () {
@@ -103,7 +98,7 @@
          * Saves the interface information to the database.
          */
         vm.save = function save () {
-            api.route('interface/update', vm.api)
+            ApiManagerDataService.saveApi(vm.api)
                 .then(onSuccess, onError)
                 .finally(onDone)
             ;
@@ -203,7 +198,7 @@
              * Fires when the user presses ok in the confirm dialog.
              */
             function onConfirm () {
-                api.route('interface/delete/' + vm.api.id)
+                ApiManagerDataService.removeApi(vm.api.id)
                     .then(onSuccess, onError)
                     .finally(onDone)
                 ;
@@ -257,19 +252,19 @@
         };
     }
 
-    CreateApiDialogController.$inject = ['$mdDialog', 'api', '$toast', 'locals'];
+    CreateApiDialogController.$inject = ['$mdDialog', 'ApiManagerDataService', '$toast', 'locals'];
 
     /**
      * The controller for the create api dialog.
      *
      * @param   {*} $mdDialog
-     * @param   {*} api
+     * @param   {*} ApiManagerDataService
      * @param   {*} $toast
      * @param   {*} locals
      *
      * @constructor
      */
-    function CreateApiDialogController ($mdDialog, api, $toast, locals) {
+    function CreateApiDialogController ($mdDialog, ApiManagerDataService, $toast, locals) {
         var vm = this;
 
         vm.apiTypes = locals.apiTypes;
@@ -287,7 +282,7 @@
         vm.save = function save () {
             vm.loading = true;
 
-            api.route('interface/create', vm.form)
+            ApiManagerDataService.create(vm.form)
                 .then(onSuccess, onError)
                 .finally(onDone)
             ;

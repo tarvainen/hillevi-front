@@ -5,7 +5,8 @@
      * Main module initialization.
      */
     angular.module('ApiManager', [
-        'ApiManager.Controllers'
+        'ApiManager.Controllers',
+        'ApiManager.Services'
     ]);
 
 })();
