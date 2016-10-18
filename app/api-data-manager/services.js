@@ -31,7 +31,8 @@
             getInterfaces: getInterfaces,
             getData: getData,
             getSchema: getSchema,
-            remove: remove
+            remove: remove,
+            saveApiDataRow: saveApiDataRow
         };
 
         /**
@@ -74,6 +75,17 @@
          */
         function remove (params) {
             return api.route('interface/data/rows/remove', params);
+        }
+
+        /**
+         * Saves new row for the api.
+         *
+         * @param {*} row
+         *
+         * @returns {*}
+         */
+        function saveApiDataRow (row) {
+            return api.route('interface/data/rows/add', row);
         }
     }
 

@@ -1,0 +1,16 @@
+<md-dialog flex flex-gt-xs="50" aria-label="{{ ::'NEW_API_ROW' | translate }}">
+    <dialog-base
+            data-title="{{ ::'NEW_API_ROW' | translate }}"
+            data-on-save="vm.onSave"
+    >
+        <md-content layout-padding>
+            <form>
+                <md-input-container class="md-block"
+                                    data-ng-repeat="(key, column) in vm.schema">
+                    <label>{{ ::column.name }}</label>
+                    <input type="text" data-ng-model="vm.form[key]">
+                </md-input-container>
+            </form>
+        </md-content>
+    </dialog-base>
+</md-dialog>

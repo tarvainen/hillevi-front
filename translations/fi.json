@@ -76,6 +76,7 @@
 
   // API data manager interface
   "SELECT_API": "Valitse rajapinta",
+  "NEW_API_ROW": "Uuden rivin lisäys",
 
   // Notifications interface
   "UNDISMISSED_NOTIFICATIONS": "Kuittaamattomat ilmoitukset",
@@ -95,6 +96,7 @@
   "TT_NOTIFICATIONS": "Notifikaatiot",
   "TT_REALTIME_CONNECTION_OPEN": "Muhvi on auki",
   "TT_REALTIME_CONNECTION_CLOSED": "Muhvi on kiinni",
+  "TT_ADD_ROW": "Lisää rivi",
 
   // Notifications
   "NOTIFICATION_YOU_HAVE_NEW_NOTIFICATIONS": "Sait uusia ilmoituksia",

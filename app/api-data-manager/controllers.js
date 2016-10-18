@@ -11,11 +11,12 @@
      */
     angular.module('ApiDataManager.Controllers')
         .controller('ApiDataManager.MainController', MainController)
+        .controller('ApiDataManager.AddRowDialogController', AddDataDialogController)
     ;
 
     //////////////////
 
-    MainController.$inject = ['ApiDataManagerDataService', '$toast', '$q'];
+    MainController.$inject = ['ApiDataManagerDataService', '$toast', '$q', '$dialog'];
 
     /**
      * Main controller for the api data manager interface.
@@ -23,10 +24,11 @@
      * @param {*}   ApiDataManagerDataService
      * @param {*}   $toast
      * @param {*}   $q
+     * @param {*}   $dialog
      *
      * @constructor
      */
-    function MainController (ApiDataManagerDataService, $toast, $q) {
+    function MainController (ApiDataManagerDataService, $toast, $q, $dialog) {
         var vm = this;
 
         vm.selectedRows = [];
@@ -122,6 +124,24 @@
         };
 
         /**
+         * Add data to the dialog.
+         */
+        vm.addData = function addData () {
+            $dialog({
+                controller: 'ApiDataManager.AddRowDialogController',
+                template: 'web/templates/api-data-manager/partials/add-data-dialog.html',
+                locals: {
+                    schema: vm.columns,
+                    api: vm.selectedApi
+                }
+            }).then(onSave);
+
+            function onSave () {
+                vm.loadData();
+            }
+        };
+
+        /**
          * Called when the data fetch is failed.
          */
         function onError () {
@@ -136,6 +156,45 @@
         }
 
         vm.fetchApis();
+    }
+
+    AddDataDialogController.$inject = ['locals', 'ApiDataManagerDataService', '$q'];
+
+    /**
+     * Controller for the data adding dialog.
+     *
+     * @param {*}    locals
+     * @param {*}    ApiDataManagerDataService
+     * @param {*}    $q
+     *
+     * @constructor
+     */
+    function AddDataDialogController (locals, ApiDataManagerDataService, $q) {
+        var vm = this;
+
+        vm.schema = locals.schema;
+        vm.form = {};
+
+        vm.onSave = function onSave () {
+            vm.loading = true;
+            var deferred = $q.defer();
+            
+            ApiDataManagerDataService
+                .saveApiDataRow({
+                    data: vm.form,
+                    api: locals.api
+                }).then(onSuccess, onError);
+
+            function onSuccess () {
+                deferred.resolve();
+            }
+            
+            function onError () {
+                deferred.reject();
+            }
+
+            return deferred.promise;
+        };
     }
 
 })();

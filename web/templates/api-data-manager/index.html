@@ -28,18 +28,30 @@
                                data-ng-model="vm.selectedColumns"
                     >
                         <md-option data-ng-value="column"
-                                   data-ng-repeat="column in vm.columns"
+                                   data-ng-repeat="(key, column) in vm.columns track by $index"
                         >
-                            {{ ::column.field }}
+                            {{ ::column.name }} ({{ ::column.field }})
                         </md-option>
                     </md-select>
                 </md-input-container>
 
                 <span flex></span>
+                <md-button class="md-icon-button"
+                           data-ng-disabled="!vm.selectedApi"
+                           data-ng-click="vm.addData()"
+                >
+                    <md-tooltip>
+                        {{ ::'TT_ADD_ROW' | translate }}
+                    </md-tooltip>
+
+                    <md-icon>
+                        add
+                    </md-icon>
+                </md-button>
 
                 <md-button class="md-icon-button"
                            data-ng-disabled="!vm.selectedApi"
-                           data-ng-click="vm.loadData(1)"
+                           data-ng-click="vm.loadData()"
                 >
                     <md-tooltip>
                         {{ ::'TT_REFRESH' | translate }}

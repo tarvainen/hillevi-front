@@ -224,10 +224,18 @@
          */
         vm.save = function save () {
             if (vm.onSave instanceof Function) {
-                vm.onSave();
+                var result = vm.onSave();
             }
 
-            $mdDialog.hide();
+            if (result.then) {
+                result.then(onResolve);
+            } else if (result !== false) {
+                onResolve();
+            }
+
+            function onResolve () {
+                $mdDialog.hide();
+            }
         };
     }
 
