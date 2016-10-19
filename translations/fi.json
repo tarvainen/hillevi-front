@@ -135,5 +135,15 @@
   "SEARCH_SETTINGS": "Hakuasetukset",
   "SAVED_SEARCH_SETTINGS": "Tallennetut haut",
   "HINT_SAVED_SEARCH_SETTINGS": "Ohje: voit muokata asetuksiasi suoraan taulukossa ja ne tallentuvat automaattisesti",
-  "DEFAULT_SEARCH_SETTINGS": "Oletusasetukset"
+  "DEFAULT_SEARCH_SETTINGS": "Oletusasetukset",
+
+  // Date ranges
+  "RANGE_TODAY": "Kuluva vuorokausi",
+  "RANGE_YESTERDAY": "Edellinen vuorokausi",
+  "RANGE_THIS_WEEK": "Kuluva viikko",
+  "RANGE_LAST_WEEK": "Edellinen viikko",
+  "RANGE_THIS_MONTH": "Kuluva kuukausi",
+  "RANGE_LAST_MONTH": "Edellinen kuukausi",
+  "RANGE_CURRENT_YEAR": "Kuluva vuosi",
+  "RANGE_LAST_YEAR": "Edellinen vuosi"
 }

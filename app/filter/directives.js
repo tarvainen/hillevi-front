@@ -12,6 +12,7 @@
     angular.module('Filters.Directives')
         .directive('genericFilter', GenericFilter)
         .directive('dateTimeInput', DateTimeInput)
+        .directive('dateTimeRangeInput', DateTimeRangeInput)
     ;
 
     ///////////////
@@ -59,6 +60,29 @@
             },
             templateUrl: 'web/templates/filters/date-time-input.html',
             controller: 'DateTimeInputController',
+            controllerAs: 'vm',
+            bindToController: true,
+            replace: true
+        };
+    }
+
+    /**
+     * Directive for the custom date time range input.
+     *
+     * @returns {*}
+     *
+     * @constructor
+     */
+    function DateTimeRangeInput () {
+        return {
+            restrict: 'E',
+            scope: {
+                startDateTime: '=',
+                endDateTime: '=',
+                dateRangePreSelect: '='
+            },
+            templateUrl: 'web/templates/filters/date-time-range-input.html',
+            controller: 'DateTimeRangeInputController',
             controllerAs: 'vm',
             bindToController: true,
             replace: true

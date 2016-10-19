@@ -57,15 +57,11 @@
                     data-label="{{ ::'SCALE_SELECT' | translate }}"
             ></generic-filter>
 
-            <date-time-picker
-                    data-label="{{ ::'START_DATE '| translate }}"
-                    data-ng-model="vm.graph.startDateTime"
-            ></date-time-picker>
-
-            <date-time-picker
-                    data-label="{{ ::'END_DATE '| translate }}"
-                    data-ng-model="vm.graph.endDateTime"
-            ></date-time-picker>
+            <date-time-range-input
+                data-start-date-time="vm.graph.startDateTime"
+                data-end-date-time="vm.graph.endDateTime"
+                data-date-range-pre-select="vm.graph.dateRangePreSelect"
+            ></date-time-range-input>
 
             <span flex></span>
 

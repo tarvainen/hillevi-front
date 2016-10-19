@@ -1,0 +1,17 @@
+<div layout="row">
+    <date-time-input
+        data-label="{{ ::'START_DATE' | translate }}"
+        data-ng-model="vm.startDateTime"
+    ></date-time-input>
+
+    <date-time-input
+            data-label="{{ ::'END_DATE' | translate }}"
+            data-ng-model="vm.endDateTime"
+    ></date-time-input>
+
+    <generic-filter
+        data-collection="vm.ranges"
+        data-ng-model="vm.dateRangePreSelect"
+        data-action="filters/date/ranges"
+    ></generic-filter>
+</div>

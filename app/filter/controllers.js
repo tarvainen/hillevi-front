@@ -12,6 +12,7 @@
     angular.module('Filters.Controllers')
         .controller('GenericFilterController', GenericFilterController)
         .controller('DateTimeInputController', DateTimeInputController)
+        .controller('DateTimeRangeInputController', DateTimeRangeInputController)
     ;
 
     ///////////
@@ -60,55 +61,68 @@
     function DateTimeInputController ($scope) {
         var vm = this;
 
-        $scope.$watch('vm.date', createDate);
+        $scope.$watch('vm.date', dateWatcher);
         $scope.$watch('vm.hours', hourWatcher);
         $scope.$watch('vm.minutes', minuteWatcher);
+        $scope.$watch('vm.ngModel', modelWatcher);
+
+        /**
+         * Watcher for the date input.
+         *
+         * @param valueNew
+         */
+        function dateWatcher (valueNew) {
+            if (valueNew) {
+                if (!(vm.ngModel instanceof Date)) {
+                    vm.ngModel = new Date();
+                }
+
+                vm.ngModel.setDate(valueNew.getDate());
+                vm.ngModel.setMonth(valueNew.getMonth());
+                vm.ngModel.setFullYear(valueNew.getFullYear());
+            }
+        }
 
         /**
          * Watcher for the hours.
-         *
-         * @param {string} valueNew
          */
-        function hourWatcher (valueNew) {
-            valueNew = valueNew || 0;
-            vm.hours = map(valueNew, 0, 23);
+        function hourWatcher (valueNew, valueOld) {
+            if (valueNew === valueOld) {
+                return;
+            }
 
-            createDate();
+            vm.hours = map(vm.hours, 0, 23);
+            vm.ngModel.setHours(vm.hours);
+            vm.hours = vm.hours.pad(2);
         }
 
         /**
          * Watcher for the minutes.
-         *
-         * @param {string} valueNew
          */
-        function minuteWatcher (valueNew) {
-            valueNew = valueNew || 0;
-            vm.minutes = map(valueNew, 0, 59);
-
-            createDate();
-        }
-
-        /**
-         * Create date from different elements.
-         */
-        function createDate () {
-            if (!vm.date) {
-                vm.ngModel = null;
-                vm.hours = '';
-                vm.minutes = '';
-
+        function minuteWatcher (valueNew, valueOld) {
+            if (valueNew === valueOld) {
                 return;
             }
 
-            vm.minutes = vm.minutes || 0;
-            vm.hours = vm.hours || 0;
+            vm.minutes = map(vm.minutes, 0, 59);
+            vm.ngModel.setMinutes(vm.minutes);
+            vm.minutes = vm.minutes.pad(2);
+        }
 
-            vm.ngModel = angular.copy(vm.date);
-            vm.ngModel.setHours(map(vm.hours, 0, 23));
-            vm.ngModel.setMinutes(map(vm.minutes, 0, 59));
+        /**
+         * Watch for the model changes.
+         *
+         * @param {Date} valueNew
+         * @param {Date} valueOld
+         */
+        function modelWatcher (valueNew, valueOld) {
+            if (valueNew === valueOld) {
+                return;
+            }
 
-            vm.minutes = parseInt(vm.minutes).pad(2);
-            vm.hours = parseInt(vm.hours).pad(2);
+            vm.date = valueNew;
+            vm.hours = valueNew.getHours().pad(2);
+            vm.minutes = valueNew.getMinutes().pad(2);
         }
 
         /**
@@ -122,6 +136,10 @@
          */
         function map (value, min, max) {
             value = parseInt(value);
+
+            if (isNaN(value)) {
+                value = 0;
+            }
 
             if (value < min) {
                 value = min;
@@ -148,6 +166,71 @@
         };
 
         vm.init();
+    }
+
+    DateTimeRangeInputController.$inject = ['$scope'];
+
+    /**
+     * Controller for the date time range input directive.
+     *
+     * @param {*} $scope
+     *
+     * @constructor
+     */
+    function DateTimeRangeInputController ($scope) {
+        var vm = this;
+
+        vm.ranges = [];
+
+        $scope.$watch('vm.dateRangePreSelect', preselectWatcher);
+        $scope.$watch('vm.startDateTime', dateTimeWatcher, true);
+        $scope.$watch('vm.endDateTime', dateTimeWatcher, true);
+
+        /**
+         * Watcher for the preselect.
+         *
+         * @param {string} valueNew
+         * @param {string} valueOld
+         */
+        function preselectWatcher (valueNew, valueOld) {
+            if (!vm.ranges || valueNew === valueOld) {
+                return;
+            }
+
+            var selected = vm.ranges.find(function find (item) {
+                return item.id === parseInt(valueNew);
+            });
+
+            if (selected) {
+                vm.startDateTime = new Date(selected.start);
+                vm.endDateTime = new Date(selected.end);
+            }
+        }
+
+        /**
+         * Try to find the matching date range from the preselect list. If this matching item
+         * is found we will be select that so it will pop up in to the preselect list as a selected item.
+         *
+         * @param {string} valueNew
+         * @param {string} valueOld
+         */
+        function dateTimeWatcher (valueNew, valueOld) {
+            if (!vm.ranges || valueNew === valueOld || !vm.startDateTime || !vm.endDateTime) {
+                vm.dateRangePreSelect = -1;
+                return;
+            }
+
+            var same = vm.ranges.find(function find (item) {
+                return new Date(item.start).getTime() === new Date(vm.startDateTime).getTime() &&
+                    new Date(item.end).getTime() === new Date(vm.endDateTime).getTime();
+            });
+
+            if (!same) {
+                vm.dateRangePreSelect = -1;
+            } else {
+                vm.dateRangePreSelect = same.id;
+            }
+        }
     }
 
 })();

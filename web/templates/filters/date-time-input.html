@@ -9,6 +9,7 @@
     <md-input-container class="time-input" layout="row">
         <label>{{ :: 'CLOCK_TIME' | translate }}</label>
         <input type="text" class="hours"
+               data-ng-disabled="!vm.date"
                aria-label="{{ ::'HOURS' | translate }}"
                data-ng-model="vm.hours"
         >
@@ -19,6 +20,7 @@
     </md-input-container>
     <md-input-container class="time-input" layout="row">
         <input type="text" class="minutes"
+               data-ng-disabled="!vm.date"
                aria-label="{{ ::'MINUTES' | translate }}"
                data-ng-model="vm.minutes"
         >
