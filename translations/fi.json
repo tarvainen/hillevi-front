@@ -138,6 +138,7 @@
   "DEFAULT_SEARCH_SETTINGS": "Oletusasetukset",
 
   // Date ranges
+  "DATE_RANGE_PRESELECT": "Valitse",
   "RANGE_TODAY": "Kuluva vuorokausi",
   "RANGE_YESTERDAY": "Edellinen vuorokausi",
   "RANGE_THIS_WEEK": "Kuluva viikko",

@@ -23,6 +23,7 @@
      * @param {*}   $httpProvider
      * @param {*}   $translateProvider
      * @param {*}   ChartJsProvider
+     * @param {*}   $mdDateLocaleProvider
      */
     function config ($routeProvider, $httpProvider, $translateProvider, ChartJsProvider, $mdDateLocaleProvider) {
         // Setup chart.js

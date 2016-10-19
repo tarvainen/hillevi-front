@@ -29,8 +29,7 @@ module.exports = function (grunt) {
                         'node_modules/angular-material-sidemenu/dest/angular-material-sidemenu.js',
                         'node_modules/angular-chart.js/dist/angular-chart.js',
                         'node_modules/angular-material-data-table/dist/md-data-table.js',
-                        'node_modules/angular-websocket/dist/angular-websocket.js',
-                        'bower_components/sc-date-time/dist/sc-date-time.js'
+                        'node_modules/angular-websocket/dist/angular-websocket.js'
                     ]
                 }
             }
@@ -46,9 +45,7 @@ module.exports = function (grunt) {
                     'build/vendor.min.css': [
                         'node_modules/angular-material/angular-material.css',
                         'node_modules/angular-material-sidemenu/dest/angular-material-sidemenu.css',
-                        'node_modules/angular-material-data-table/dist/md-data-table.css',
-                        'bower_components/sc-date-time/dist/sc-date-time.css',
-                        'bower_components/font-awesome/css/font-awesome.css'
+                        'node_modules/angular-material-data-table/dist/md-data-table.css'
                     ]
                 }
             }
@@ -87,13 +84,6 @@ module.exports = function (grunt) {
                         cwd: 'node_modules/material-design-icons/iconfont/',
                         src: '**',
                         dest: 'build/material-icons/'
-                    },
-                    {
-                        expand: true,
-                        flatten: true,
-                        cwd: 'bower_components/font-awesome/fonts/',
-                        src: '**',
-                        dest: 'fonts/'
                     }
                 ]
             }
