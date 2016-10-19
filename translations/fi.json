@@ -10,6 +10,7 @@
   "INNER": "Sisäinen",
 
   // Common
+  "CLOCK_TIME": "klo",
   "USERNAME": "Käyttäjätunnus",
   "PASSWORD": "Salasana",
   "FIRST_NAME": "Etunimi",

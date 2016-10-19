@@ -1,0 +1,26 @@
+<div layout="row" layout-align="start center" class="date-time-input-custom">
+    <md-input-container layout="row">
+        <label>{{ ::vm.label }}</label>
+        <md-datepicker
+                data-ng-model="vm.date"
+        ></md-datepicker>
+    </md-input-container>
+
+    <md-input-container class="time-input" layout="row">
+        <label>{{ :: 'CLOCK_TIME' | translate }}</label>
+        <input type="text" class="hours"
+               aria-label="{{ ::'HOURS' | translate }}"
+               data-ng-model="vm.hours"
+        >
+    </md-input-container>
+
+    <md-input-container layout-align="start center" layout="row">
+        :
+    </md-input-container>
+    <md-input-container class="time-input" layout="row">
+        <input type="text" class="minutes"
+               aria-label="{{ ::'MINUTES' | translate }}"
+               data-ng-model="vm.minutes"
+        >
+    </md-input-container>
+</div>

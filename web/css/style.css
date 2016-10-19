@@ -97,3 +97,27 @@ md-input-container.no-whitespace input {
 .md-date-time-picker-button {
     margin-top: -16px !important;
 }
+
+.time-input {
+    width: 50px;
+    font-size: 14px;
+}
+
+.time-input input.hours {
+    text-align: right;
+}
+
+.time-input input.minutes {
+    text-align: left;
+}
+
+.date-time-input-custom button.md-datepicker-button {
+    min-height: 0 !important;
+    height: 30px !important;
+}
+
+.date-time-input-custom div.md-datepicker-input-container {
+    float: left;
+    position: relative;
+    bottom: 0;
+}

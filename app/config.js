@@ -24,7 +24,7 @@
      * @param {*}   $translateProvider
      * @param {*}   ChartJsProvider
      */
-    function config ($routeProvider, $httpProvider, $translateProvider, ChartJsProvider) {
+    function config ($routeProvider, $httpProvider, $translateProvider, ChartJsProvider, $mdDateLocaleProvider) {
         // Setup chart.js
         ChartJsProvider.setOptions({
             global: {
@@ -107,6 +107,16 @@
 
         $httpProvider.defaults.withCredentials = true;
         $httpProvider.interceptors.push(interceptor);
+
+        $mdDateLocaleProvider.formatDate = function (date) {
+            date = date || new Date();
+
+            return formatter(date);
+        };
+
+        function formatter (date) {
+            return 'day.month.year'.replace('day', date.getDate()).replace('month', date.getMonth() + 1).replace('year', date.getFullYear());
+        }
     }
 
 })();

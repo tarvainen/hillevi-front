@@ -35,6 +35,16 @@
                     </md-select>
                 </md-input-container>
 
+                <date-time-input
+                        data-label="{{ ::'START_DATE' | translate }}"
+                        data-ng-model="vm.startDateTime"
+                ></date-time-input>
+
+                <date-time-input
+                        data-label="{{ ::'END_DATE' | translate }}"
+                        data-ng-model="vm.endDateTime"
+                ></date-time-input>
+
                 <span flex></span>
                 <md-button class="md-icon-button"
                            data-ng-disabled="!vm.selectedApi"
