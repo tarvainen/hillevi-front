@@ -47,7 +47,7 @@
         /**
          * Watch authentication status changes.
          */
-        $rootScope.$on('authChanged', function (oldVal, newVal) {
+        $rootScope.$on('authChanged', function (e, newVal) {
             vm.user = JWTService.parse(newVal);
             DataService.storage.set('user', vm.user);
             DataService.storage.set('jwt', newVal);
@@ -55,7 +55,7 @@
             vm.connectSocket();
         });
 
-        $rootScope.$on('userUpdate', function (oldVal, newVal) {
+        $rootScope.$on('userUpdate', function (e, newVal) {
             $timeout(function timeout () {
                 vm.user = newVal;
             });
