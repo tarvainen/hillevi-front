@@ -43,6 +43,8 @@
   "MANAGEMENT": "Hallintatyökalut",
   "API_MANAGEMENT": "Rajapinnat",
   "API_DATA_MANAGEMENT": "Datan hallinta",
+  "MANUAL_API_ROW_MANAGEMENT": "Lisää, poista ja muokkaa dataa",
+  "API_DATA_MASS_IMPORT": "Datan massatuonti",
   "ARE_YOU_SURE": "Oletko varma?",
   "REMEMBER_TO_SAVE_CHANGES": "Muista tallentaa muutokset!",
 

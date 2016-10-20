@@ -25,9 +25,14 @@
             <span>{{ ::'API_MANAGEMENT' | translate }}</span>
         </md-sidemenu-button>
 
-        <md-sidemenu-button href="#/apidator">
-            <md-icon>list</md-icon>
-            <span>{{ ::'API_DATA_MANAGEMENT' | translate }}</span>
-        </md-sidemenu-button>
+        <md-sidemenu-content
+                md-icon="list"
+                md-heading="{{ ::'API_DATA_MANAGEMENT' | translate }}"
+                md-arrow="true"
+        >
+            <md-sidemenu-button href="#/apidator">
+                <span>{{ ::'MANUAL_API_ROW_MANAGEMENT' | translate }}</span>
+            </md-sidemenu-button>
+        </md-sidemenu-content>
     </md-sidemenu-group>
 </md-sidemenu>
