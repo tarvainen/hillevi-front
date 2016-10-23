@@ -4,6 +4,7 @@
   // Types
   "INT": "Kokonaisluku",
   "DECIMAL": "Desimaaliluku",
+  "DATETIME": "Aikaleima",
   "STRING": "Teksti",
   "JSON": "JSON",
   "XML": "XML",
