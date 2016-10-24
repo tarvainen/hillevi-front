@@ -109,7 +109,7 @@
 
                     <md-input-container class="md-block" flex data-ng-if="vm.api.type === 'inner'">
                         <label>{{ ::'HOOK' | translate }}</label>
-                        <input type="text" data-ng-model="vm.fetchApiHook()" readonly />
+                        <input type="text" data-ng-value="vm.fetchApiHook()" readonly />
                     </md-input-container>
 
                     <md-input-container class="md-block" flex data-ng-if="vm.api.type !== 'inner'">
