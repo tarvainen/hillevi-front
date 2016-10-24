@@ -91,14 +91,8 @@
                         <input type="text" data-ng-model="vm.api.name" data-ng-disabled="!vm.api"/>
                     </md-input-container>
 
-                    <md-input-container class="md-block" flex>
-                        <label>{{ ::'URL' | translate }}</label>
-                        <input type="text" data-ng-model="vm.api.url"
-                               data-ng-disabled="!vm.api || vm.api.type === 'inner'"
-                        />
-                    </md-input-container>
-
-                    <md-input-container class="md-block" flex>
+                    <md-input-container>
+                        <label>{{ ::'TYPE' | translate }}</label>
                         <md-select
                                 data-ng-model="vm.api.type"
                                 aria-label="{{ ::'TYPE' | translate }}"
@@ -113,25 +107,37 @@
                         </md-select>
                     </md-input-container>
 
-                    <span>{{ ::'INTERVAL' | translate }}</span>
-                    <md-slider-container data-ng-disabled="!vm.api || vm.api.type === 'inner'">
-                        <md-slider flex
-                                   data-ng-model="vm.api.interval"
-                                   min="1"
-                                   max="3600"
-                                   class="md-primary"
-                                   aria-label="{{ ::'INTERVAL' | translate }}"
-                        ></md-slider>
-                        <md-input-container>
-                            <input flex type="number"
-                                   min="1"
-                                   max="3600"
-                                   id="api_manager_update_api_interval"
-                                   data-ng-model="vm.api.interval"
-                                   aria-label="{{ ::'INTERVAL' | translate }}"
-                            />
-                        </md-input-container>
-                    </md-slider-container>
+                    <md-input-container class="md-block" flex data-ng-if="vm.api.type === 'inner'">
+                        <label>{{ ::'HOOK' | translate }}</label>
+                        <input type="text" data-ng-model="vm.fetchApiHook()" readonly />
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex data-ng-if="vm.api.type !== 'inner'">
+                        <label>{{ ::'URL' | translate }}</label>
+                        <input type="text" data-ng-model="vm.api.url" />
+                    </md-input-container>
+
+                    <div data-ng-if="vm.api.type !== 'inner'">
+                        <span>{{ ::'INTERVAL' | translate }}</span>
+                        <md-slider-container>
+                            <md-slider flex
+                                       data-ng-model="vm.api.interval"
+                                       min="1"
+                                       max="3600"
+                                       class="md-primary"
+                                       aria-label="{{ ::'INTERVAL' | translate }}"
+                            ></md-slider>
+                            <md-input-container>
+                                <input flex type="number"
+                                       min="1"
+                                       max="3600"
+                                       id="api_manager_update_api_interval"
+                                       data-ng-model="vm.api.interval"
+                                       aria-label="{{ ::'INTERVAL' | translate }}"
+                                />
+                            </md-input-container>
+                        </md-slider-container>
+                    </div>
 
                     <md-toolbar layout="row" flex class="md-sub-toolbar">
                         <div class="md-toolbar-tools">

@@ -11,6 +11,7 @@
   "INNER": "Sisäinen",
 
   // Common
+  "HOOK": "Rajapinnan kahva",
   "CLOCK_TIME": "klo",
   "USERNAME": "Käyttäjätunnus",
   "PASSWORD": "Salasana",

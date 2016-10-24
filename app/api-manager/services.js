@@ -15,23 +15,25 @@
 
     //////////////
 
-    ApiManagerDataService.$inject = ['api'];
+    ApiManagerDataService.$inject = ['api', 'API'];
 
     /**
      * Data service for the api manager.
      *
      * @param {*} api
+     * @param {*} API
      *
      * @constructor
      */
-    function ApiManagerDataService (api) {
+    function ApiManagerDataService (api, API) {
         return {
             getInterfaces: getInterfaces,
             getFieldTypes: getFieldTypes,
             getApiTypes: getApiTypes,
             saveApi: saveApi,
             removeApi: removeApi,
-            create: create
+            create: create,
+            getHook: getHook
         };
 
         /**
@@ -93,6 +95,17 @@
          */
         function create (params) {
             return api.route('interface/create', params);
+        }
+
+        /**
+         * Forms the hook where user may push some data.
+         *
+         * @param  {*} api
+         *
+         * @returns {string}
+         */
+        function getHook (api) {
+            return API.url + api.id + '/' + api.token;
         }
     }
 

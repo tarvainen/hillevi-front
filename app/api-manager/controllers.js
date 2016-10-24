@@ -250,6 +250,15 @@
 
             $toast('REMEMBER_TO_SAVE_CHANGES');
         };
+
+        /**
+         * Function to fetch api hook for the selected api.
+         *
+         * @returns {*}
+         */
+        vm.fetchApiHook = function fetchHook () {
+            return ApiManagerDataService.getHook(vm.api);
+        };
     }
 
     CreateApiDialogController.$inject = ['$mdDialog', 'ApiManagerDataService', '$toast', 'locals'];
