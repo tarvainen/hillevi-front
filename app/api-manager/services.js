@@ -105,7 +105,7 @@
          * @returns {string}
          */
         function getHook (api) {
-            return API.url + api.id + '/' + api.token;
+            return API.url.replace('/api/', '/import/') + api.id + '/' + api.token;
         }
     }
 
