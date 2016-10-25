@@ -227,7 +227,7 @@
                 var result = vm.onSave();
             }
 
-            if (result.then) {
+            if (result && result.then) {
                 result.then(onResolve);
             } else if (result !== false) {
                 onResolve();
