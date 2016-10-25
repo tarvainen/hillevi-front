@@ -18,7 +18,7 @@
                     <md-option value="{{ column }}"
                                data-ng-repeat="column in vm.columns track by $index"
                     >
-                        {{ ::column.name }} ({{ ::column.api }}::{{ ::column.field }})
+                        {{ ::column.displayName }}
                     </md-option>
                 </md-select>
             </md-input-container>

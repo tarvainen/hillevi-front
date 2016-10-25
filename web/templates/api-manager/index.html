@@ -170,6 +170,7 @@
                                     <th md-column><span>{{ ::'FIELD' | translate }}</span></th>
                                     <th md-column><span>{{ ::'TYPE' | translate }}</span></th>
                                     <th md-column><span>{{ ::'AGGREGATE' | translate }}</span></th>
+                                    <th md-column><span>{{ ::'UNIT' | translate }}</span></th>
                                 </tr>
                             </thead>
                             <tbody md-body>
@@ -219,6 +220,14 @@
                                                     {{ option.name | translate }}
                                                 </md-option>
                                             </md-select>
+                                        </md-input-container>
+                                    </td>
+                                    <td md-cell>
+                                        <md-input-container class="no-whitespace">
+                                            <input type="text"
+                                                   aria-label="{{ ::'UNIT' | translate }}"
+                                                   data-ng-model="col.unit"
+                                            />
                                         </md-input-container>
                                     </td>
                                 </tr>

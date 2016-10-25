@@ -78,6 +78,7 @@
   "LIST_OF_APIS": "Rajapinnat",
   "CREATE_API": "Uusi rajapinta",
   "INTERFACE_COLUMNS": "Kentät",
+  "UNIT": "Yksikkö",
 
   // API data manager interface
   "SELECT_API": "Valitse rajapinta",
