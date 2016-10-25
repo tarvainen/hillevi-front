@@ -150,5 +150,13 @@
   "RANGE_THIS_MONTH": "Kuluva kuukausi",
   "RANGE_LAST_MONTH": "Edellinen kuukausi",
   "RANGE_CURRENT_YEAR": "Kuluva vuosi",
-  "RANGE_LAST_YEAR": "Edellinen vuosi"
+  "RANGE_LAST_YEAR": "Edellinen vuosi",
+
+  // Aggregates
+  "AGGREGATE": "Oletuslaskenta",
+  "AGGREGATE_SUM": "Summa",
+  "AGGREGATE_COUNT": "Lukumäärä",
+  "AGGREGATE_AVERAGE": "Keskiarvo",
+  "AGGREGATE_MAX": "Suurin arvo (max)",
+  "AGGREGATE_MIN": "Pienin arvo (min)"
 }

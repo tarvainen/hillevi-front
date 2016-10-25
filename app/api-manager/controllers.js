@@ -16,7 +16,7 @@
 
     ////////////////////
 
-    MainController.$inject = ['ApiManagerDataService', '$toast', '$mdDialog', '$confirm', 'md5', '$mdSidenav'];
+    MainController.$inject = ['ApiManagerDataService', '$toast', '$mdDialog', '$confirm', 'md5', '$mdSidenav', '$q'];
 
     /**
      * Main controller for the api manager interface.
@@ -27,10 +27,11 @@
      * @param   {*} $confirm
      * @param   {*} md5
      * @param   {*} $mdSidenav
+     * @param   {*} $q
      *
      * @constructor
      */
-    function MainController (ApiManagerDataService, $toast, $mdDialog, $confirm, md5, $mdSidenav) {
+    function MainController (ApiManagerDataService, $toast, $mdDialog, $confirm, md5, $mdSidenav, $q) {
         var vm = this;
 
         vm.selected = [];
@@ -44,38 +45,12 @@
         vm.load = function load () {
             vm.loading = true;
 
-            // Fetch all the interfaces
-            ApiManagerDataService.getInterfaces()
-                .then(onSuccess)
-                .finally(onDone)
-            ;
-
-            // Fetch field types
-            ApiManagerDataService.getFieldTypes()
-                .then(onTypes)
-            ;
-
-            ApiManagerDataService.getApiTypes()
-                .then(onApiTypes)
-            ;
-
-            /**
-             * Fired when the field types are fetched from the server.
-             *
-             * @param   {*}   data
-             */
-            function onTypes (data) {
-                vm.fieldTypes = data.data;
-            }
-
-            /**
-             * Fired when the api types are fetched from the server.
-             *
-             * @param   {*} data
-             */
-            function onApiTypes (data) {
-                vm.apiTypes = data.data;
-            }
+            $q.all([
+                ApiManagerDataService.getInterfaces(),
+                ApiManagerDataService.getFieldTypes(),
+                ApiManagerDataService.getApiTypes(),
+                ApiManagerDataService.getAggregates()
+            ]).then(onSuccess).finally(onDone);
 
             /**
              * Called when the data fetch is succeeded.
@@ -83,7 +58,10 @@
              * @param {*} data
              */
             function onSuccess (data) {
-                vm.data = data.data;
+                vm.data = data[0].data;
+                vm.fieldTypes = data[1].data;
+                vm.apiTypes = data[2].data;
+                vm.aggregates = data[3].data;
             }
 
             /**

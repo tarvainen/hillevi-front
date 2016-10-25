@@ -169,6 +169,7 @@
                                     <th md-column><span>{{ ::'NAME' | translate }}</span></th>
                                     <th md-column><span>{{ ::'FIELD' | translate }}</span></th>
                                     <th md-column><span>{{ ::'TYPE' | translate }}</span></th>
+                                    <th md-column><span>{{ ::'AGGREGATE' | translate }}</span></th>
                                 </tr>
                             </thead>
                             <tbody md-body>
@@ -194,11 +195,28 @@
                                     </td>
                                     <td md-cell>
                                         <md-input-container>
-                                            <md-select data-ng-model="col.type" aria-label="{{ ::'TYPE' | translate }}" required>
+                                            <md-select data-ng-model="col.type"
+                                                       aria-label="{{ ::'TYPE' | translate }}"
+                                                       required
+                                            >
                                                 <md-option value="{{ option }}"
                                                            data-ng-repeat="option in vm.fieldTypes"
                                                 >
                                                     {{ option.toUpperCase() | translate }}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </td>
+                                    <td md-cell>
+                                        <md-input-container>
+                                            <md-select data-ng-model="col.aggregate"
+                                                       aria-label="{{ ::'AGGREGATE' | translate }}"
+                                                       required
+                                            >
+                                                <md-option value="{{ option.id }}"
+                                                           data-ng-repeat="option in vm.aggregates"
+                                                >
+                                                    {{ option.name | translate }}
                                                 </md-option>
                                             </md-select>
                                         </md-input-container>

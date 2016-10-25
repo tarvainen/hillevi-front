@@ -28,6 +28,7 @@
         return {
             restrict: 'E',
             scope: {
+                class: '@',
                 action: '@',
                 ngModel: '=',
                 label: '@',
@@ -35,6 +36,7 @@
                 require: '@',
                 collection: '='
             },
+            replace: true,
             templateUrl: 'web/templates/filters/generic-filter.html',
             controller: 'GenericFilterController',
             controllerAs: 'vm',

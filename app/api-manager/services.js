@@ -33,7 +33,8 @@
             saveApi: saveApi,
             removeApi: removeApi,
             create: create,
-            getHook: getHook
+            getHook: getHook,
+            getAggregates: getAggregates
         };
 
         /**
@@ -62,6 +63,15 @@
          */
         function getApiTypes () {
             return api.route('interface/types');
+        }
+
+        /**
+         * Returns aggregates.
+         *
+         * @returns {*}
+         */
+        function getAggregates () {
+            return api.route('filters/aggregates');
         }
 
         /**
