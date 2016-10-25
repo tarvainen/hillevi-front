@@ -34,13 +34,14 @@
      * @param {*}   $location
      * @param {*}   $http
      * @param {*}   DataService
+     * @param {*}   api
      */
-    function run ($rootScope, $location, $http, DataService) {
-        DataService.get('auth/me').then(onData, onError);
+    function run ($rootScope, $location, $http, DataService, api) {
+        api.route('auth/me').then(onData, onError);
 
         // Check the local storage for jwt every
         $rootScope.$on('$locationChangeStart', function (){
-            DataService.get('auth/me').then(onData);
+            api.route('auth/me').then(onData);
         });
 
         function onData (data) {
