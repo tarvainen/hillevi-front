@@ -87,18 +87,24 @@
         };
     }
 
-    DangerZoneController.$inject = ['api', '$toast'];
+    DangerZoneController.$inject = ['api', '$toast', 'DataService', '$timeout', '$interval'];
 
     /**
      * Controller for the danger zone settings dialog.
      *
      * @param {*}   api
      * @param {*}   $toast
+     * @param {*}   DataService
+     * @param {*}   $timeout
+     * @param {*}   $interval
      *
      * @constructor
      */
-    function DangerZoneController (api, $toast) {
+    function DangerZoneController (api, $toast, DataService, $timeout, $interval) {
         var vm = this;
+
+        var interval = null;
+        var timeout = null;
 
         vm.form = {};
 
@@ -166,6 +172,34 @@
             return vm.form.oldPassword
                 && vm.form.newPassword
                 && vm.form.newPasswordAgain === vm.form.newPassword;
+        };
+
+        /**
+         * Get the api token from the user's data.
+         */
+        vm.getApiToken = function getApiToken () {
+            var user = DataService.storage.get('user');
+            vm.apiToken = user.apiKey;
+
+            $timeout.cancel(timeout);
+            $interval.cancel(interval);
+
+            vm.time = 0;
+
+            interval = $interval(function () {
+                vm.time += 2;
+            }, 100);
+
+            timeout = $timeout(function () {
+                $interval.cancel(interval);
+                vm.time = 100;
+
+                vm.apiToken = null;
+
+                $timeout(function () {
+                    vm.time = 0;
+                }, 500);
+            }, 5000);
         };
     }
 

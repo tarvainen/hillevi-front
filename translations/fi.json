@@ -67,6 +67,7 @@
   "PASSWORD_VALIDATION_FAILED": "Uudet salasanasi eivät täsmää keskenään",
   "APP_SETTINGS": "Sovellusasetukset",
   "NOTIFICATIONS_ENABLED": "Notifikaatiot käytössä",
+  "GET_API_TOKEN": "Hae API-avain",
 
   // Dashboard
   "DASHBOARD_SETTINGS": "Dashboardin asetukset",
