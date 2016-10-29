@@ -86,6 +86,17 @@ module.exports = function (grunt) {
                         dest: 'build/material-icons/'
                     }
                 ]
+            },
+            img: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: 'web/img/',
+                        src: '**',
+                        dest: 'build/img/'
+                    }
+                ]
             }
         }
     });

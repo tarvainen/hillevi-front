@@ -1,5 +1,5 @@
-<div data-ng-app="LoginApp" layout="column" flex>
-    <md-content layout="row" layout-align="center">
+<div data-ng-app="LoginApp" layout="column" flex id="login_container" layout-fill>
+    <div layout="row" layout-align="center center" flex>
         <form flex="50" data-ng-submit="vm.login()" data-ng-controller="Login.MainController as vm">
             <md-card>
                 <md-card-title>
@@ -23,11 +23,11 @@
                 </md-card-content>
 
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button id="login_btn_login" type="submit">
+                    <md-button id="login_btn_login" type="submit" class="md-primary md-raised">
                         Login
                     </md-button>
                 </md-card-actions>
             </md-card>
         </form>
-    </md-content>
+    </div>
 </div>

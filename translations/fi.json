@@ -1,5 +1,7 @@
 {
   "APP_NAME": "Hillevi",
+  "WELCOME": "Moi!",
+  "DESCRIPTION_WELCOME": "Lataan tarvittavia tietoja, odotathan hetkisen..",
 
   // Types
   "INT": "Kokonaisluku",

@@ -40,7 +40,7 @@
         api.route('auth/me').then(onData, onError);
 
         // Check the local storage for jwt every
-        $rootScope.$on('$locationChangeStart', function (){
+        $rootScope.$on('$locationChangeStart', function () {
             api.route('auth/me').then(onData);
         });
 
@@ -51,6 +51,7 @@
 
         function onError (err) {
             DataService.storage.set('user', null);
+            $rootScope.$emit('userUpdate', null);
         }
     }
 })();

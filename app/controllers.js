@@ -57,6 +57,9 @@
 
         $rootScope.$on('userUpdate', function (e, newVal) {
             $timeout(function timeout () {
+                $timeout(function () {
+                    vm.initialized = true;
+                }, 500);
                 vm.user = newVal;
             });
         });
@@ -119,15 +122,19 @@
              * Called when the web socket fails in some way.
              */
             function onError () {
-                $toast('REALTIME_CONNECTION_FAILED_TO_OPEN');
+                if (vm.user) {
+                    $toast('REALTIME_CONNECTION_FAILED_TO_OPEN');
+                }
             }
 
             /**
              * Called when the socket connection is closed.
              */
             function onClose () {
-                $toast('REALTIME_CONNECTION_CLOSED');
-                vm.connected = false;
+                if (vm.user) {
+                    $toast('REALTIME_CONNECTION_CLOSED');
+                    vm.connected = false;
+                }
             }
         };
 

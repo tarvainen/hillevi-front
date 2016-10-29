@@ -10,7 +10,15 @@
 
 <body data-ng-controller="AppController as vm" layout="column" ng-cloak>
 
-<md-toolbar>
+<div id="main_loader" class="modal" data-ng-show="!vm.initialized">
+    <md-content layout="column" layout-align="center center" layout-fill flex>
+        <h1>{{ 'WELCOME' | translate }}</h1>
+        <h3 class="text-muted">{{ 'DESCRIPTION_WELCOME' | translate }}</h3>
+        <md-progress-linear></md-progress-linear>
+    </md-content>
+</div>
+
+<md-toolbar data-ng-if="vm.user">
     <div class="md-toolbar-tools">
         <h2>
             <span>{{ 'APP_NAME' | translate }}</span>
