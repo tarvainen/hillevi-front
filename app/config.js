@@ -60,6 +60,9 @@
             .when('/graph', {
                 templateUrl: 'web/templates/graph/'
             })
+            .when('/inspector/apps', {
+                templateUrl: 'web/templates/inspector/apps'
+            })
         ;
 
         $translateProvider.useStaticFilesLoader({

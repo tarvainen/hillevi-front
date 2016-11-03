@@ -162,5 +162,9 @@
   "AGGREGATE_COUNT": "Lukumäärä",
   "AGGREGATE_AVERAGE": "Keskiarvo",
   "AGGREGATE_MAX": "Suurin arvo (max)",
-  "AGGREGATE_MIN": "Pienin arvo (min)"
+  "AGGREGATE_MIN": "Pienin arvo (min)",
+
+  // Inspector
+  "INSPECTOR": "PC-inspektori",
+  "INSPECTOR_APPLICATION_REPORT": "Sovellukset"
 }
