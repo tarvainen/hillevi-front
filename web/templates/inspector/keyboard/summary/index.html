@@ -1,0 +1,25 @@
+<md-content layout="column" layout-fill flex
+            data-ng-controller="KeyboardSummaryMainController as vm"
+>
+    <loader data-ng-if="vm.loading"></loader>
+
+    <md-content layout="column">
+        <div layout="row" flex layout-align="start center">
+            <date-time-range-input
+                data-start-date-time="vm.filters.startDate"
+                data-end-date-time="vm.filters.endDate"
+                data-date-range-pre-select="vm.filters.preSelect"
+            ></date-time-range-input>
+
+            <span flex></span>
+
+            <md-input-container>
+                <md-button class="md-raised md-primary"
+                           data-ng-click="vm.load()"
+                >
+                    {{ ::'SEARCH' | translate }}
+                </md-button>
+            </md-input-container>
+        </div>
+    </md-content>
+</md-content>

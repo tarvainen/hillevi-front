@@ -68,6 +68,9 @@
             .when('/inspector/apps/usage-per-time', {
                 templateUrl: 'web/templates/inspector/apps/usage-per-time'
             })
+            .when('/inspector/keyboard/summary', {
+                templateUrl: 'web/templates/inspector/keyboard/summary'
+            })
         ;
 
         $translateProvider.useStaticFilesLoader({
