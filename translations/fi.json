@@ -167,6 +167,6 @@
 
   // Inspector
   "INSPECTOR": "PC-inspektori",
-  "INSPECTOR_APPLICATION_REPORT": "Sovellukset",
+  "INSPECTOR_APPLICATION_REPORT": "Aktiiviset sovellukset",
   "ACTIVE_TIME": "Aktiivinen aika"
 }

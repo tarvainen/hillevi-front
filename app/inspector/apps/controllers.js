@@ -28,10 +28,7 @@
         vm.page = 1;
         vm.limit = 10;
 
-        vm.filters = {
-            startDate: new Date(),
-            endDate: new Date()
-        };
+        vm.filters = {};
 
         /**
          * Load the interfaces data.
