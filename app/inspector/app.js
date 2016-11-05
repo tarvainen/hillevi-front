@@ -4,6 +4,9 @@
     /**
      * Main module initialization.
      */
-    angular.module('Inspector', []);
+    angular.module('Inspector', [
+        'Inspector.Services',
+        'Inspector.Apps'
+    ]);
 
 })();

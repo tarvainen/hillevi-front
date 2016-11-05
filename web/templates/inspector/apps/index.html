@@ -1,1 +1,55 @@
-<h1>TODO: Add app content</h1>
+<div layout="column" flex data-ng-controller="InspectorAppsMainController as vm">
+
+    <div layout="row" layout-xs="column" layout-align="start center" flex>
+        <date-time-range-input
+            data-start-date-time="vm.filters.startDate"
+            data-end-date-time="vm.filters.endDate"
+            data-date-range-pre-select="vm.filters.preSelect"
+        ></date-time-range-input>
+
+        <span flex></span>
+        <md-input-container>
+            <md-button class="md-raised md-primary"
+                       data-ng-click="vm.load()"
+            >
+                {{ ::'SEARCH' | translate }}
+            </md-button>
+        </md-input-container>
+    </div>
+
+    <div layout="column">
+        <md-table-container layout="column" flex>
+            <table md-table
+                   md-progress="vm.loader"
+            >
+                <thead md-head md-order="orderBy">
+                <tr md-row>
+                    <th md-column
+                        data-md-order-by="ID"
+                    >
+                        <span>{{ ::'NAME' | translate }}</span>
+                    </th>
+                    <th md-column>
+                        <span>{{ ::'ACTIVE_TIME' | translate }}</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row md-auto-select
+                    data-ng-repeat="row in vm.data | orderBy:orderBy | limitTo: vm.limit: (vm.page - 1) * vm.limit"
+                >
+                    <td md-cell>{{ ::row.name }}</td>
+                    <td md-cell>{{ ::row.activeTime }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="vm.limit"
+                             md-limit-options="[10, 20, 30]"
+                             md-page="vm.page"
+                             md-total="{{ vm.data.length }}"
+                             md-page-select
+        ></md-table-pagination>
+    </div>
+</div>

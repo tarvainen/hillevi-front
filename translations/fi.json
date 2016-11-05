@@ -51,6 +51,7 @@
   "API_DATA_MASS_IMPORT": "Datan massatuonti",
   "ARE_YOU_SURE": "Oletko varma?",
   "REMEMBER_TO_SAVE_CHANGES": "Muista tallentaa muutokset!",
+  "SEARCH": "Hae",
 
   // Login interface
   "LOGIN_HEADLINE": "Kirjaudu Hilleviin",
@@ -166,5 +167,6 @@
 
   // Inspector
   "INSPECTOR": "PC-inspektori",
-  "INSPECTOR_APPLICATION_REPORT": "Sovellukset"
+  "INSPECTOR_APPLICATION_REPORT": "Sovellukset",
+  "ACTIVE_TIME": "Aktiivinen aika"
 }
