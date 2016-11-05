@@ -19,9 +19,18 @@
                 md-heading="{{ ::'INSPECTOR' | translate }}"
                 md-arrow="true"
         >
-            <md-sidemenu-button href="#/inspector/apps">
-                <span>{{ ::'INSPECTOR_APPLICATION_REPORT' | translate }}</span>
-            </md-sidemenu-button>
+            <md-sidemenu-content
+                    md-heading="{{ ::'INSPECTOR_APPLICATIONS' | translate }}"
+                    md-arrow="true"
+            >
+                <md-sidemenu-button href="#/inspector/apps">
+                    <span>{{ ::'INSPECTOR_APPLICATION_REPORT' | translate }}</span>
+                </md-sidemenu-button>
+
+                <md-sidemenu-button href="#/inspector/apps/usage-per-time">
+                    <span>{{ ::'INSPECTOR_APPLICATION_LOAD_PER_TIME' | translate }}</span>
+                </md-sidemenu-button>
+            </md-sidemenu-content>
         </md-sidemenu-content>
     </md-sidemenu-group>
 

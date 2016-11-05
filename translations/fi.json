@@ -167,6 +167,9 @@
 
   // Inspector
   "INSPECTOR": "PC-inspektori",
-  "INSPECTOR_APPLICATION_REPORT": "Aktiiviset sovellukset",
-  "ACTIVE_TIME": "Aktiivinen aika"
+  "INSPECTOR_APPLICATIONS": "Sovellukset",
+  "INSPECTOR_APPLICATION_REPORT": "Kokonaiskäyttöaikaraportti",
+  "INSPECTOR_APPLICATION_LOAD_PER_TIME": "Käyttöaste kellonajoittain",
+  "ACTIVE_TIME": "Aktiivinen aika",
+  "SELECTED_APPS": "Valitut sovellukset"
 }

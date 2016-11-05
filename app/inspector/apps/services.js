@@ -23,8 +23,11 @@
      * @constructor
      */
     function InspectorAppsDataService (api) {
+        var baseRoute = 'inspector/apps/';
+
         return {
-            getData: getData
+            getData: getData,
+            getUsagePerTime: getUsagePerTime
         };
 
         /**
@@ -35,7 +38,18 @@
          * @returns {*}
          */
         function getData (filters) {
-            return api.route('inspector/apps/all', filters);
+            return api.route(baseRoute + 'all', filters);
+        }
+
+        /**
+         * Returns the usage per time data.
+         *
+         * @param  {*} filters
+         *
+         * @returns {*}
+         */
+        function getUsagePerTime (filters) {
+            return api.route(baseRoute + 'usage-per-time', filters);
         }
     }
 })();

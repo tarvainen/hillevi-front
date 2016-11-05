@@ -11,6 +11,7 @@
      */
     angular.module('Filters.Directives')
         .directive('genericFilter', GenericFilter)
+        .directive('genericFilterMultiple', GenericFilterMultiple)
         .directive('dateTimeInput', DateTimeInput)
         .directive('dateTimeRangeInput', DateTimeRangeInput)
     ;
@@ -34,10 +35,38 @@
                 label: '@',
                 id: '@',
                 require: '@',
-                collection: '='
+                collection: '=',
+                multiple: '='
             },
             replace: true,
             templateUrl: 'web/templates/filters/generic-filter.html',
+            controller: 'GenericFilterController',
+            controllerAs: 'vm',
+            bindToController: true
+        };
+    }
+
+    /**
+     * A generic filter.
+     *
+     * @returns {*}
+     *
+     * @constructor
+     */
+    function GenericFilterMultiple () {
+        return {
+            restrict: 'E',
+            scope: {
+                class: '@',
+                action: '@',
+                ngModel: '=',
+                label: '@',
+                id: '@',
+                require: '@',
+                collection: '='
+            },
+            replace: true,
+            templateUrl: 'web/templates/filters/generic-filter-multiple.html',
             controller: 'GenericFilterController',
             controllerAs: 'vm',
             bindToController: true

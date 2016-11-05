@@ -7,7 +7,8 @@
     angular.module('Inspector.Apps', [
         'Inspector.Apps.Services',
         'Inspector.Apps.Controllers',
-        'Inspector.Apps.Directives'
+        'Inspector.Apps.Directives',
+        'Inspector.Apps.UsagePerTime'
     ]);
 
 })();

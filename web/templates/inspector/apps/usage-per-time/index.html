@@ -1,0 +1,44 @@
+<md-content layout="column" flex layout-fill layout-align="start"
+     data-ng-controller="UsagePerTimeMainController as vm"
+>
+    <loader data-ng-if="vm.loading"></loader>
+
+    <md-content layout="column" layout-align="start">
+        <div layout="row" layout-align="start center">
+            <generic-filter-multiple
+                    data-ng-model="vm.form.apps"
+                    data-action="inspector/apps/list"
+                    data-collection="vm.apps"
+                    data-label="{{ ::'SELECTED_APPS' | translate }}"
+            ></generic-filter-multiple>
+        </div>
+
+        <div layout="row" layout-align="start center" flex>
+            <date-time-range-input
+                    data-start-date-time="vm.filters.startDate"
+                    data-end-date-time="vm.filters.endDate"
+                    data-date-range-pre-select="vm.filters.preSelect"
+            ></date-time-range-input>
+
+            <span flex></span>
+
+            <md-input-container>
+                <md-button class="md-raised md-primary"
+                           data-ng-click="vm.load()"
+                           data-ng-disabled="!vm.form.apps || vm.form.apps.length === 0"
+                >
+                    {{ ::'SEARCH' | translate }}
+                </md-button>
+            </md-input-container>
+        </div>
+    </md-content>
+
+    <md-content flex layout="column" flex>
+        <canvas class="chart chart-bar"
+                data-chart-data="vm.data.data"
+                data-chart-labels="vm.data.labels"
+                data-chart-series="vm.data.series"
+                data-chart-options="vm.chartOptions"
+        ></canvas>
+    </md-content>
+</md-content>

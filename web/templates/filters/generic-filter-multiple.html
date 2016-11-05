@@ -1,0 +1,17 @@
+<md-input-container flex>
+    <label>{{ vm.label }}</label>
+    <md-select
+            id="{{ vm.id }}"
+            data-ng-model="vm.ngModel"
+            class="{{ vm.class }}"
+            aria-label="{{ vm.label }}"
+            required="{{ vm.require }}"
+            multiple
+    >
+        <md-option data-ng-value="option.id" data-ng-selected="vm.require ? $first : 0"
+                   data-ng-repeat="option in vm.options track by option.id"
+        >
+            {{ option.name | translate }}
+        </md-option>
+    </md-select>
+</md-input-container>

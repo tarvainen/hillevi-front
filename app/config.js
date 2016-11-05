@@ -65,6 +65,9 @@
             .when('/inspector/apps', {
                 templateUrl: 'web/templates/inspector/apps'
             })
+            .when('/inspector/apps/usage-per-time', {
+                templateUrl: 'web/templates/inspector/apps/usage-per-time'
+            })
         ;
 
         $translateProvider.useStaticFilesLoader({
