@@ -39,7 +39,7 @@
                     data-ng-repeat="row in vm.data | orderBy:orderBy | limitTo: vm.limit: (vm.page - 1) * vm.limit"
                 >
                     <td md-cell>{{ ::row.name }}</td>
-                    <td md-cell>{{ ::row.activeTime }}</td>
+                    <td md-cell>{{ ::row.activeTime | countdown }}</td>
                 </tr>
                 </tbody>
             </table>

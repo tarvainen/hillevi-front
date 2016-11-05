@@ -25,7 +25,9 @@
      * @param {*}   ChartJsProvider
      * @param {*}   $mdDateLocaleProvider
      */
-    function config ($routeProvider, $httpProvider, $translateProvider, ChartJsProvider, $mdDateLocaleProvider) {
+    function config (
+        $routeProvider, $httpProvider, $translateProvider, ChartJsProvider, $mdDateLocaleProvider
+    ) {
         // Setup chart.js
         ChartJsProvider.setOptions({
             global: {
@@ -121,6 +123,13 @@
         function formatter (date) {
             return 'day.month.year'.replace('day', date.getDate()).replace('month', date.getMonth() + 1).replace('year', date.getFullYear());
         }
+
+        // Define countdown's display format
+        countdown.setFormat({
+            plural: 'ms|s|min|h|d||||',
+            singular: 'ms|s|min|h|d||||',
+            last: ' '
+        });
     }
 
 })();
