@@ -71,6 +71,9 @@
             .when('/inspector/keyboard/summary', {
                 templateUrl: 'web/templates/inspector/keyboard/summary'
             })
+            .when('/inspector/keyboard/keyboard-load-chart', {
+                templateUrl: 'web/templates/inspector/keyboard/keyboard-load-chart'
+            })
         ;
 
         $translateProvider.useStaticFilesLoader({

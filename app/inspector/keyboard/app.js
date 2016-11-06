@@ -6,7 +6,8 @@
      */
     angular.module('Inspector.Keyboard', [
         'Inspector.Keyboard.Services',
-        'Inspector.Keyboard.Summary'
+        'Inspector.Keyboard.Summary',
+        'Inspector.Keyboard.Load'
     ]);
 
 })();

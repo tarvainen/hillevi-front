@@ -177,6 +177,7 @@
   "INSPECTOR_APPLICATION_LOAD_PER_TIME": "Käyttöaste kellonajoittain",
   "INSPECTOR_KEYBOARD": "Näppäimistö",
   "INSPECTOR_KEYBOARD_SUMMARY": "Yhteenveto",
+  "INSPECTOR_KEYBOARD_LOAD_CHART": "Kuormituskuvaaja",
   "ACTIVE_TIME": "Aktiivinen aika",
   "SELECTED_APPS": "Valitut sovellukset",
 
