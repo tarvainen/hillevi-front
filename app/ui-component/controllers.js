@@ -11,6 +11,7 @@
      */
     angular.module('UiComponent.Controllers')
         .controller('SimpleCardController', SimpleCardController)
+        .controller('TranscludeCardController', TranscludeCardController)
     ;
 
     /////////////////
@@ -21,6 +22,15 @@
      * @constructor
      */
     function SimpleCardController () {
+        var vm = this;
+    }
+
+    /**
+     * Controller for the transclude card directive.
+     *
+     * @constructor
+     */
+    function TranscludeCardController () {
         var vm = this;
     }
 
