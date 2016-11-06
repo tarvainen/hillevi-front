@@ -54,7 +54,6 @@
             controllerAs: 'vm',
             bindToController: true,
             scope: {
-                model: '=',
                 title: '@'
             },
             replace: true,

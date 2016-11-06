@@ -184,6 +184,7 @@
   "KEYS_TYPED_TOTAL": "Painallukset yhteensä",
   "AVG_TYPING_SPEED": "Kirjoitusnopeus",
   "AVG_KEY_PRESS_DURATION": "Painalluksen kesto",
+  "TOP_KEY_COMBOS": "Suosituimmat näppäinyhdistelmät",
 
   // Units
   "UNIT_COUNT": "kpl",

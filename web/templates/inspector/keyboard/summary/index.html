@@ -45,5 +45,19 @@
                          data-unit="{{ ::'UNIT_MILLISECONDS' | translate }}"
             ></simple-card>
         </div>
+
+        <div layout="column" layout-gt-sm="row">
+            <transclude-card data-title="{{ ::'TOP_KEY_COMBOS' | translate }}"
+                             data-ng-if="vm.data.keyCombos"
+            >
+                <md-list>
+                    <md-list-item data-ng-repeat="combo in vm.data.keyCombos | limitTo:5">
+                        <span>{{ ::combo.combo }}</span>
+                        <span flex></span>
+                        <span>{{ ::combo.amount }} {{ ::'UNIT_COUNT' | translate }}</span>
+                    </md-list-item>
+                </md-list>
+            </transclude-card>
+        </div>
     </md-content>
 </md-content>
