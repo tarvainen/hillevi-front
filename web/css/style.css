@@ -167,3 +167,26 @@ md-input-container.no-whitespace input {
 .text-small {
     font-size: 50%;
 }
+
+.md-sidemenu-button md-icon:first-child,
+.md-sidemenu-toggle md-icon:first-child {
+    margin-right: 20px !important;
+}
+
+.md-sidemenu-wrapper.md-sidemenu-wrapper-icons .md-button {
+    padding-left: 60px !important;
+}
+
+.md-sidemenu-group > md-sidemenu-button span,
+.md-sidemenu-group > .md-sidemenu-content > .md-sidemenu-toggle {
+
+}
+
+.md-sidemenu-group > .md-sidemenu-content > .md-sidemenu-wrapper > .md-sidemenu-content {
+    padding-left: 10px;
+}
+
+.md-sidemenu-group > .md-sidemenu-content > .md-sidemenu-wrapper > .md-sidemenu-content > .md-sidemenu-wrapper span {
+    color: #7f8c8d;
+    padding-left: 10px;
+}

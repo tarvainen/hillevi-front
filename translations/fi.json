@@ -167,6 +167,10 @@
   "AGGREGATE_MIN": "Pienin arvo (min)",
 
   // Inspector
+  "TITLE_USAGE_PER_TIME_REPORT": "Sovellusten aktiivisuus vuorokaudenajoittain",
+  "TITLE_ACTIVE_APPLICATION_TOTAL_USAGE_REPORT": "Sovellusten kokonaisaktiivisuus",
+  "TITLE_KEYBOARD_SUMMARY_REPORT": "Näppäimistön käytön yhteenveto",
+
   "INSPECTOR": "PC-inspektori",
   "INSPECTOR_APPLICATIONS": "Sovellukset",
   "INSPECTOR_APPLICATION_REPORT": "Kokonaiskäyttöaikaraportti",
