@@ -1,0 +1,16 @@
+<md-card flex>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline-small">
+                {{ vm.title }}
+            </span>
+        </md-card-title-text>
+    </md-card-title>
+
+    <md-card-content>
+        <h1 class="md-headline text-x2">
+            {{ vm.model | number : 2 }}
+            <span class="text-small text-muted" data-ng-if="vm.unit">{{ vm.unit }}</span>
+        </h1>
+    </md-card-content>
+</md-card>

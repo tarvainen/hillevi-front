@@ -45,7 +45,7 @@
              * @param {*}  data
              */
             function onSuccess (data) {
-                console.log(data);
+                vm.data = data.data;
             }
 
             /**

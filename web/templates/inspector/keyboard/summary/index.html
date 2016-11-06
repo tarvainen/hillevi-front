@@ -22,4 +22,26 @@
             </md-input-container>
         </div>
     </md-content>
+
+    <md-content layout="column" flex>
+        <div layout="column" layout-gt-sm="row">
+            <simple-card data-title="{{ ::'KEYS_TYPED_TOTAL' | translate }}"
+                         data-model="vm.data.totalKeysTyped"
+                         data-ng-if="vm.data.totalKeysTyped"
+                         data-unit="{{ ::'UNIT_COUNT' | translate }}"
+            ></simple-card>
+
+            <simple-card data-title="{{ ::'AVG_TYPING_SPEED' | translate }}"
+                         data-model="vm.data.averageTypingSpeed"
+                         data-ng-if="vm.data.averageTypingSpeed"
+                         data-unit="{{ ::'UNIT_ONE_PER_SECOND' | translate }}"
+            ></simple-card>
+
+            <simple-card data-title="{{ ::'AVG_KEY_PRESS_DURATION' | translate }}"
+                         data-model="vm.data.averageKeyPressDuration"
+                         data-ng-if="vm.data.averageKeyPressDuration"
+                         data-unit="{{ ::'UNIT_MILLISECONDS' | translate }}"
+            ></simple-card>
+        </div>
+    </md-content>
 </md-content>

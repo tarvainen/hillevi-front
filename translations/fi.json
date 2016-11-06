@@ -52,6 +52,7 @@
   "ARE_YOU_SURE": "Oletko varma?",
   "REMEMBER_TO_SAVE_CHANGES": "Muista tallentaa muutokset!",
   "SEARCH": "Hae",
+  "COMMON": "Yleistä",
 
   // Login interface
   "LOGIN_HEADLINE": "Kirjaudu Hilleviin",
@@ -173,5 +174,15 @@
   "INSPECTOR_KEYBOARD": "Näppäimistö",
   "INSPECTOR_KEYBOARD_SUMMARY": "Yhteenveto",
   "ACTIVE_TIME": "Aktiivinen aika",
-  "SELECTED_APPS": "Valitut sovellukset"
+  "SELECTED_APPS": "Valitut sovellukset",
+
+  // Inspector keyboard
+  "KEYS_TYPED_TOTAL": "Painallukset yhteensä",
+  "AVG_TYPING_SPEED": "Kirjoitusnopeus",
+  "AVG_KEY_PRESS_DURATION": "Painalluksen kesto",
+
+  // Units
+  "UNIT_COUNT": "kpl",
+  "UNIT_MILLISECONDS": "ms",
+  "UNIT_ONE_PER_SECOND": "1/s"
 }

@@ -154,3 +154,16 @@ md-input-container.no-whitespace input {
     height: 100%;
     z-index: 10000;
 }
+
+.md-headline-small {
+    font-size: 140%;
+    opacity: 0.8;
+}
+
+.text-x2 {
+    font-size: 200%;
+}
+
+.text-small {
+    font-size: 50%;
+}
