@@ -192,7 +192,7 @@ md-input-container.no-whitespace input {
 }
 
 .kboard {
-    background: rgba(0, 0, 0, 0.02);
+    background: #fff;
     padding: 15px;
     border-radius: 15px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -202,12 +202,12 @@ md-input-container.no-whitespace input {
 .kbutton {
     height: 50px;
     border-radius: 5px;
-    background: #fff;
     position: relative;
     display: inline-block;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     margin: 5px;
     user-select: none;
+    transition: 0.5s;
 }
 
 .kspace {
