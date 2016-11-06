@@ -190,3 +190,36 @@ md-input-container.no-whitespace input {
     color: #7f8c8d;
     padding-left: 10px;
 }
+
+.kboard {
+    background: rgba(0, 0, 0, 0.02);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 60%;
+}
+
+.kbutton {
+    height: 50px;
+    border-radius: 5px;
+    background: #fff;
+    position: relative;
+    display: inline-block;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    margin: 5px;
+    user-select: none;
+}
+
+.kspace {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+}
+
+.kbutton span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}

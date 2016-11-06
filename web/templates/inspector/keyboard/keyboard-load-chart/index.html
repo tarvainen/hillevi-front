@@ -1,3 +1,175 @@
-<md-content layout="row" data-ng-controller="KeyboardLoadController as vm">
-    <h1>TODO!</h1>
+<md-content layout="column" data-ng-controller="KeyboardLoadController as vm">
+    <loader data-ng-if="vm.loading"></loader>
+
+    <h1 class="md-headline">{{ ::'TITLE_KEYBOARD_LOAD_CHART' | translate }}</h1>
+
+    <md-content layout="column" layout-align="start">
+        <div layout="row" layout-align="start center" flex>
+            <date-time-range-input
+                    data-start-date-time="vm.filters.startDate"
+                    data-end-date-time="vm.filters.endDate"
+                    data-date-range-pre-select="vm.filters.preSelect"
+            ></date-time-range-input>
+
+            <span flex></span>
+
+            <md-input-container>
+                <md-button class="md-raised md-primary"
+                           data-ng-click="vm.load()"
+                >
+                    {{ ::'SEARCH' | translate }}
+                </md-button>
+            </md-input-container>
+        </div>
+    </md-content>
+
+    <div class="kboard" layout="column" flex>
+        <div layout="row" flex>
+            <div class="kbutton" flex="5"><span>esc</span></div>
+            <div class="kspace" flex="5"></div>
+
+            <div class="kbutton" flex="5"><span>F1</span></div>
+            <div class="kbutton" flex="5"><span>F2</span></div>
+            <div class="kbutton" flex="5"><span>F3</span></div>
+            <div class="kbutton" flex="5"><span>F4</span></div>
+            <div class="kbutton" flex="5"><span>F5</span></div>
+            <div class="kbutton" flex="5"><span>F6</span></div>
+            <div class="kbutton" flex="5"><span>F7</span></div>
+            <div class="kbutton" flex="5"><span>F8</span></div>
+            <div class="kbutton" flex="5"><span>F9</span></div>
+            <div class="kbutton" flex="5"><span>F10</span></div>
+            <div class="kbutton" flex="5"><span>F11</span></div>
+            <div class="kbutton" flex="5"><span>F12</span></div>
+            <div class="kbutton" flex="5"><span>Print Scr</span></div>
+            <div class="kbutton" flex="5"><span>Scroll Lock</span></div>
+            <div class="kbutton" flex="5"><span>Pause</span></div>
+
+            <div class="kspace" flex="5"></div>
+            <div class="kspace" flex="5"></div>
+            <div class="kspace" flex="5"></div>
+        </div>
+
+        <div layout="row" flex>
+            <div class="kbutton" flex="5"><span>§</span></div>
+            <div class="kbutton" flex="5"><span>1</span></div>
+            <div class="kbutton" flex="5"><span>2</span></div>
+            <div class="kbutton" flex="5"><span>3</span></div>
+            <div class="kbutton" flex="5"><span>4</span></div>
+            <div class="kbutton" flex="5"><span>5</span></div>
+            <div class="kbutton" flex="5"><span>6</span></div>
+            <div class="kbutton" flex="5"><span>7</span></div>
+            <div class="kbutton" flex="5"><span>8</span></div>
+            <div class="kbutton" flex="5"><span>9</span></div>
+            <div class="kbutton" flex="5"><span>0</span></div>
+            <div class="kbutton" flex="5"><span>?</span></div>
+            <div class="kbutton" flex="5"><span>´</span></div>
+
+            <div class="kbutton" flex="5"><span>&lt;-</span></div>
+            <div class="kbutton" flex="5"><span>Insert</span></div>
+            <div class="kbutton" flex="5"><span>Home</span></div>
+            <div class="kbutton" flex="5"><span>Page Up</span></div>
+
+            <div class="kbutton" flex="5"><span>Num Lock</span></div>
+            <div class="kbutton" flex="5"><span>/</span></div>
+            <div class="kbutton" flex="5"><span>*</span></div>
+        </div>
+
+        <div layout="row" flex>
+            <div class="kbutton" flex="5"><span>Tab</span></div>
+            <div class="kbutton" flex="5"><span>Q</span></div>
+            <div class="kbutton" flex="5"><span>W</span></div>
+            <div class="kbutton" flex="5"><span>E</span></div>
+            <div class="kbutton" flex="5"><span>R</span></div>
+            <div class="kbutton" flex="5"><span>T</span></div>
+            <div class="kbutton" flex="5"><span>Y</span></div>
+            <div class="kbutton" flex="5"><span>U</span></div>
+            <div class="kbutton" flex="5"><span>I</span></div>
+            <div class="kbutton" flex="5"><span>O</span></div>
+            <div class="kbutton" flex="5"><span>P</span></div>
+            <div class="kbutton" flex="5"><span>Å</span></div>
+            <div class="kbutton" flex="5"><span>^</span></div>
+
+            <div class="kspace" flex="5"></div>
+
+            <div class="kbutton" flex="5"><span>Delete</span></div>
+            <div class="kbutton" flex="5"><span>End</span></div>
+            <div class="kbutton" flex="5"><span>Page Down</span></div>
+
+            <div class="kbutton" flex="5"><span>Num 7</span></div>
+            <div class="kbutton" flex="5"><span>Num 8</span></div>
+            <div class="kbutton" flex="5"><span>Num 9</span></div>
+        </div>
+
+        <div layout="row" flex>
+            <div class="kbutton" flex="5"><span>Caps Lock</span></div>
+            <div class="kbutton" flex="5"><span>A</span></div>
+            <div class="kbutton" flex="5"><span>S</span></div>
+            <div class="kbutton" flex="5"><span>D</span></div>
+            <div class="kbutton" flex="5"><span>F</span></div>
+            <div class="kbutton" flex="5"><span>G</span></div>
+            <div class="kbutton" flex="5"><span>H</span></div>
+            <div class="kbutton" flex="5"><span>J</span></div>
+            <div class="kbutton" flex="5"><span>K</span></div>
+            <div class="kbutton" flex="5"><span>L</span></div>
+            <div class="kbutton" flex="5"><span>Ö</span></div>
+            <div class="kbutton" flex="5"><span>Ä</span></div>
+            <div class="kbutton" flex="5"><span>Enter</span></div>
+
+            <div class="kspace" flex="5"></div>
+            <div class="kspace" flex="5"></div>
+            <div class="kspace" flex="5"></div>
+            <div class="kspace" flex="5"></div>
+
+            <div class="kbutton" flex="5"><span>Num 4</span></div>
+            <div class="kbutton" flex="5"><span>Num 5</span></div>
+            <div class="kbutton" flex="5"><span>Num 6</span></div>
+        </div>
+
+        <div layout="row" flex>
+            <div class="kbutton" flex="5"><span>LShift</span></div>
+            <div class="kbutton" flex="5"><span>&lt;</span></div>
+            <div class="kbutton" flex="5"><span>Z</span></div>
+            <div class="kbutton" flex="5"><span>X</span></div>
+            <div class="kbutton" flex="5"><span>C</span></div>
+            <div class="kbutton" flex="5"><span>V</span></div>
+            <div class="kbutton" flex="5"><span>B</span></div>
+            <div class="kbutton" flex="5"><span>N</span></div>
+            <div class="kbutton" flex="5"><span>M</span></div>
+            <div class="kbutton" flex="5"><span>,</span></div>
+            <div class="kbutton" flex="5"><span>.</span></div>
+            <div class="kbutton" flex="5"><span>-</span></div>
+            <div class="kbutton" flex="5"><span>RShift</span></div>
+
+            <div class="kspace" flex="5"></div>
+            <div class="kspace" flex="5"></div>
+            <div class="kbutton" flex="5"><span>Up</span></div>
+            <div class="kspace" flex="5"></div>
+
+            <div class="kbutton" flex="5"><span>Num 1</span></div>
+            <div class="kbutton" flex="5"><span>Num 2</span></div>
+            <div class="kbutton" flex="5"><span>Num 3</span></div>
+        </div>
+
+        <div layout="row" flex>
+            <div class="kbutton" flex="5"><span>LCtrl</span></div>
+            <div class="kbutton" flex="5"><span>Cmd</span></div>
+            <div class="kbutton" flex="5"><span>Alt</span></div>
+            <div class="kbutton" flex="35"><span>Space</span></div>
+
+            <div class="kbutton" flex="5"><span>Alt Gr</span></div>
+            <div class="kbutton" flex="5"><span>CtxMenu</span></div>
+            <div class="kbutton" flex="5"><span>Ctrl</span></div>
+
+            <div class="kspace" flex="5"></div>
+            <div class="kspace" flex="5"></div>
+            <div class="kbutton" flex="5"><span>Left</span></div>
+            <div class="kbutton" flex="5"><span>Down</span></div>
+            <div class="kbutton" flex="5"><span>Right</span></div>
+
+            <div class="kbutton" flex="5"><span>Num 1</span></div>
+            <div class="kbutton" flex="5"><span>Num 2</span></div>
+            <div class="kbutton" flex="5"><span>Num 3</span></div>
+        </div>
+    </div>
+
 </md-content>

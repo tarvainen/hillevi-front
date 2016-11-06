@@ -170,6 +170,7 @@
   "TITLE_USAGE_PER_TIME_REPORT": "Sovellusten aktiivisuus vuorokaudenajoittain",
   "TITLE_ACTIVE_APPLICATION_TOTAL_USAGE_REPORT": "Sovellusten kokonaisaktiivisuus",
   "TITLE_KEYBOARD_SUMMARY_REPORT": "Näppäimistön käytön yhteenveto",
+  "TITLE_KEYBOARD_LOAD_CHART": "Näppäimistön kuormitus",
 
   "INSPECTOR": "PC-inspektori",
   "INSPECTOR_APPLICATIONS": "Sovellukset",
