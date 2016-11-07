@@ -177,10 +177,10 @@
                     { key: 'keyNum3', cols: 1, text: 'Num3' }
                 ],
                 [
-                    { key: 'keyLeftCtrl', cols: 2, text: 'LCtrl' },
+                    { key: 'keyLeftCtrl', cols: 1, text: 'LCtrl' },
                     { key: 'keyCmd', cols: 1, text: 'Cmd' },
-                    { key: 'keyLeftAlt', cols: 2, text: 'Alt' },
-                    { key: 'keySpace', cols: 4, text: 'Space' },
+                    { key: 'keyLeftAlt', cols: 1, text: 'Alt' },
+                    { key: 'keySpace', cols: 5, text: 'Space' },
                     { key: 'keyAltGr', cols: 1, text: 'Alt Gr' },
                     { key: 'keyContextMenu', cols: 1, text: 'Ctx Menu' },
                     { key: 'keyRightCtrl', cols: 1, text: 'RCtrl' },

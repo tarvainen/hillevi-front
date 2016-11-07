@@ -205,7 +205,6 @@ md-input-container.no-whitespace input {
     position: relative;
     display: inline-block;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-    margin: 5px;
     user-select: none;
     transition: 0.5s;
 }
@@ -213,7 +212,6 @@ md-input-container.no-whitespace input {
 .kspace {
     position: relative;
     display: inline-block;
-    margin: 5px;
 }
 
 .kbutton span {
