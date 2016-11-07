@@ -38,11 +38,19 @@
                          data-ng-if="vm.data.averageTypingSpeed"
                          data-unit="{{ ::'UNIT_ONE_PER_SECOND' | translate }}"
             ></simple-card>
+        </div>
 
+        <div layout="column" layout-gt-sm="row">
             <simple-card data-title="{{ ::'AVG_KEY_PRESS_DURATION' | translate }}"
                          data-model="vm.data.averageKeyPressDuration"
                          data-ng-if="vm.data.averageKeyPressDuration"
                          data-unit="{{ ::'UNIT_MILLISECONDS' | translate }}"
+            ></simple-card>
+
+            <simple-card data-title="{{ ::'TOTAL_PASTED_AMOUNT' | translate }}"
+                         data-model="vm.data.totalPasted"
+                         data-ng-if="vm.data.totalPasted"
+                         data-unit="{{ ::'UNIT_COUNT' | translate }}"
             ></simple-card>
         </div>
 

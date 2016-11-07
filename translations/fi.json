@@ -190,6 +190,7 @@
   "AVG_TYPING_SPEED": "Kirjoitusnopeus",
   "AVG_KEY_PRESS_DURATION": "Painalluksen kesto",
   "TOP_KEY_COMBOS": "Suosituimmat näppäinyhdistelmät",
+  "TOTAL_PASTED_AMOUNT": "Liitettyä tekstiä yhteensä",
 
   // Units
   "UNIT_COUNT": "kpl",
