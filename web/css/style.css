@@ -223,3 +223,13 @@ md-input-container.no-whitespace input {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
+img.user-img {
+    max-width: 100%;
+    transition: 0.5s;
+    opacity: 1;
+}
+
+img.user-img.ng-hide {
+    opacity: 0;
+}

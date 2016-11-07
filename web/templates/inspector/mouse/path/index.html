@@ -1,0 +1,31 @@
+<md-content layout="column" layout-fill flex
+            data-ng-controller="InspectorMousePathMainController as vm"
+>
+    <loader data-ng-if="vm.loading"></loader>
+
+    <h1 class="md-headline">{{ ::'TITLE_MOUSE_PATH' | translate }}</h1>
+
+    <md-content layout="column">
+        <div layout="row" flex layout-align="start center">
+            <date-time-range-input
+                    data-start-date-time="vm.filters.startDate"
+                    data-end-date-time="vm.filters.endDate"
+                    data-date-range-pre-select="vm.filters.preSelect"
+            ></date-time-range-input>
+
+            <span flex></span>
+
+            <md-input-container>
+                <md-button class="md-raised md-primary"
+                           data-ng-click="vm.load()"
+                >
+                    {{ ::'SEARCH' | translate }}
+                </md-button>
+            </md-input-container>
+        </div>
+    </md-content>
+
+    <md-content layout="row" flex md-whiteframe="4">
+        <img class="user-img" data-ng-show="vm.image" data-ng-src="{{ vm.image }}"/>
+    </md-content>
+</md-content>

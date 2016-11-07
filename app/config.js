@@ -74,6 +74,9 @@
             .when('/inspector/keyboard/keyboard-load-chart', {
                 templateUrl: 'web/templates/inspector/keyboard/keyboard-load-chart'
             })
+            .when('/inspector/mouse/path', {
+                templateUrl: 'web/templates/inspector/mouse/path'
+            })
         ;
 
         $translateProvider.useStaticFilesLoader({

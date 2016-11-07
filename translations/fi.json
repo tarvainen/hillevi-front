@@ -171,6 +171,7 @@
   "TITLE_ACTIVE_APPLICATION_TOTAL_USAGE_REPORT": "Sovellusten kokonaisaktiivisuus",
   "TITLE_KEYBOARD_SUMMARY_REPORT": "Näppäimistön käytön yhteenveto",
   "TITLE_KEYBOARD_LOAD_CHART": "Näppäimistön kuormitus",
+  "TITLE_MOUSE_PATH": "Hiiren liike",
 
   "INSPECTOR": "PC-inspektori",
   "INSPECTOR_APPLICATIONS": "Sovellukset",
@@ -181,6 +182,8 @@
   "INSPECTOR_KEYBOARD_LOAD_CHART": "Kuormituskuvaaja",
   "ACTIVE_TIME": "Aktiivinen aika",
   "SELECTED_APPS": "Valitut sovellukset",
+  "INSPECTOR_MOUSE": "Hiiri",
+  "INSPECTOR_MOUSE_PATH": "Hiiren liike",
 
   // Inspector keyboard
   "KEYS_TYPED_TOTAL": "Painallukset yhteensä",

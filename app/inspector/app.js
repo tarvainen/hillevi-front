@@ -7,7 +7,8 @@
     angular.module('Inspector', [
         'Inspector.Services',
         'Inspector.Apps',
-        'Inspector.Keyboard'
+        'Inspector.Keyboard',
+        'Inspector.Mouse'
     ]);
 
 })();
