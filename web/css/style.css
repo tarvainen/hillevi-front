@@ -231,3 +231,21 @@ img.user-img {
 img.user-img.ng-hide {
     opacity: 0;
 }
+
+.progress-card-data-container {
+    position: relative;
+}
+
+.progress-card-data-container span {
+    font-size: 30px;
+    white-space: nowrap;
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

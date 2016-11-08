@@ -12,6 +12,7 @@
     angular.module('UiComponent.Directives')
         .directive('simpleCard', SimpleCard)
         .directive('transcludeCard', TranscludeCard)
+        .directive('progressCard', ProgressCard)
     ;
 
     /////////////
@@ -58,6 +59,30 @@
             },
             replace: true,
             transclude: true
+        };
+    }
+
+    /**
+     * Directive for the progress card ui component.
+     *
+     * @returns {*}
+     *
+     * @constructor
+     */
+    function ProgressCard () {
+        return {
+            restrict: 'E',
+            templateUrl: 'web/templates/ui-component/cards/progress-card.html',
+            controller: 'ProgressCardController',
+            controllerAs: 'vm',
+            bindToController: true,
+            scope: {
+                title: '@',
+                progress: '=',
+                model: '=',
+                unit: '@'
+            },
+            replace: true
         };
     }
 

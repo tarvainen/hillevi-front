@@ -12,6 +12,7 @@
     angular.module('UiComponent.Controllers')
         .controller('SimpleCardController', SimpleCardController)
         .controller('TranscludeCardController', TranscludeCardController)
+        .controller('ProgressCardController', ProgressCardController)
     ;
 
     /////////////////
@@ -31,6 +32,15 @@
      * @constructor
      */
     function TranscludeCardController () {
+        var vm = this;
+    }
+
+    /**
+     * Controller for the progress card directive.
+     *
+     * @constructor
+     */
+    function ProgressCardController () {
         var vm = this;
     }
 
