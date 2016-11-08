@@ -3,41 +3,31 @@
             layout="column"
             flex
 >
-    <md-grid-list
-            style="margin-bottom: 10px;"
-            md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt--md="3"
-            md-row-height-gt-md="1:1" md-row-height="1:1"
-            md-gutter="12px" md-gutter-gt-sm="10px">
+    <div layout="column" layout-gt-sm="row" flex>
+        <progress-card
+                data-title="{{ ::'ACTIVITY_PERCENTAGE' | translate }}"
+                data-progress="vm.data.activityPercentage"
+                data-unit="%"
+        ></progress-card>
 
-        <md-grid-tile md-whiteframe="1" md-colspan="2">
-            <widget style="height: 100%"
-                    data-title="{{ ::'WIDGET_TITLE' | translate }}"
-                    layout="column"
-                    flex
-            >
-            </widget>
-        </md-grid-tile>
+        <progress-card
+                data-title="{{ ::'ONLINE_PERCENTAGE' | translate }}"
+                data-progress="vm.data.onlinePercentage"
+                data-unit="%"
+        ></progress-card>
 
-    </md-grid-list>
+        <progress-card
+                data-title="{{ ::'ONLINE_PERCENTAGE' | translate }}"
+                data-unit="%"
+        ></progress-card>
+    </div>
 
-    <md-fab-toolbar md-direction="left" class="fixed right bottom layout-fill-x">
-        <md-fab-trigger class="align-with-text">
-            <md-button class="md-fab md-primary">
-                <md-icon>menu</md-icon>
-            </md-button>
-        </md-fab-trigger>
-        <md-toolbar>
-            <md-fab-actions class="md-toolbar-tools">
-                <md-button class="md-icon-button"
-                           data-ng-click="vm.openSettings()"
-                >
-                    <md-icon>settings</md-icon>
-                </md-button>
+    <div layout="column" layout-gt-sm="row" flex>
+        <chart-card
+                data-title="{{ ::'TYPING_SPEED' | translate }}"
+                data-model="vm.data.typingSpeed"
+                data-url="inspector/keyboard/typing/speed"
+        ></chart-card>
+    </div>
 
-                <md-button class="md-icon-button">
-                    <md-icon>autorenew</md-icon>
-                </md-button>
-            </md-fab-actions>
-        </md-toolbar>
-    </md-fab-toolbar>
 </md-content>

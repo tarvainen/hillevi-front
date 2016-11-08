@@ -13,6 +13,7 @@
         .directive('simpleCard', SimpleCard)
         .directive('transcludeCard', TranscludeCard)
         .directive('progressCard', ProgressCard)
+        .directive('chartCard', ChartCard)
     ;
 
     /////////////
@@ -80,7 +81,32 @@
                 title: '@',
                 progress: '=',
                 model: '=',
-                unit: '@'
+                unit: '@',
+                url: '@'
+            },
+            replace: true
+        };
+    }
+
+    /**
+     * Directive for the chart card ui component.
+     *
+     * @returns {*}
+     *
+     * @constructor
+     */
+    function ChartCard () {
+        return {
+            restrict: 'E',
+            templateUrl: 'web/templates/ui-component/cards/chart-card.html',
+            controller: 'ChartCardController',
+            controllerAs: 'vm',
+            bindToController: true,
+            scope: {
+                title: '@',
+                model: '=',
+                type: '=',
+                url: '@'
             },
             replace: true
         };

@@ -195,5 +195,8 @@
   // Units
   "UNIT_COUNT": "kpl",
   "UNIT_MILLISECONDS": "ms",
-  "UNIT_ONE_PER_SECOND": "1/s"
+  "UNIT_ONE_PER_SECOND": "1/s",
+
+  // Dashboard
+  "TYPING_SPEED": "Kirjoitusnopeus (kuluva vuorokausi)"
 }
