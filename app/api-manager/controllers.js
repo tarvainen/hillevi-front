@@ -16,7 +16,9 @@
 
     ////////////////////
 
-    MainController.$inject = ['ApiManagerDataService', '$toast', '$mdDialog', '$confirm', 'md5', '$mdSidenav', '$q'];
+    MainController.$inject = [
+        'ApiManagerDataService', '$toast', '$mdDialog', '$confirm', 'md5', '$mdSidenav', '$q'
+    ];
 
     /**
      * Main controller for the api manager interface.
