@@ -77,6 +77,12 @@
             .when('/inspector/mouse/path', {
                 templateUrl: 'web/templates/inspector/mouse/path'
             })
+            .when('/appsettings/users', {
+                templateUrl: 'web/templates/appsettings/users'
+            })
+            .when('/appsettings/permissions', {
+                templateUrl: 'web/templates/appsettings/permissions'
+            })
         ;
 
         $translateProvider.useStaticFilesLoader({

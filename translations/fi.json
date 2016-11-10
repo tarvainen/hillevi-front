@@ -73,6 +73,11 @@
   "NOTIFICATIONS_ENABLED": "Notifikaatiot käytössä",
   "GET_API_TOKEN": "Hae API-avain",
 
+  // Application settings
+  "APPLICATION_SETTINGS": "Järjestelmän asetukset",
+  "USERS": "Käyttäjät",
+  "PERMISSIONS": "Käyttöoikeudet",
+
   // Dashboard
   "DASHBOARD_SETTINGS": "Dashboardin asetukset",
   "DASHBOARD_REFRESH_INTERVAL": "Päivitysaikaväli (min)",
