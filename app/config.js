@@ -39,7 +39,7 @@
         // Define routes
         $routeProvider
             .when('/', {
-                templateUrl: 'web/templates/'
+                redirectTo: '/dashboard'
             })
             .when('/login', {
                 templateUrl: 'web/templates/login/'
