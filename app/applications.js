@@ -8,7 +8,7 @@
         'Login', 'Settings', 'Dashboard',
         'ApiManager', 'ApiDataManager',
         'Notifications', 'Graph', 'Filters',
-        'Inspector', 'UiComponent'
+        'Inspector', 'UiComponent', 'AppSettings'
     ]);
 
 })();

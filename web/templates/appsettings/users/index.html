@@ -1,1 +1,54 @@
-<h1>TODO</h1>
+<md-content layout="column" flex layout-fill
+            data-ng-controller="AppSettingsUsersMainController as vm"
+>
+    <md-content layout="column" flex md-whiteframe="4">
+        <loader data-ng-if="vm.loading"></loader>
+        <md-content layout-padding flex layout="column">
+            <md-content layout="row" layout-align="start center">
+
+                <h1 class="md-headline">{{ ::'USERS' | translate }}</h1>
+
+                <span flex></span>
+
+                <md-button class="md-icon-button"
+                           data-ng-click="vm.addUser()"
+                >
+                    <md-tooltip>
+                        {{ ::'TT_ADD_USER' | translate }}
+                    </md-tooltip>
+                    <md-icon>add</md-icon>
+                </md-button>
+
+                <md-button class="md-icon-button"
+                           data-ng-click="vm.load()"
+                >
+                    <md-tooltip>
+                        {{ ::'TT_REFRESH' | translate }}
+                    </md-tooltip>
+
+                    <md-icon>refresh</md-icon>
+                </md-button>
+            </md-content>
+
+            <md-content layout="column" flex>
+                <md-list flex>
+                    <md-list-item class="md-2-line"
+                                  data-ng-repeat="user in vm.users" layout-align="start center"
+                                  layout="row"
+                                  data-ng-click="null"
+                    >
+                        <img data-ng-src="https://www.gravatar.com/avatar/{{ ::user.email | gravatar }}"
+                             class="md-avatar" alt="{{ ::user.firstname }}"
+                        />
+
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{ ::user.firstname }} {{ ::user.lastname }}</h3>
+                            <p>{{ ::user.email || ( 'NO_EMAIL_ADDRESS' | translate ) }}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+
+        </md-content>
+    </md-content>
+</md-content>
