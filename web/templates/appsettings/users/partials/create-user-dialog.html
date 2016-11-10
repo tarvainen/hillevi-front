@@ -1,0 +1,44 @@
+<md-dialog flex flex-gt-xs="50" aria-label="{{ ::'CREATE_NEW_USER' | translate }}">
+    <dialog-base
+            data-title="{{ ::'CREATE_NEW_USER' | translate }}"
+            data-on-save="vm.onSave"
+    >
+        <md-content layout-padding>
+                <md-input-container class="md-block">
+                    <label>{{ ::'USERNAME' | translate }}</label>
+                    <input type="text"
+                           data-ng-model="vm.user.username"
+                           aria-label="{{ ::'USERNAME' | translate }}"
+                           required
+                    />
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>{{ ::'FIRST_NAME' | translate }}</label>
+                    <input type="text"
+                           data-ng-model="vm.user.firstname"
+                           aria-label="{{ ::'FIRST_NAME' | translate }}"
+                           required
+                    />
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>{{ ::'LAST_NAME' | translate }}</label>
+                    <input type="text"
+                           data-ng-model="vm.user.lastname"
+                           aria-label="{{ ::'LAST_NAME' | translate }}"
+                           required
+                    />
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>{{ ::'EMAIL' | translate }}</label>
+                    <input type="email"
+                           data-ng-model="vm.user.email"
+                           aria-label="{{ ::'EMAIL' | translate }}"
+                           required
+                    />
+                </md-input-container>
+        </md-content>
+    </dialog-base>
+</md-dialog>

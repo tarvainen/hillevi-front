@@ -28,7 +28,8 @@
      */
     function AppSettingsDataService (api) {
         return {
-            getUsers: getUsers
+            getUsers: getUsers,
+            saveUser: saveUser
         };
 
         /**
@@ -38,6 +39,17 @@
          */
         function getUsers () {
             return get('users/find');
+        }
+
+        /**
+         * Saves (updates or creates) a user.
+         *
+         * @param {*} user
+         *
+         * @returns {*}
+         */
+        function saveUser (user) {
+            return get('users/save', user);
         }
 
         /**

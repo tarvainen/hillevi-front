@@ -11,20 +11,22 @@
      */
     angular.module('AppSettings.Users.Controllers')
         .controller('AppSettingsUsersMainController', AppSettingsUsersMainController)
+        .controller('AppSettingsAddUserDialogController', AppSettingsAddUserDialogController)
     ;
 
     ///////////////
 
-    AppSettingsUsersMainController.$inject = ['AppSettingsDataService'];
+    AppSettingsUsersMainController.$inject = ['AppSettingsDataService', '$dialog'];
 
     /**
      * Main controller for this app.
      *
      * @param {*} AppSettingsDataService
+     * @param {*} $dialog
      *
      * @constructor
      */
-    function AppSettingsUsersMainController (AppSettingsDataService) {
+    function AppSettingsUsersMainController (AppSettingsDataService, $dialog) {
         var vm = this;
 
         /**
@@ -56,8 +58,45 @@
             }
         };
 
+        /**
+         * Open user creation dialog.
+         */
+        vm.addUser = function addUser () {
+            $dialog({
+                controller: 'AppSettingsAddUserDialogController',
+                template: 'web/templates/appsettings/users/partials/create-user-dialog.html',
+                locals: {
+                    users: vm.users
+                }
+            }).then(vm.load);
+        };
+
         // Initiate the data
         vm.load();
+    }
+
+    AppSettingsAddUserDialogController.$inject = ['AppSettingsDataService'];
+
+    /**
+     * Controller for the user creation dialog.
+     *
+     * @param {*} AppSettingsDataService
+     *
+     * @constructor
+     */
+    function AppSettingsAddUserDialogController (AppSettingsDataService) {
+        var vm = this;
+
+        /**
+         * Save handler for the dialog.
+         *
+         * @returns {*}
+         */
+        vm.onSave = function onSave () {
+            return AppSettingsDataService
+                .saveUser(angular.copy(vm.user))
+            ;
+        };
     }
 
 })();

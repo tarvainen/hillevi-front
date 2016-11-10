@@ -11,23 +11,26 @@
         </div>
     </md-toolbar>
 
-    <md-dialog-content>
-        <ng-transclude></ng-transclude>
-    </md-dialog-content>
+    <form name="form">
+        <md-dialog-content>
+            <ng-transclude></ng-transclude>
+        </md-dialog-content>
 
-    <md-content layout="row"
-                layout-align="end center"
-    >
-        <md-button data-ng-click="vm.cancel()"
-                   data-ng-if="vm.backButton != 'false'"
+        <md-content layout="row"
+                    layout-align="end center"
         >
-            {{ ::(vm.backButton || 'CANCEL') | translate }}
-        </md-button>
+            <md-button data-ng-click="vm.cancel()"
+                       data-ng-if="vm.backButton != 'false'"
+            >
+                {{ ::(vm.backButton || 'CANCEL') | translate }}
+            </md-button>
 
-        <md-button class="md-primary md-raised"
-                   data-ng-click="vm.save()"
-        >
-            {{ ::(vm.okButton || 'SAVE') | translate }}
-        </md-button>
-    </md-content>
+            <md-button class="md-primary md-raised"
+                       data-ng-click="vm.save()"
+                       data-ng-disabled="form.$invalid"
+            >
+                {{ ::(vm.okButton || 'SAVE') | translate }}
+            </md-button>
+        </md-content>
+    </form>
 </div>

@@ -76,6 +76,7 @@
   // Application settings
   "APPLICATION_SETTINGS": "Järjestelmän asetukset",
   "USERS": "Käyttäjät",
+  "CREATE_NEW_USER": "Luo uusi käyttäjä",
   "PERMISSIONS": "Käyttöoikeudet",
 
   // Dashboard
@@ -113,6 +114,7 @@
   "TT_REALTIME_CONNECTION_OPEN": "Muhvi on auki",
   "TT_REALTIME_CONNECTION_CLOSED": "Muhvi on kiinni",
   "TT_ADD_ROW": "Lisää rivi",
+  "TT_ADD_USER": "Lisää käyttäjä",
 
   // Notifications
   "NOTIFICATION_YOU_HAVE_NEW_NOTIFICATIONS": "Sait uusia ilmoituksia",
