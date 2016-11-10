@@ -1,17 +1,27 @@
 <md-card flex>
     <md-card-title>
-        <md-card-title-text>
+        <md-card-title-text layout="row">
             <span class="md-headline-small">
                 {{ vm.title }}
             </span>
+            <span flex></span>
+            <div data-ng-if="vm.info">
+                <md-icon>info</md-icon>
+                <md-tooltip>{{ vm.info }}</md-tooltip>
+            </div>
         </md-card-title-text>
     </md-card-title>
 
     <md-card-content layout="row" layout-align="center">
         <div class="progress-card-data-container">
-            <md-progress-circular md-mode="{{ vm.progress ? 'determinate' : 'indeterminate' }}"
+            <md-progress-circular md-mode="{{ vm.progress >= 0 ? 'determinate' : 'indeterminate' }}"
                                   md-diameter="130"
                                   value="{{ vm.progress }}"
+            ></md-progress-circular>
+            <md-progress-circular md-mode="determinate"
+                                  class="absolute"
+                                  md-diameter="130"
+                                  value="100"
             ></md-progress-circular>
             <span>{{ vm.model || vm.progress || 0 }} {{ vm.unit }}</span>
         </div>

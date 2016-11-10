@@ -1,9 +1,14 @@
 <md-card flex>
     <md-card-title>
-        <md-card-title-text>
+        <md-card-title-text layout="row">
             <span class="md-headline-small">
                 {{ vm.title }}
             </span>
+            <span flex></span>
+            <div data-ng-if="vm.info">
+                <md-icon>info</md-icon>
+                <md-tooltip>{{ vm.info }}</md-tooltip>
+            </div>
         </md-card-title-text>
     </md-card-title>
 

@@ -45,9 +45,12 @@
      */
     function ProgressCardController (api) {
         var vm = this;
+        vm.param = vm.param || 'data';
 
         if (vm.url) {
             api.route(vm.url).then(onSuccess);
+        } else {
+            vm.progress = vm.progress || vm.model || 0;
         }
 
         /**
@@ -56,8 +59,7 @@
          * @param {*} data
          */
         function onSuccess (data) {
-            vm.progress = data.data.progress;
-            vm.model = data.data.model;
+            vm.progress = data.data[vm.param] || data.data || 0;
         }
     }
 

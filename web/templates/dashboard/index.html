@@ -6,19 +6,18 @@
     <div layout="column" layout-gt-sm="row" flex>
         <progress-card
                 data-title="{{ ::'ACTIVITY_PERCENTAGE' | translate }}"
-                data-progress="vm.data.activityPercentage"
+                data-url="inspector/computer/activity/online"
+                data-param="percentage"
                 data-unit="%"
+                data-info="{{ ::'ACTIVITY_PERCENTAGE_INFO' | translate }}"
         ></progress-card>
 
         <progress-card
-                data-title="{{ ::'ONLINE_PERCENTAGE' | translate }}"
-                data-progress="vm.data.onlinePercentage"
+                data-title="{{ ::'ACTIVITY_PER_DAY' | translate }}"
+                data-url="inspector/computer/activity/total"
+                data-param="percentage"
                 data-unit="%"
-        ></progress-card>
-
-        <progress-card
-                data-title="{{ ::'ONLINE_PERCENTAGE' | translate }}"
-                data-unit="%"
+                data-info="{{ ::'ACTIVITY_PER_DAY_INFO' | translate }}"
         ></progress-card>
     </div>
 

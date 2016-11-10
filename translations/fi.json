@@ -198,5 +198,9 @@
   "UNIT_ONE_PER_SECOND": "1/s",
 
   // Dashboard
-  "TYPING_SPEED": "Kirjoitusnopeus (kuluva vuorokausi)"
+  "TYPING_SPEED": "Kirjoitusnopeus (kuluva vuorokausi)",
+  "ACTIVITY_PERCENTAGE": "Aktiivisuusaste / paikallaolo",
+  "ACTIVITY_PERCENTAGE_INFO": "Aktiivinen käyttöaika suhteessa logitussovelluksen käynnissäoloaikaan. Epäaktiivisuudeksi lasketaan kaikki aika viiden sekunnin epäaktiivisuusajan jälkeen.",
+  "ACTIVITY_PER_DAY": "Aktiivisuusaste / vuorokausi",
+  "ACTIVITY_PER_DAY_INFO": "Aktiivinen aika suhteessa vuorokauden pituuteen. Epäaktiivisuudeksi lasketaan kaikki aika viiden sekunnin epäaktiivisuusajan jälkeen."
 }

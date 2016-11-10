@@ -35,7 +35,8 @@
             scope: {
                 model: '=',
                 title: '@',
-                unit: '@'
+                unit: '@',
+                info: '@'
             },
             replace: true
         };
@@ -56,7 +57,8 @@
             controllerAs: 'vm',
             bindToController: true,
             scope: {
-                title: '@'
+                title: '@',
+                info: '@'
             },
             replace: true,
             transclude: true
@@ -79,10 +81,11 @@
             bindToController: true,
             scope: {
                 title: '@',
-                progress: '=',
                 model: '=',
                 unit: '@',
-                url: '@'
+                url: '@',
+                param: '@',
+                info: '@'
             },
             replace: true
         };
@@ -106,7 +109,8 @@
                 title: '@',
                 model: '=',
                 type: '=',
-                url: '@'
+                url: '@',
+                info: '@'
             },
             replace: true
         };

@@ -234,10 +234,11 @@ img.user-img.ng-hide {
 
 .progress-card-data-container {
     position: relative;
+    display: block;
 }
 
 .progress-card-data-container span {
-    font-size: 30px;
+    font-size: 25px;
     white-space: nowrap;
     position: absolute;
     display: block;
@@ -248,4 +249,14 @@ img.user-img.ng-hide {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+.progress-card-data-container md-progress-circular.absolute {
+    position: absolute;
+    top: 0;
+    opacity: 0.25;
+}
+
+md-card-title-text div {
+    cursor: pointer;
 }
