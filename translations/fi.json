@@ -79,6 +79,9 @@
   "CREATE_NEW_USER": "Luo uusi käyttäjä",
   "PERMISSIONS": "Käyttöoikeudet",
   "USER_BASIC_SETTINGS": "Käyttäjän perustiedot",
+  "ACTIONS": "Toiminnot",
+  "REMOVE_USER": "Poista käyttäjä",
+  "REMOVE_USER_INFO": "Poistaa käyttäjän lopullisesti koko järjestelmästä",
 
   // Dashboard
   "DASHBOARD_SETTINGS": "Dashboardin asetukset",

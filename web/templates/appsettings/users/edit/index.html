@@ -50,8 +50,23 @@
                     </md-card>
 
                     <md-card layout="column" flex>
-                        <md-card-content>
-                            <h1>TODO: add content</h1>
+                        <md-card-title>
+                            <md-card-title-text layout="row" flex layout-align="start center">
+                                <span class="md-headline">
+                                    {{ ::'ACTIONS' | translate }}
+                                </span>
+                                <span flex></span>
+                                <md-switch data-ng-model="vm.actions"></md-switch>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content data-ng-if="vm.actions">
+                            <div layout="row" layout-align="start center">
+                                <md-button class="md-warn md-raised">
+                                    {{ ::'REMOVE_USER' | translate }}
+                                </md-button>
+
+                                <span>{{ ::'REMOVE_USER_INFO' | translate }}</span>
+                            </div>
                         </md-card-content>
                     </md-card>
                 </md-content>
