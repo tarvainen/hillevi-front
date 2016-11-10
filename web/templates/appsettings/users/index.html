@@ -35,7 +35,7 @@
                     <md-list-item class="md-2-line"
                                   data-ng-repeat="user in vm.users" layout-align="start center"
                                   layout="row"
-                                  data-ng-click="null"
+                                  data-ng-click="vm.openUserForm(user.id)"
                     >
                         <img data-ng-src="https://www.gravatar.com/avatar/{{ ::user.email | gravatar }}"
                              class="md-avatar" alt="{{ ::user.firstname }}"

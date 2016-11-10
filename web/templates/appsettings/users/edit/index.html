@@ -1,0 +1,71 @@
+<md-content layout="column" flex layout-fill
+            data-ng-controller="AppSettingsUsersMainController as vm"
+>
+    <loader data-ng-if="vm.loading"></loader>
+
+    <md-content layout-padding flex layout="column">
+        <md-content layout="row" layout-align="start center" layout-padding>
+            <h1 class="md-headline">
+                {{ ::'USER_BASIC_SETTINGS' | translate }}
+            </h1>
+        </md-content>
+
+        <md-content layout="column">
+            <form name="form" layout="column">
+                <md-content layout="column" layout-gt-md="row" flex>
+                    <md-card layout="column" flex>
+                        <md-card-content>
+                            <md-input-container class="md-block">
+                                <label>{{ ::'USERNAME' | translate }}</label>
+                                <input type="text"
+                                       data-ng-model="vm.user.username"
+                                       aria-label="{{ ::'USERNAME' | translate }}"
+                                />
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label>{{ ::'FIRST_NAME' | translate }}</label>
+                                <input type="text"
+                                       data-ng-model="vm.user.firstname"
+                                       aria-label="{{ ::'FIRST_NAME' | translate }}"
+                                />
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label>{{ ::'LAST_NAME' | translate }}</label>
+                                <input type="text"
+                                       data-ng-model="vm.user.lastname"
+                                       aria-label="{{ ::'LAST_NAME' | translate }}"
+                                />
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label>{{ ::'EMAIL' | translate }}</label>
+                                <input type="text"
+                                       data-ng-model="vm.user.email"
+                                       aria-label="{{ ::'EMAIL' | translate }}"
+                                />
+                            </md-input-container>
+                        </md-card-content>
+                    </md-card>
+
+                    <md-card layout="column" flex>
+                        <md-card-content>
+                            <h1>TODO: add content</h1>
+                        </md-card-content>
+                    </md-card>
+                </md-content>
+
+                <div class="layout-margin" layout="row" layout-align="end center" flex>
+                    <md-button class="md-warn" data-ng-click="vm.back()">
+                        {{ ::'CANCEL' | translate }}
+                    </md-button>
+                    <md-button class="md-primary md-raised" data-ng-click="vm.save()">
+                        {{ ::'SAVE' | translate }}
+                    </md-button>
+                </div>
+            </form>
+
+        </md-content>
+    </md-content>
+</md-content>

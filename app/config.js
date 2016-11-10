@@ -80,6 +80,9 @@
             .when('/appsettings/users', {
                 templateUrl: 'web/templates/appsettings/users'
             })
+            .when('/appsettings/users/edit/:userId', {
+                templateUrl: 'web/templates/appsettings/users/edit'
+            })
             .when('/appsettings/permissions', {
                 templateUrl: 'web/templates/appsettings/permissions'
             })

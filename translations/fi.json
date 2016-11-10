@@ -78,6 +78,7 @@
   "USERS": "Käyttäjät",
   "CREATE_NEW_USER": "Luo uusi käyttäjä",
   "PERMISSIONS": "Käyttöoikeudet",
+  "USER_BASIC_SETTINGS": "Käyttäjän perustiedot",
 
   // Dashboard
   "DASHBOARD_SETTINGS": "Dashboardin asetukset",

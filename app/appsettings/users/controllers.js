@@ -16,17 +16,18 @@
 
     ///////////////
 
-    AppSettingsUsersMainController.$inject = ['AppSettingsDataService', '$dialog'];
+    AppSettingsUsersMainController.$inject = ['AppSettingsDataService', '$dialog', '$location'];
 
     /**
      * Main controller for this app.
      *
      * @param {*} AppSettingsDataService
      * @param {*} $dialog
+     * @param {*} $location
      *
      * @constructor
      */
-    function AppSettingsUsersMainController (AppSettingsDataService, $dialog) {
+    function AppSettingsUsersMainController (AppSettingsDataService, $dialog, $location) {
         var vm = this;
 
         /**
@@ -69,6 +70,15 @@
                     users: vm.users
                 }
             }).then(vm.load);
+        };
+
+        /**
+         * Open the user form.
+         *
+         * @param  {number} id
+         */
+        vm.openUserForm = function openUserForm (id) {
+            $location.path('/appsettings/users/edit/' + id);
         };
 
         // Initiate the data
