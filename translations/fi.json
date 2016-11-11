@@ -83,6 +83,7 @@
   "ACTIONS": "Toiminnot",
   "REMOVE_USER": "Poista käyttäjä",
   "REMOVE_USER_INFO": "Poistaa käyttäjän lopullisesti koko järjestelmästä",
+  "SELECTED_USERS": "Valitut käyttäjät",
 
   // Dashboard
   "DASHBOARD_SETTINGS": "Dashboardin asetukset",

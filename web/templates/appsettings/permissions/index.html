@@ -1,1 +1,58 @@
-<h1>TODO</h1>
+<md-content layout="column" flex layout-fill
+            data-ng-controller="AppSettingsPermissionsMainController as vm"
+>
+    <md-content layout="column" flex md-whiteframe="4">
+        <loader data-ng-if="vm.loading"></loader>
+        <md-content layout-padding flex layout="column">
+            <md-content layout="row" layout-align="start center">
+                <generic-filter-multiple
+                        data-ng-model="vm.selectedUsers"
+                        data-action="filters/users"
+                        data-collection="vm.apps"
+                        data-label="{{ ::'SELECTED_USERS' | translate }}"
+                ></generic-filter-multiple>
+
+                <span flex></span>
+
+                <md-input-container>
+                    <md-button class="md-primary md-raised" data-ng-click="vm.getUsersPermissions()">
+                        {{ ::'SEARCH' | translate }}
+                    </md-button>
+                </md-input-container>
+            </md-content>
+
+            <md-content layout="column" flex>
+                <md-table-container layout="column" flex>
+                    <table md-table
+                           md-progress="vm.dataFetcher"
+                    >
+                        <thead md-head md-order="orderBy">
+                        <tr md-row>
+                            <th md-column
+                                data-md-order-by="ID"
+                            >
+                                <span>{{ ::'PERMISSION' | translate }}</span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody md-body>
+                        <tr md-row
+                            data-ng-repeat="permission in vm.permissions | orderBy:orderBy | limitTo: vm.limit: (vm.page - 1) * vm.limit"
+                        >
+                            <td md-cell>{{ ::permission.name }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+
+                <md-table-pagination md-limit="vm.limit"
+                                     md-limit-options="[10, 20, 30]"
+                                     md-page="vm.page"
+                                     md-total="{{ vm.permissions.length }}"
+                                     md-page-select
+                ></md-table-pagination>
+            </md-content>
+
+        </md-content>
+    </md-content>
+</md-content>

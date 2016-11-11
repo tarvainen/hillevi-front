@@ -30,7 +30,9 @@
         return {
             getUsers: getUsers,
             saveUser: saveUser,
-            deleteUser: deleteUser
+            deleteUser: deleteUser,
+            getPermissions: getPermissions,
+            getUsersPermissions: getUsersPermissions
         };
 
         /**
@@ -66,6 +68,26 @@
          */
         function deleteUser (id) {
             return get('users/delete/' + id);
+        }
+
+        /**
+         * Get permissions
+         *
+         * @returns {*}
+         */
+        function getPermissions () {
+            return get('permissions/find');
+        }
+
+        /**
+         * Get users permissions
+         *
+         * @param {*} userIds
+         */
+        function getUsersPermissions (userIds) {
+            return get('permissions/users', {
+                users: userIds
+            });
         }
 
         /**

@@ -6,7 +6,8 @@
      */
     angular.module('AppSettings', [
         'AppSettings.Services',
-        'AppSettings.Users'
+        'AppSettings.Users',
+        'AppSettings.Permissions'
     ]);
 
 })();
