@@ -14,6 +14,7 @@
         .directive('dateTimePicker', dateTimePicker)
         .directive('dateTimePickerPopup', dateTimePickerPopup)
         .directive('dialogBase', dialogBase)
+        .directive('ifSetting', ifSetting)
     ;
 
     ////////////////////
@@ -109,6 +110,25 @@
                 backButton: '@'
             }
         };
+    }
+
+    ifSetting.$inject = ['UISettingService'];
+
+    /**
+     * Directive to hide elements due to the user's settings.
+     *
+     * @returns {*}
+     */
+    function ifSetting (UISettingService) {
+        return {
+            restrict: 'A',
+            link: link
+        };
+
+        function link (scope, el, attrs) {
+            var rawCondition = attrs.ifSetting;
+            UISettingService.check(attrs.ifSetting, el[0]);
+        }
     }
 
 })();

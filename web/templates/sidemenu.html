@@ -79,17 +79,21 @@
         </md-sidemenu-content>
     </md-sidemenu-group>
 
-    <md-sidemenu-group>
+    <md-sidemenu-group data-if-setting="appsetting:*:*">
         <md-subheader class="md-no-sticky">
             {{ ::'APPLICATION_SETTINGS' | translate }}
         </md-subheader>
 
-        <md-sidemenu-button href="#/appsettings/users">
+        <md-sidemenu-button href="#/appsettings/users"
+                            data-if-setting="appsetting:users:*"
+        >
             <md-icon>face</md-icon>
             <span>{{ ::'USERS' | translate }}</span>
         </md-sidemenu-button>
 
-        <md-sidemenu-button href="#/appsettings/permissions">
+        <md-sidemenu-button href="#/appsettings/permissions"
+                            data-if-setting="appsetting:permissions:*"
+        >
             <md-icon>accessible</md-icon>
             <span>{{ ::'PERMISSIONS' | translate }}</span>
         </md-sidemenu-button>

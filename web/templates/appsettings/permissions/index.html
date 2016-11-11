@@ -43,7 +43,7 @@
                         >
                             <td md-cell>{{ ::permission.name }}</td>
                             <td md-cell data-ng-repeat="user in vm.usersPermissions" class="text-center">
-                                <md-checkbox data-ng-model="user.permissions[permission.name]"></md-checkbox>
+                                <md-checkbox aria-label="{{ ::'HAS_RIGHT' | translate }}" data-ng-model="user.permissions[permission.name]"></md-checkbox>
                             </td>
                         </tr>
                         </tbody>

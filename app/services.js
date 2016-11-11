@@ -17,6 +17,7 @@
         .factory('$confirm', $confirm)
         .factory('$prompt', $prompt)
         .factory('$dialog', $dialog)
+        .factory('UISettingService', UISettingService)
     ;
 
     ///////////////
@@ -263,6 +264,47 @@
             }).then(defer.resolve, defer.reject);
 
             return defer.promise;
+        }
+    }
+
+    UISettingService.$inject = ['$q', 'api'];
+
+    function UISettingService ($q, api) {
+        var settings = null;
+
+        return {
+            check: check
+        };
+
+        function check (condition, element) {
+            if (!settings) {
+                api.route('settings/ui').then(onSettings);
+            } else {
+                _check();
+            }
+
+            function onSettings (data) {
+                settings = data.data;
+                _check();
+            }
+
+            function _check () {
+                var settingKeys = condition.split('|');
+
+                for (var i = 0; i < settingKeys.length; i++) {
+                    var settingKey = '^' + settingKeys[i].replace(/\*/g, '[A-Za-z0-9]+') + '$';
+
+                    var keys = Object.keys(settings);
+
+                    for (var j = 0; j < keys.length; j++) {
+                        if (settings[keys[j]] && keys[j].match(settingKey)) {
+                            return;
+                        }
+                    }
+                }
+
+                element.remove();
+            }
         }
     }
 
