@@ -260,3 +260,22 @@ img.user-img.ng-hide {
 md-card-title-text div {
     cursor: pointer;
 }
+
+#unauthorized_wiggle_smiley {
+    animation: wave 1s infinite;
+    font-size: 50px;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(100deg);
+    }
+
+    50% {
+        transform: rotate(85deg);
+    }
+
+    100% {
+        transform: rotate(100deg);
+    }
+}

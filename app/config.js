@@ -44,6 +44,9 @@
             .when('/login', {
                 templateUrl: 'web/templates/login/'
             })
+            .when('/401', {
+                templateUrl: 'web/templates/401.html'
+            })
             .when('/settings', {
                 templateUrl: 'web/templates/settings/'
             })
@@ -106,6 +109,7 @@
          * @param   {*} $rootScope
          * @param   {*} $q
          * @param   {*} $location
+         * @param   {*} $toast
          *
          * @returns {*}
          */
@@ -123,7 +127,7 @@
                     $rootScope.$emit('loadEnd');
 
                     if (rej.status === 401) {
-                        $location.path('/login');
+                        $rootScope.$emit('unauthorized');
                         return $q.reject(rej);
                     }
 

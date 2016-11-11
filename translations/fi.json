@@ -53,6 +53,7 @@
   "REMEMBER_TO_SAVE_CHANGES": "Muista tallentaa muutokset!",
   "SEARCH": "Hae",
   "COMMON": "Yleistä",
+  "UNAUTHORIZED": "Oivoi! Natsasi eivät tällä kertaa riitä aivan näin pitkälle.",
 
   // Login interface
   "LOGIN_HEADLINE": "Kirjaudu Hilleviin",

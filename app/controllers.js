@@ -64,6 +64,16 @@
             });
         });
 
+        $rootScope.$on('unauthorized', function (e, newVal) {
+            vm.user = DataService.storage.get('user');
+
+            if (vm.user) {
+                $location.path('/401');
+            } else {
+                $location.path('/login');
+            }
+        });
+
         /**
          * Catch the load begin event and show the loading indicator.
          */
