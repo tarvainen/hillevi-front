@@ -28,10 +28,12 @@
                     >
                         <thead md-head md-order="orderBy">
                         <tr md-row>
-                            <th md-column
-                                data-md-order-by="ID"
-                            >
+                            <th md-column>
                                 <span>{{ ::'PERMISSION' | translate }}</span>
+                            </th>
+
+                            <th md-column data-ng-repeat="user in vm.usersPermissions" class="text-center">
+                                <span>{{ ::user.name }}</span>
                             </th>
                         </tr>
                         </thead>
@@ -40,6 +42,9 @@
                             data-ng-repeat="permission in vm.permissions | orderBy:orderBy | limitTo: vm.limit: (vm.page - 1) * vm.limit"
                         >
                             <td md-cell>{{ ::permission.name }}</td>
+                            <td md-cell data-ng-repeat="user in vm.usersPermissions" class="text-center">
+                                <md-checkbox data-ng-model="user.permissions[permission.name]"></md-checkbox>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -51,6 +56,12 @@
                                      md-total="{{ vm.permissions.length }}"
                                      md-page-select
                 ></md-table-pagination>
+            </md-content>
+
+            <md-content layout="row" layout-align="end center">
+                <md-button class="md-primary md-raised" data-ng-click="vm.save()">
+                    {{ ::'SAVE' | translate }}
+                </md-button>
             </md-content>
 
         </md-content>

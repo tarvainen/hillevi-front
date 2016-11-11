@@ -32,7 +32,8 @@
             saveUser: saveUser,
             deleteUser: deleteUser,
             getPermissions: getPermissions,
-            getUsersPermissions: getUsersPermissions
+            getUsersPermissions: getUsersPermissions,
+            saveUsersPermissions: saveUsersPermissions
         };
 
         /**
@@ -87,6 +88,19 @@
         function getUsersPermissions (userIds) {
             return get('permissions/users', {
                 users: userIds
+            });
+        }
+
+        /**
+         * Save users permissions.
+         *
+         * @param {*} usersPermissions
+         *
+         * @returns {*}
+         */
+        function saveUsersPermissions (usersPermissions) {
+            return get('permissions/save', {
+                permissions: usersPermissions
             });
         }
 

@@ -77,6 +77,12 @@
              */
             function onSuccess (data) {
                 vm.usersPermissions = data.data;
+
+                angular.forEach(vm.usersPermissions, function (permission, i) {
+                    if (permission.permissions.length === 0) {
+                        vm.usersPermissions[i].permissions = {};
+                    }
+                });
             }
 
             /**
@@ -91,7 +97,29 @@
          * Save the data.
          */
         vm.save = function save () {
-            // TODO: implement
+            vm.loading = true;
+
+            AppSettingsDataService
+                .saveUsersPermissions(angular.copy(vm.usersPermissions))
+                .then(onSuccess)
+                .finally(onDone)
+            ;
+
+            /**
+             * Success handler.
+             *
+             * @param {*} data
+             */
+            function onSuccess (data) {
+                vm.getUsersPermissions();
+            }
+
+            /**
+             * Do finally.
+             */
+            function onDone () {
+                vm.loading = false;
+            }
         };
 
         vm.load();
