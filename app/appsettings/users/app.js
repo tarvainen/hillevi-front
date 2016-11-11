@@ -5,7 +5,8 @@
      * Main module initialization.
      */
     angular.module('AppSettings.Users', [
-        'AppSettings.Users.Controllers'
+        'AppSettings.Users.Controllers',
+        'AppSettings.Users.Edit'
     ]);
 
 })();

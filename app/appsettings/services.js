@@ -29,16 +29,21 @@
     function AppSettingsDataService (api) {
         return {
             getUsers: getUsers,
-            saveUser: saveUser
+            saveUser: saveUser,
+            deleteUser: deleteUser
         };
 
         /**
-         * Function to find all users.
+         * Function to find all users or a single user.
+         *
+         * @param {number} [id]
          *
          * @returns {*}
          */
-        function getUsers () {
-            return get('users/find');
+        function getUsers (id) {
+            id = id || 0;
+
+            return get('users/find/' + id);
         }
 
         /**
@@ -50,6 +55,17 @@
          */
         function saveUser (user) {
             return get('users/save', user);
+        }
+
+        /**
+         * Delete the user by id.
+         *
+         * @param {number} id
+         *
+         * @returns {*}
+         */
+        function deleteUser (id) {
+            return get('users/delete/' + id);
         }
 
         /**

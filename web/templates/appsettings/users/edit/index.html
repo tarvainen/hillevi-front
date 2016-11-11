@@ -1,5 +1,5 @@
 <md-content layout="column" flex layout-fill
-            data-ng-controller="AppSettingsUsersMainController as vm"
+            data-ng-controller="AppSettingsUsersEditMainController as vm"
 >
     <loader data-ng-if="vm.loading"></loader>
 
@@ -50,18 +50,18 @@
                     </md-card>
 
                     <md-card layout="column" flex>
-                        <md-card-title>
+                        <md-card-title layout="row">
                             <md-card-title-text layout="row" flex layout-align="start center">
                                 <span class="md-headline">
                                     {{ ::'ACTIONS' | translate }}
                                 </span>
                                 <span flex></span>
-                                <md-switch data-ng-model="vm.actions"></md-switch>
+                                <md-switch data-ng-model="vm.actions" aria-label="{{ ::'ACTIONS' | translate }}"></md-switch>
                             </md-card-title-text>
                         </md-card-title>
-                        <md-card-content data-ng-if="vm.actions">
+                        <md-card-content data-ng-if="vm.actions" flex>
                             <div layout="row" layout-align="start center">
-                                <md-button class="md-warn md-raised">
+                                <md-button class="md-warn md-raised" data-ng-click="vm.delete()">
                                     {{ ::'REMOVE_USER' | translate }}
                                 </md-button>
 
