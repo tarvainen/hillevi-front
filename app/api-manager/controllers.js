@@ -12,12 +12,13 @@
     angular.module('ApiManager.Controllers')
         .controller('ApiManager.MainController', MainController)
         .controller('ApiManager.CreateApiDialogController', CreateApiDialogController)
+        .controller('ApiPreviewDialogController', ApiPreviewDialogController)
     ;
 
     ////////////////////
 
     MainController.$inject = [
-        'ApiManagerDataService', '$toast', '$mdDialog', '$confirm', 'md5', '$mdSidenav', '$q'
+        'ApiManagerDataService', '$toast', '$mdDialog', '$confirm', '$dialog', 'md5', '$mdSidenav', '$q'
     ];
 
     /**
@@ -27,13 +28,14 @@
      * @param   {*} $toast
      * @param   {*} $mdDialog
      * @param   {*} $confirm
+     * @param   {*} $dialog
      * @param   {*} md5
      * @param   {*} $mdSidenav
      * @param   {*} $q
      *
      * @constructor
      */
-    function MainController (ApiManagerDataService, $toast, $mdDialog, $confirm, md5, $mdSidenav, $q) {
+    function MainController (ApiManagerDataService, $toast, $mdDialog, $confirm, $dialog, md5, $mdSidenav, $q) {
         var vm = this;
 
         vm.selected = [];
@@ -209,6 +211,19 @@
         };
 
         /**
+         * Preview the created api schema.
+         */
+        vm.preview = function preview () {
+            $dialog({
+                controller: 'ApiPreviewDialogController',
+                template: 'web/templates/api-manager/partials/api-preview.html',
+                locals: {
+                    api: vm.api
+                }
+            });
+        };
+
+        /**
          * Adds a column to the api.
          */
         vm.addApiColumn = function () {
@@ -293,6 +308,53 @@
 
             /**
              * Always fires after the query is done.
+             */
+            function onDone () {
+                vm.loading = false;
+            }
+        };
+    }
+
+    ApiPreviewDialogController.$inject = ['ApiManagerDataService', '$http'];
+
+    /**
+     * Controller for the api preview dialog.
+     *
+     * @param {*} ApiManagerDataService
+     * @param {*} $http
+     *
+     * @constructor
+     */
+    function ApiPreviewDialogController (ApiManagerDataService, $http) {
+        var vm = this;
+
+        // Fetch sample json what we should expect to get
+        vm.sampleJson = ApiManagerDataService
+            .fetchSampleJson(angular.copy(vm.api.columns))
+        ;
+
+        /**
+         * Test that the defined api works.
+         */
+        vm.test = function test () {
+            vm.loading = true;
+
+            ApiManagerDataService.test(vm.api.url)
+                .then(onSuccess)
+                .finally(onDone)
+            ;
+
+            /**
+             * Success handler.
+             *
+             * @param {*} data
+             */
+            function onSuccess (data) {
+                vm.fetchedData = data.data;
+            }
+
+            /**
+             * Do finally.
              */
             function onDone () {
                 vm.loading = false;

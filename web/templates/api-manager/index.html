@@ -135,6 +135,13 @@
                             <span>{{ ::'INTERFACE_COLUMNS' | translate }}</span>
                             <span flex></span>
                             <md-button class="md-icon-button"
+                                       data-ng-click="vm.preview()"
+                            >
+                                <md-tooltip>{{ ::'TT_PREVIEW' | translate }}</md-tooltip>
+                                <md-icon>speaker_notes</md-icon>
+                            </md-button>
+
+                            <md-button class="md-icon-button"
                                        data-ng-click="vm.addApiColumn()"
                             >
                                 <md-tooltip>{{ ::'TT_ADD' | translate }}</md-tooltip>

@@ -34,7 +34,9 @@
             removeApi: removeApi,
             create: create,
             getHook: getHook,
-            getAggregates: getAggregates
+            getAggregates: getAggregates,
+            fetchSampleJson: fetchSampleJson,
+            test: test
         };
 
         /**
@@ -116,6 +118,44 @@
          */
         function getHook (api) {
             return API.url.replace('/api/', '/import/') + api.id + '/' + api.token;
+        }
+
+        /**
+         * Create sample json for the preview.
+         *
+         * @param {*} columns
+         */
+        function fetchSampleJson (columns) {
+            var result = {};
+
+            angular.forEach(columns, function (col) {
+                switch (col.type) {
+                    case 'decimal':
+                        result[col.field] = parseFloat((Math.random() * 100).toFixed(2));
+                        break;
+                    case 'int':
+                        result[col.field] = parseInt(Math.random() * 100);
+                        break;
+                    case 'string':
+                        result[col.field] = [
+                            'my', 'sample', 'string', 'is', 'here', 'and', 'it', 'will', 'be', 'mixed'
+                        ].sort(function() { return 0.5 - Math.random() }).join(' ');
+                        break;
+                    case 'datetime':
+                        result[col.field] = new Date();
+                        break;
+                    default:
+                        break;
+                }
+            });
+
+            return result;
+        }
+
+        function test (url) {
+            return api.route('interface/test', {
+                url: url
+            });
         }
     }
 

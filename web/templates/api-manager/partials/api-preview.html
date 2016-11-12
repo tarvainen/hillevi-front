@@ -1,0 +1,49 @@
+<md-dialog flex flex-gt-xs="50" aria-label="{{ ::'API_PREVIEW' | translate }}">
+    <dialog-base
+            data-title="{{ ::'API_PREVIEW' | translate }}"
+            data-ok-button="{{ ::'OK' | translate }}"
+            data-back-button="false"
+    >
+        <loader data-ng-if="vm.loading"></loader>
+        <md-content layout-padding layout="column" flex>
+            <md-card flex>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">
+                            {{ ::'THIS_IS_WHAT_WE_EXPECT' | translate }}
+                        </span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content class="layout-padding">
+                    <pre>{{ ::vm.sampleJson | json }}</pre>
+                </md-card-content>
+            </md-card>
+
+            <md-card flex  data-ng-if="vm.api.type === 'json'">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">
+                            {{ ::'THIS_IS_WHAT_WE_GOT' | translate }}
+                        </span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content class="layout-padding">
+
+                    <pre data-ng-if="vm.fetchedData">{{ ::vm.fetchedData | json }}</pre>
+
+                    <span data-ng-if="!vm.fetchedData">
+                        {{ ::'TEST_INFO' | translate }}
+                    </span>
+
+                    <div layout="row" layout-align="end center">
+                        <md-button class="md-primary md-raised"
+                                   data-ng-click="vm.test()"
+                        >
+                            {{ ::'TEST' | translate }}
+                        </md-button>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </md-content>
+    </dialog-base>
+</md-dialog>

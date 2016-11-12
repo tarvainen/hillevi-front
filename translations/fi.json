@@ -54,6 +54,7 @@
   "SEARCH": "Hae",
   "COMMON": "Yleistä",
   "UNAUTHORIZED": "Oivoi! Natsasi eivät tällä kertaa riitä aivan näin pitkälle.",
+  "TEST": "Testaa",
 
   // Login interface
   "LOGIN_HEADLINE": "Kirjaudu Hilleviin",
@@ -97,6 +98,11 @@
   "CREATE_API": "Uusi rajapinta",
   "INTERFACE_COLUMNS": "Kentät",
   "UNIT": "Yksikkö",
+  "TEST_API": "Testaa",
+  "THIS_IS_WHAT_WE_EXPECT": "Tätä odotan saavani",
+  "THIS_IS_WHAT_WE_GOT": "Tämän sain",
+  "TEST_INFO": "Paina 'Testaa' kokeillaksesi rajapintasi toimintaa",
+  "API_PREVIEW": "Esikatselu",
 
   // API data manager interface
   "SELECT_API": "Valitse rajapinta",
@@ -122,6 +128,7 @@
   "TT_REALTIME_CONNECTION_CLOSED": "Muhvi on kiinni",
   "TT_ADD_ROW": "Lisää rivi",
   "TT_ADD_USER": "Lisää käyttäjä",
+  "TT_PREVIEW": "Esikatsele",
 
   // Notifications
   "NOTIFICATION_YOU_HAVE_NEW_NOTIFICATIONS": "Sait uusia ilmoituksia",
