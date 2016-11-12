@@ -65,6 +65,9 @@
             .when('/graph', {
                 templateUrl: 'web/templates/graph/'
             })
+            .when('/diagrams/trend', {
+                templateUrl: 'web/templates/diagrams/trend/'
+            })
             .when('/inspector/apps', {
                 templateUrl: 'web/templates/inspector/apps'
             })

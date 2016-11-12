@@ -180,6 +180,10 @@
   "AGGREGATE_MAX": "Suurin arvo (max)",
   "AGGREGATE_MIN": "Pienin arvo (min)",
 
+  // Diagram interfaces
+  "DIAGRAMS": "Kuvaajat",
+  "TREND": "Kehityskuvaaja",
+
   // Inspector
   "TITLE_USAGE_PER_TIME_REPORT": "Sovellusten aktiivisuus vuorokaudenajoittain",
   "TITLE_ACTIVE_APPLICATION_TOTAL_USAGE_REPORT": "Sovellusten kokonaisaktiivisuus",
