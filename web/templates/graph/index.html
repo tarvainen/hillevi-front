@@ -15,11 +15,21 @@
                         aria-label="{{ ::'TYPE' | translate }}"
                         required
                 >
-                    <md-option value="{{ column }}"
-                               data-ng-repeat="column in vm.columns track by $index"
-                    >
-                        {{ ::column.displayName }}
-                    </md-option>
+                    <md-optgroup label="{{ ::'OWN_INTERFACES' | translate }}">
+                        <md-option value="{{ column }}"
+                                   data-ng-repeat="column in vm.columns | filter: { type: 'user-defined' }"
+                        >
+                            {{ ::column.translated ? (column.displayName | translate ) : column.displayName }}
+                        </md-option>
+                    </md-optgroup>
+
+                    <md-optgroup label="{{ ::'SYSTEM_INTERFACES' | translate }}">
+                        <md-option value="{{ column }}"
+                                   data-ng-repeat="column in vm.columns | filter: { type: 'system-defined' }"
+                        >
+                            {{ ::column.translated ? (column.displayName | translate ) : column.displayName }}
+                        </md-option>
+                    </md-optgroup>
                 </md-select>
             </md-input-container>
 

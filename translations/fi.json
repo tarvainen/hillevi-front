@@ -160,6 +160,11 @@
   "SAVED_SEARCH_SETTINGS": "Tallennetut haut",
   "HINT_SAVED_SEARCH_SETTINGS": "Ohje: voit muokata asetuksiasi suoraan taulukossa ja ne tallentuvat automaattisesti",
   "DEFAULT_SEARCH_SETTINGS": "Oletusasetukset",
+  "OWN_INTERFACES": "Omat rajapinnat",
+  "SYSTEM_INTERFACES": "Järjestelmärajapinnat",
+
+  // System interfaces
+  "PC_AVG_TYPING_SPEED": "Keskimääräinen kirjoitusnopeus (1 / s)",
 
   // Date ranges
   "DATE_RANGE_PRESELECT": "Valitse",
