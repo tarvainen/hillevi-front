@@ -165,6 +165,9 @@
 
   // System interfaces
   "PC_AVG_TYPING_SPEED": "Keskimääräinen kirjoitusnopeus (1 / s)",
+  "PC_ACTIVITY_PERCENTAGE": "Aktiivisuus-%",
+  "PC_COPY_PASTE_RATIO": "Kirjoitettu vs. liitetty teksti",
+  "PC_MOUSE_TRAVEL_DISTANCE_KPX": "Hiiren liike (tuhatta pikseliä)",
 
   // Date ranges
   "DATE_RANGE_PRESELECT": "Valitse",
