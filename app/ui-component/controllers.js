@@ -59,7 +59,7 @@
          * @param {*} data
          */
         function onSuccess (data) {
-            vm.progress = data.data[vm.param] || data.data || 0;
+            vm.progress = data.data[vm.param] || 0;
         }
     }
 

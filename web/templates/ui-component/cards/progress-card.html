@@ -16,7 +16,7 @@
         <div class="progress-card-data-container">
             <md-progress-circular md-mode="{{ vm.progress >= 0 ? 'determinate' : 'indeterminate' }}"
                                   md-diameter="130"
-                                  value="{{ vm.progress }}"
+                                  value="{{ vm.progress >= 0 ? vm.progress : 1 }}"
             ></md-progress-circular>
             <md-progress-circular md-mode="determinate"
                                   class="absolute"
