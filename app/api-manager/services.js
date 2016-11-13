@@ -54,7 +54,7 @@
          * @returns {*}
          */
         function getFieldTypes () {
-            return api.route('interface/fields/types');
+            return api.route('filters/type/field');
         }
 
 
@@ -64,7 +64,7 @@
          * @returns {*}
          */
         function getApiTypes () {
-            return api.route('interface/types');
+            return api.route('filters/type/api');
         }
 
         /**

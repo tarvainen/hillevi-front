@@ -39,7 +39,7 @@
                         </thead>
                         <tbody md-body>
                         <tr md-row
-                            data-ng-repeat="permission in vm.permissions | orderBy:orderBy | limitTo: vm.limit: (vm.page - 1) * vm.limit"
+                            data-ng-repeat="permission in vm.permissions | orderBy:'name' | limitTo: vm.limit: (vm.page - 1) * vm.limit"
                         >
                             <td md-cell>{{ ::permission.name }}</td>
                             <td md-cell data-ng-repeat="user in vm.usersPermissions" class="text-center">
