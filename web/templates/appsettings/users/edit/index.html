@@ -4,21 +4,23 @@
     <loader data-ng-if="vm.loading"></loader>
 
     <md-content layout-padding flex layout="column">
-        <md-content layout="row" layout-align="start center" layout-padding>
-            <h1 class="md-headline">
-                {{ ::'USER_BASIC_SETTINGS' | translate }}
-            </h1>
-        </md-content>
-
         <md-content layout="column">
             <form name="form" layout="column">
                 <md-content layout="column" layout-gt-md="row" flex>
                     <md-card layout="column" flex>
+                        <md-card-title layout="row">
+                            <md-card-title-text layout="row" flex layout-align="start center">
+                                <h1 class="md-headline">
+                                    {{ ::'USER_BASIC_SETTINGS' | translate }}
+                                </h1>
+                            </md-card-title-text>
+                        </md-card-title>
                         <md-card-content>
                             <md-input-container class="md-block">
                                 <label>{{ ::'USERNAME' | translate }}</label>
                                 <input type="text"
                                        data-ng-model="vm.user.username"
+                                       data-enabled-if-setting="appsetting:users:write"
                                        aria-label="{{ ::'USERNAME' | translate }}"
                                 />
                             </md-input-container>
@@ -27,6 +29,7 @@
                                 <label>{{ ::'FIRST_NAME' | translate }}</label>
                                 <input type="text"
                                        data-ng-model="vm.user.firstname"
+                                       data-enabled-if-setting="appsetting:users:write"
                                        aria-label="{{ ::'FIRST_NAME' | translate }}"
                                 />
                             </md-input-container>
@@ -35,6 +38,7 @@
                                 <label>{{ ::'LAST_NAME' | translate }}</label>
                                 <input type="text"
                                        data-ng-model="vm.user.lastname"
+                                       data-enabled-if-setting="appsetting:users:write"
                                        aria-label="{{ ::'LAST_NAME' | translate }}"
                                 />
                             </md-input-container>
@@ -43,13 +47,14 @@
                                 <label>{{ ::'EMAIL' | translate }}</label>
                                 <input type="text"
                                        data-ng-model="vm.user.email"
+                                       data-enabled-if-setting="appsetting:users:write"
                                        aria-label="{{ ::'EMAIL' | translate }}"
                                 />
                             </md-input-container>
                         </md-card-content>
                     </md-card>
 
-                    <md-card layout="column" flex>
+                    <md-card layout="column" flex data-if-setting="appsetting:users:write">
                         <md-card-title layout="row">
                             <md-card-title-text layout="row" flex layout-align="start center">
                                 <span class="md-headline">
@@ -75,7 +80,10 @@
                     <md-button class="md-warn" data-ng-click="vm.back()">
                         {{ ::'CANCEL' | translate }}
                     </md-button>
-                    <md-button class="md-primary md-raised" data-ng-click="vm.save()">
+                    <md-button class="md-primary md-raised"
+                               data-if-setting="appsetting:users:write"
+                               data-ng-click="vm.save()"
+                    >
                         {{ ::'SAVE' | translate }}
                     </md-button>
                 </div>
