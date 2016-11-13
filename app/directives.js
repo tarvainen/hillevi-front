@@ -15,6 +15,7 @@
         .directive('dateTimePickerPopup', dateTimePickerPopup)
         .directive('dialogBase', dialogBase)
         .directive('ifSetting', ifSetting)
+        .directive('enabledIfSetting', enabledIfSetting)
     ;
 
     ////////////////////
@@ -126,8 +127,25 @@
         };
 
         function link (scope, el, attrs) {
-            var rawCondition = attrs.ifSetting;
             UISettingService.check(attrs.ifSetting, el[0]);
+        }
+    }
+
+    enabledIfSetting.$inject = ['UISettingService'];
+
+    /**
+     * Directive to disable elements due to the user's settings.
+     *
+     * @returns {*}
+     */
+    function enabledIfSetting (UISettingService) {
+        return {
+            restrict: 'A',
+            link: link
+        };
+
+        function link (scope, el, attrs) {
+            UISettingService.check(attrs.enabledIfSetting, el[0], true);
         }
     }
 

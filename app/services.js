@@ -276,7 +276,9 @@
             check: check
         };
 
-        function check (condition, element) {
+        function check (condition, element, disable) {
+            disable = disable || false;
+
             if (!settings) {
                 api.route('settings/ui').then(onSettings);
             } else {
@@ -303,7 +305,11 @@
                     }
                 }
 
-                element.remove();
+                if (disable) {
+                    angular.element(element)[0].disabled = true;
+                } else {
+                    element.remove();
+                }
             }
         }
     }
