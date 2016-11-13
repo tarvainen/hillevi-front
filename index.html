@@ -35,6 +35,7 @@
         </md-button>
 
         <md-button class="md-icon-button"
+                   data-if-setting="notification:all"
                    data-ng-href="#/notifications"
         >
             <md-tooltip>{{ 'TT_NOTIFICATIONS' | translate }}</md-tooltip>
@@ -42,6 +43,7 @@
         </md-button>
         <md-button class="md-icon-button"
                    aria-label="Settings"
+                   data-if-setting="usersettings"
         >
             <md-tooltip>{{ 'TT_USER_SETTINGS' | translate }}</md-tooltip>
             <a href="#/settings"><span class="material-icons">settings</span></a>
