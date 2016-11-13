@@ -4,7 +4,9 @@
     <md-content layout="column" flex md-whiteframe="4">
         <loader data-ng-if="vm.loading"></loader>
         <md-content layout-padding flex layout="column">
-            <md-content layout="row" layout-align="start center">
+            <md-content layout="row" layout-align="start center"
+                        data-if-setting="appsetting:permissions:write"
+            >
                 <generic-filter-multiple
                         data-ng-model="vm.selectedUsers"
                         data-action="filters/users"
@@ -43,7 +45,10 @@
                         >
                             <td md-cell>{{ ::permission.name }}</td>
                             <td md-cell data-ng-repeat="user in vm.usersPermissions" class="text-center">
-                                <md-checkbox aria-label="{{ ::'HAS_RIGHT' | translate }}" data-ng-model="user.permissions[permission.name]"></md-checkbox>
+                                <md-checkbox data-if-setting="appsetting:permissions:write"
+                                             aria-label="{{ ::'HAS_RIGHT' | translate }}"
+                                             data-ng-model="user.permissions[permission.name]"
+                                ></md-checkbox>
                             </td>
                         </tr>
                         </tbody>
@@ -58,7 +63,7 @@
                 ></md-table-pagination>
             </md-content>
 
-            <md-content layout="row" layout-align="end center">
+            <md-content data-if-setting="appsetting:permissions:write" layout="row" layout-align="end center">
                 <md-button class="md-primary md-raised" data-ng-click="vm.save()">
                     {{ ::'SAVE' | translate }}
                 </md-button>
