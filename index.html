@@ -41,14 +41,14 @@
             <md-tooltip>{{ 'TT_NOTIFICATIONS' | translate }}</md-tooltip>
             <md-icon>notifications</md-icon>
         </md-button>
-        <md-button class="md-icon-button"
+        <md-button id="btn_settings" class="md-icon-button"
                    aria-label="Settings"
                    data-if-setting="usersettings"
         >
             <md-tooltip>{{ 'TT_USER_SETTINGS' | translate }}</md-tooltip>
             <a href="#/settings"><span class="material-icons">settings</span></a>
         </md-button>
-        <md-button class="md-icon-button"
+        <md-button id="btn_logout" class="md-icon-button"
                    aria-label="Logout"
                    data-ng-if="vm.user"
                    data-ng-click="vm.logout()"

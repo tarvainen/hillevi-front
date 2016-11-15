@@ -1,0 +1,6 @@
+# This argument file contains the specified order for
+# the selenium tests. Please run tests by typing in the following:
+# robot --argumentfile tests/argfile.txt
+
+tests/suites/login/
+tests/suites/settings/
