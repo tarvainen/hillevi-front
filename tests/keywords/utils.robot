@@ -17,3 +17,9 @@ Error Text Should Be Shown
 
 Dialog Should Be Open
     Wait Until Page Contains Element    css=div.md-dialog-container
+
+
+# Navigation
+Go To The Dashboard
+    Wait Until Page Contains Element    link_dashboard
+    Click Element                       link_dashboard
