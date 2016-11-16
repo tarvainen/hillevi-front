@@ -4,3 +4,4 @@
 
 tests/suites/login/
 tests/suites/settings/
+tests/suites/interface/

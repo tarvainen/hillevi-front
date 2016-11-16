@@ -1,4 +1,4 @@
-<md-content layout="column" flex layout-fill
+<md-content id="api_management_container" layout="column" flex layout-fill
             data-ng-controller="ApiManager.MainController as vm"
             data-ng-init="vm.load()"
 >
@@ -16,14 +16,14 @@
                     <md-icon>autorenew</md-icon>
                 </md-button>
 
-                <md-button class="md-icon-button"
+                <md-button id="btn_create_new_api" class="md-icon-button"
                            data-ng-click="vm.createNewApi($event)"
                 >
                     <md-tooltip>{{ ::'TT_ADD' | translate }}</md-tooltip>
                     <md-icon>add</md-icon>
                 </md-button>
 
-                <md-button class="md-icon-button"
+                <md-button id="btn_delete_api" class="md-icon-button"
                            data-ng-disabled="vm.selected.length < 1"
                            data-ng-click="vm.removeApis()"
                 >
@@ -54,7 +54,7 @@
                                 md-on-select="vm.onSelect"
                                 md-on-deselect="vm.onDeselect"
                             >
-                                <td md-cell>{{ ::api.name }}</td>
+                                <td md-cell id="tr_api_{{ ::api.name.replace(' ', '') }}">{{ ::api.name }}</td>
                                 <td md-cell>{{ ::api.url }}</td>
                                 <td md-cell>{{ ::api.type }}</td>
                             </tr>
@@ -70,7 +70,8 @@
                 ></md-table-pagination>
             </md-content>
 
-            <md-sidenav class="md-sidenav-right md-sidenav-large"
+            <md-sidenav id="api_inspection_panel"
+                        class="md-sidenav-right md-sidenav-large"
                         md-component-id="right"
                         md-whiteframe="4"
                         md-disable-backdrop
@@ -79,7 +80,7 @@
                 <form data-ng-submit="vm.save()">
                     <md-input-container class="md-block" flex>
                         <label>{{ ::'NAME' | translate }}</label>
-                        <input type="text" data-ng-model="vm.api.name" data-ng-disabled="!vm.api"/>
+                        <input id="input_api_update_name" type="text" data-ng-model="vm.api.name" data-ng-disabled="!vm.api"/>
                     </md-input-container>
 
                     <md-input-container>
@@ -105,7 +106,7 @@
 
                     <md-input-container class="md-block" flex data-ng-if="vm.api.type !== 'inner'">
                         <label>{{ ::'URL' | translate }}</label>
-                        <input type="text" data-ng-model="vm.api.url" />
+                        <input id="input_api_update_url" type="text" data-ng-model="vm.api.url" />
                     </md-input-container>
 
                     <div data-ng-if="vm.api.type !== 'inner'">
@@ -122,7 +123,7 @@
                                 <input flex type="number"
                                        min="1"
                                        max="3600"
-                                       id="api_manager_update_api_interval"
+                                       id="input_api_update_interval"
                                        data-ng-model="vm.api.interval"
                                        aria-label="{{ ::'INTERVAL' | translate }}"
                                 />
@@ -141,13 +142,13 @@
                                 <md-icon>speaker_notes</md-icon>
                             </md-button>
 
-                            <md-button class="md-icon-button"
+                            <md-button id="btn_add_api_column" class="md-icon-button"
                                        data-ng-click="vm.addApiColumn()"
                             >
                                 <md-tooltip>{{ ::'TT_ADD' | translate }}</md-tooltip>
                                 <md-icon>add</md-icon>
                             </md-button>
-                            <md-button class="md-icon-button"
+                            <md-button id="btn_delete_api_columns" class="md-icon-button"
                                        data-ng-click="vm.removeApiColumn()"
                             >
                                 <md-tooltip>{{ ::'TT_DELETE' | translate }}</md-tooltip>
@@ -172,13 +173,14 @@
                                 </tr>
                             </thead>
                             <tbody md-body>
-                                <tr md-row
+                                <tr md-row id="api_col_{{ ::col.field }}" class="api-col-row"
                                     data-ng-repeat="(key, col) in vm.api.columns track by $index"
                                     md-select="key"
                                 >
                                     <td md-cell>
                                         <md-input-container class="no-whitespace">
-                                            <input type="text"
+                                            <input class="input-column-field-name"
+                                                   type="text"
                                                    aria-label="{{ ::'COLUMN_FIELD_NAME' | translate }}"
                                                    data-ng-model="col.name"
                                             />
@@ -187,6 +189,7 @@
                                     <td md-cell>
                                         <md-input-container class="no-whitespace">
                                             <input type="text"
+                                                   class="input-column-field-value"
                                                    aria-label="{{ ::'COLUMN_FIELD' | translate }}"
                                                    data-ng-model="col.field"
                                             />
@@ -194,11 +197,12 @@
                                     </td>
                                     <td md-cell>
                                         <md-input-container>
-                                            <md-select data-ng-model="col.type"
+                                            <md-select class="select-api-col-type" data-ng-model="col.type"
                                                        aria-label="{{ ::'TYPE' | translate }}"
                                                        required
                                             >
-                                                <md-option value="{{ option }}"
+                                                <md-option class="api-col-type-{{ option.toLowerCase() }}"
+                                                           value="{{ option }}"
                                                            data-ng-repeat="option in vm.fieldTypes"
                                                 >
                                                     {{ option.toUpperCase() | translate }}
@@ -208,11 +212,13 @@
                                     </td>
                                     <td md-cell>
                                         <md-input-container>
-                                            <md-select data-ng-model="col.aggregate"
+                                            <md-select class="select-api-col-aggregate"
+                                                       data-ng-model="col.aggregate"
                                                        aria-label="{{ ::'AGGREGATE' | translate }}"
                                                        required
                                             >
-                                                <md-option value="{{ option.id }}"
+                                                <md-option class="api-col-{{ option.name.toLowerCase() }}"
+                                                           value="{{ option.id }}"
                                                            data-ng-repeat="option in vm.aggregates"
                                                 >
                                                     {{ option.name | translate }}
@@ -239,7 +245,8 @@
                         >
                             {{ ::'CANCEL' | translate }}
                         </md-button>
-                        <md-button type="submit" class="md-primary md-raised"
+                        <md-button id="btn_api_update_save"
+                                   type="submit" class="md-primary md-raised"
                                    data-ng-disabled="!vm.api"
                         >
                             {{ ::'SAVE' | translate }}

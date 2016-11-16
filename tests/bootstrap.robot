@@ -3,6 +3,7 @@ Resource  config.robot
 Resource  keywords/utils.robot
 Resource  keywords/login/keywords.robot
 Resource  keywords/settings/keywords.robot
+Resource  keywords/interface/keywords.robot
 
 *** Variables ***
 ${LOGIN URL}            ${BASE URL}/login

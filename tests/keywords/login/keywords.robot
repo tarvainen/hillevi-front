@@ -1,6 +1,7 @@
 *** Keywords ***
 Open Browser To Login Page
-    Open Browser    ${LOGIN URL}    ${BROWSER}
+    Open Browser        ${LOGIN URL}        ${BROWSER}
+    Set Window Size     ${WINDOW WIDTH}     ${WINDOW HEIGHT}
 
 Login Page Should Be Open
     Wait Until Page Contains Element   login_page_title
