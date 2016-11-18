@@ -19,6 +19,10 @@ Dialog Should Be Open
     Wait Until Page Contains Element    css=div.md-dialog-container
 
 
+# Other stuff
+Click Away
+    Click       body    0      0
+
 # Navigation
 Go To The Dashboard
     Wait Until Page Contains Element    link_dashboard

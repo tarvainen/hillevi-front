@@ -19,13 +19,13 @@
         <md-content layout="row"
                     layout-align="end center"
         >
-            <md-button data-ng-click="vm.cancel()"
+            <md-button id="btn_dialog_cancel" data-ng-click="vm.cancel()"
                        data-ng-if="vm.backButton != 'false'"
             >
                 {{ ::(vm.backButton || 'CANCEL') | translate }}
             </md-button>
 
-            <md-button class="md-primary md-raised"
+            <md-button id="btn_dialog_save" class="md-primary md-raised"
                        data-ng-click="vm.save()"
                        data-ng-disabled="form.$invalid"
             >

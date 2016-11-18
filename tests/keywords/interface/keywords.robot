@@ -38,7 +38,7 @@ Press Create New Api Button
 
 Enter New Api Information
     Wait For Loader
-    Input Text                          input_create_new_api_name           Test Api
+    Input Text                          input_create_new_api_name           ${TEST API NAME}
     Input Text                          input_create_new_api_url            http://localhost:8000/api/test/json
     Click Element                       input_create_new_api_type
 
@@ -53,8 +53,8 @@ Save Api
     Wait For Loader
 
 Select Just Created Api
-    Wait Until Page Contains Element    tr_api_TestApi
-    Click Element                       tr_api_TestApi
+    Wait Until Page Contains Element    tr_api_${TEST API NAME COMBINED}
+    Click Element                       tr_api_${TEST API NAME COMBINED}
     Api Inspection Panel Should Be Open
 
 Press Delete Button
@@ -79,7 +79,7 @@ Delete The Created Api
 
 Modify Api Basic Information
     Select Just Created Api
-    Input Text                          input_api_update_name           Modified Api
+    Input Text                          input_api_update_name           ${MODIFIED API NAME}
     Input Text                          input_api_update_url            http://localhost:7000/modified/api
     Input Text                          input_api_update_interval       459
 
@@ -88,8 +88,8 @@ Save Api From The Inspection Panel
     Wait For Loader
 
 Select Modified Api
-    Wait Until Page Contains Element    tr_api_ModifiedApi
-    Click Element                       tr_api_ModifiedApi
+    Wait Until Page Contains Element    tr_api_${MODIFIED API NAME COMBINED}
+    Click Element                       tr_api_${MODIFIED API NAME COMBINED}
     Api Inspection Panel Should Be Open
 
 Delete The Modified Api
@@ -111,8 +111,8 @@ Remove The Default Column From The Api
 Add New Column To The New Api
     Click Element                       btn_add_api_column
     New Api Field Row Should Be Added
-    Input Text                          css=tr.api-col-row .input-column-field-name      Test Field
-    Input Text                          css=tr.api-col-row .input-column-field-value     val
+    Input Text                          css=tr.api-col-row .input-column-field-name      ${TEST FIELD NAME}
+    Input Text                          css=tr.api-col-row .input-column-field-value     ${TEST FIELD VALUE}
 
     Click Element                       css=tr.api-col-row .select-api-col-type
     Wait Until Element Is Visible       css=md-option.api-col-type-int

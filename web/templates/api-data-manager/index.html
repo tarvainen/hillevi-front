@@ -1,4 +1,4 @@
-<md-content layout="column" flex layout-fill
+<md-content id="api_data_management_container" layout="column" flex layout-fill
             data-ng-controller="ApiDataManager.MainController as vm"
 >
     <md-content layout="column" flex md-whiteframe="4">
@@ -7,12 +7,13 @@
             <md-content layout="row" layout-align="start center">
                 <md-input-container>
                     <label>{{ ::'INTERFACE' | translate }}</label>
-                    <md-select data-ng-model="vm.selectedApi"
+                    <md-select id="select_interface_selection"
+                               data-ng-model="vm.selectedApi"
                                placeholder="{{ ::'SELECT_API' | translate }}"
                                data-ng-change="vm.loadData()"
                                style="min-width: 200px;"
                     >
-                        <md-option data-ng-repeat="api in vm.apis"
+                        <md-option id="option_interface_{{ api.name.replace(' ', '') }}" data-ng-repeat="api in vm.apis"
                                    data-ng-value="api.id"
                         >
                             {{ ::api.name }}
@@ -36,7 +37,7 @@
                 </md-input-container>
 
                 <span flex></span>
-                <md-button class="md-icon-button"
+                <md-button id="btn_add_api_data_row" class="md-icon-button"
                            data-ng-disabled="!vm.selectedApi"
                            data-ng-click="vm.addData()"
                 >

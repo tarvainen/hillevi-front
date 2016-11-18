@@ -52,12 +52,14 @@
          * Initialize the interface's data.
          */
         vm.init = function init () {
+            vm.loading = true;
             GraphDataService
                 .getColumns()
                 .then(onSuccess);
 
             function onSuccess (data) {
                 vm.columns = data.data;
+                vm.loading = false;
 
                 vm.reset();
             }
