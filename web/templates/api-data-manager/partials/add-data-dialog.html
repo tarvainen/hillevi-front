@@ -8,7 +8,7 @@
                 <md-input-container class="md-block"
                                     data-ng-repeat="(key, column) in vm.schema">
                     <label>{{ ::column.name }}</label>
-                    <input type="text" data-ng-model="vm.form[key]">
+                    <input id="input_interface_data_{{ column.field }}" type="text" data-ng-model="vm.form[key]">
                 </md-input-container>
             </form>
         </md-content>

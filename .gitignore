@@ -5,3 +5,4 @@ env/dev.js
 env/prod.js
 bower_components/
 fonts/
+tests/config.robot

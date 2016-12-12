@@ -16,7 +16,8 @@
                         required
                 >
                     <md-optgroup label="{{ ::'OWN_INTERFACES' | translate }}">
-                        <md-option value="{{ column }}"
+                        <md-option id="option_api_column_{{ column.field }}"
+                                   value="{{ column }}"
                                    data-ng-repeat="column in vm.columns | filter: { type: 'user-defined' }"
                         >
                             {{ ::column.translated ? (column.displayName | translate ) : column.displayName }}
@@ -86,7 +87,8 @@
                     {{ ::'RESET_CHART_SETTINGS' | translate }}
                 </md-button>
 
-                <md-button class="md-primary md-raised"
+                <md-button id="btn_fetch_chart_data"
+                           class="md-primary md-raised"
                            data-ng-click="vm.load()"
                            data-ng-disabled="form_search_settings.$invalid"
                 >

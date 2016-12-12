@@ -8,10 +8,10 @@
          data-ng-if="vm.user.email"
          data-ng-src="https://www.gravatar.com/avatar/{{ vm.user.email | gravatar }}"
     />
-    <span class="md-headline user-info">
+    <span id="user_info_username" class="md-headline user-info">
         {{ vm.user.username }}
     </span>
-    <span class="md-subhead user-info text-muted">
+    <span id="user_info_email" class="md-subhead user-info text-muted">
         {{ vm.user.email || ('NO_EMAIL_ADDRESS' | translate) }}
     </span>
 </md-content>

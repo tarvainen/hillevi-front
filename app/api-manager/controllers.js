@@ -190,6 +190,7 @@
                  */
                 function onSuccess () {
                     $toast('DELETED');
+                    $mdSidenav('right').close();
                 }
 
                 /**
@@ -227,6 +228,8 @@
          * Adds a column to the api.
          */
         vm.addApiColumn = function () {
+            vm.api.columns = vm.api.columns || {};
+
             vm.api.columns[md5.createHash(Date.now() + '')] = {
                 field: '',
                 type: 'integer'

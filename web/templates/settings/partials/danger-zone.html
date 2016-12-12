@@ -10,34 +10,33 @@
             <span class="md-headline" layout="row" layout-align="start center" flex>
                 {{ ::'DANGER_ZONE' | translate }}
                 <span flex></span>
-                <md-switch data-ng-model="vm.enabled"></md-switch>
+                <md-switch id="switch_enable_danger_zone" data-ng-model="vm.enabled"></md-switch>
             </span>
         </md-card-title-text>
     </md-card-title>
 
-    <div layout-padding>
-        <md-input-container>
-            <md-button class="md-warn md-raised"
-                       data-ng-disabled="!vm.enabled"
-                       data-ng-click="vm.getApiToken()"
-            >
-                {{ ::'GET_API_TOKEN' | translate }}
-            </md-button>
-        </md-input-container>
+    <form id="form_user_credentials" name="passwordForm" data-ng-submit="vm.save()" data-ng-if="vm.enabled">
+        <div class="layout-padding">
+            <md-input-container>
+                <md-button id="btn_show_api_token" class="md-warn md-raised"
+                           data-ng-click="vm.getApiToken()"
+                >
+                    {{ ::'GET_API_TOKEN' | translate }}
+                </md-button>
+            </md-input-container>
 
+            <md-input-container id="container_api_token" flex data-ng-if="vm.apiToken.length > 0">
+                <span>{{ vm.apiToken }}</span>
+            </md-input-container>
+        </div>
 
-        <md-input-container flex>
-            <span>{{ vm.apiToken }}</span>
-        </md-input-container>
-    </div>
-
-    <form data-ng-submit="vm.save()" data-ng-disabled="!vm.enabled">
         <md-card-content>
             <span>{{ 'CHANGE_PASSWORD' | translate }}</span>
             <md-input-container class="md-block" flex>
                 <label>{{ ::'OLD_PASSWORD' | translate }}</label>
                 <input id="user_settings_old_password" type="password"
                        data-ng-model="vm.form.oldPassword"
+                       required
                        data-ng-disabled="vm.loading"
                 />
             </md-input-container>
@@ -46,6 +45,7 @@
                 <label>{{ ::'NEW_PASSWORD' | translate }}</label>
                 <input id="user_settings_new_password" type="password"
                        data-ng-model="vm.form.newPassword"
+                       required
                        data-ng-disabled="vm.loading"
                 />
             </md-input-container>
@@ -54,13 +54,14 @@
                 <label>{{ ::'NEW_PASSWORD_AGAIN' | translate }}</label>
                 <input id="user_settings_new_password_again" type="password"
                        data-ng-model="vm.form.newPasswordAgain"
+                       required
                        data-ng-disabled="vm.loading"
                 />
             </md-input-container>
 
             <md-card-actions layout="row" layout-align="end center">
                 <md-button id="btn_danger_zone_save" class="md-primary md-raised"
-                           data-ng-disabled="vm.loading || !vm.enabled"
+                           data-ng-disabled="(vm.loading || !vm.enabled) || passwordForm.$invalid"
                            type="submit"
                 >
                     {{ ::'SAVE' | translate }}
