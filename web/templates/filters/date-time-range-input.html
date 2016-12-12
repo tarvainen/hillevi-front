@@ -1,13 +1,15 @@
-<div layout="row" layout-xs="column">
-    <date-time-input
-        data-label="{{ ::'START_DATE' | translate }}"
-        data-ng-model="vm.startDateTime"
-    ></date-time-input>
+<div layout="row">
+    <div layout="column" layout-gt-md="row">
+        <date-time-input
+                data-label="{{ ::'START_DATE' | translate }}"
+                data-ng-model="vm.startDateTime"
+        ></date-time-input>
 
-    <date-time-input
-            data-label="{{ ::'END_DATE' | translate }}"
-            data-ng-model="vm.endDateTime"
-    ></date-time-input>
+        <date-time-input
+                data-label="{{ ::'END_DATE' | translate }}"
+                data-ng-model="vm.endDateTime"
+        ></date-time-input>
+    </div>
 
     <generic-filter
         data-collection="vm.ranges"

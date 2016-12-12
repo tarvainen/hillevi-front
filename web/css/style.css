@@ -73,7 +73,7 @@ loader {
 
 .md-sidenav-large {
     width: 800px !important;
-    max-width: 800px !important;
+    max-width: 100% !important;
 }
 
 .md-sub-toolbar {
